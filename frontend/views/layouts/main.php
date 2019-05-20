@@ -9,9 +9,9 @@ use yii\widgets\Breadcrumbs;
 use common\widgets\Alert;
 
 $route = Yii::$app->controller->getRoute();
-if($route === 'site/login' || $route === 'site/signup') {
+//if($route === 'site/login' || $route === 'site/signup') {
     AppAsset::register($this);
-}
+//}
 ?>
 <?php $this->beginPage() ?>
 <!DOCTYPE html>
@@ -60,28 +60,6 @@ if($route === 'site/login' || $route === 'site/signup') {
     <?= Alert::widget() ?>
     <?= $content ?>
 </div>
-<?php if($route !== 'site/login' || $route !== 'site/signup') { ?>
-    <!-- Jquery JS-->
-    <script src="cool-assets/vendor/jquery-3.2.1.min.js"></script>
-    <!-- Bootstrap JS-->
-    <script src="cool-assets/vendor/bootstrap-4.1/popper.min.js"></script>
-    <script src="cool-assets/vendor/bootstrap-4.1/bootstrap.min.js"></script>
-    <!-- Vendor JS       -->
-    <script src="cool-assets/vendor/slick/slick.min.js">
-    </script>
-    <script src="cool-assets/vendor/wow/wow.min.js"></script>
-    <script src="cool-assets/vendor/animsition/animsition.min.js"></script>
-    <script src="cool-assets/vendor/bootstrap-progressbar/bootstrap-progressbar.min.js">
-    </script>
-    <script src="cool-assets/vendor/counter-up/jquery.waypoints.min.js"></script>
-    <script src="cool-assets/vendor/counter-up/jquery.counterup.min.js">
-    </script>
-    <script src="cool-assets/vendor/circle-progress/circle-progress.min.js"></script>
-    <script src="cool-assets/vendor/perfect-scrollbar/perfect-scrollbar.js"></script>
-    <script src="cool-assets/vendor/chartjs/Chart.bundle.min.js"></script>
-    <script src="cool-assets/vendor/select2/select2.min.js">
-    </script>
-<?php } ?>
 <?php $this->endBody() ?>
 </body>
 </html>
