@@ -17,8 +17,6 @@ use Yii;
  * @property string $BIO
  * @property string $FOTO
  * @property string $JENISKELAMIN
- * @property int $userId
- *
  * @property Follow[] $follows
  * @property Follow[] $follows0
  * @property Hobikepengguna[] $hobikepenggunas
@@ -28,7 +26,6 @@ use Yii;
  * @property Notifikasi[] $notifikasis
  * @property Notifikasi[] $notifikasis0
  * @property Kepribadian $kEPRIBADIAN
- * @property User $user
  * @property Pesan[] $pesans
  * @property Pesan[] $pesans0
  * @property Post[] $posts
@@ -50,7 +47,7 @@ class Pengguna extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['IDKEPRIBADIAN', 'userId'], 'integer'],
+            [['IDKEPRIBADIAN'], 'integer'],
             [['TANGGALLAHIR'], 'safe'],
             [['EMAIL', 'NAMA'], 'string', 'max' => 100],
             [['PASSWORD'], 'string', 'max' => 32],
@@ -150,14 +147,6 @@ class Pengguna extends \yii\db\ActiveRecord
     public function getKEPRIBADIAN()
     {
         return $this->hasOne(Kepribadian::className(), ['IDKEPRIBADIAN' => 'IDKEPRIBADIAN']);
-    }
-
-    /**
-     * @return \yii\db\ActiveQuery
-     */
-    public function getUser()
-    {
-        return $this->hasOne(User::className(), ['id' => 'userId']);
     }
 
     /**

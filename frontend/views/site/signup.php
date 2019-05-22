@@ -5,6 +5,9 @@
 /* @var $model SignupForm */
 
 use frontend\models\SignupForm;
+use yii\bootstrap\ActiveForm;
+use yii\helpers\Html;
+
 ?>
 <?=$this->render('../layouts/login-logout/header')?>
 <section class="pb_cover_v3 overflow-hidden cover-bg-indigo cover-bg-opacity text-left pb_gradient_v1 pb_slant-light" id="section-home">
@@ -24,7 +27,7 @@ use frontend\models\SignupForm;
                     </div>
                     <input type="hidden" name="_csrf" value="<?=Yii::$app->request->getCsrfToken()?>" />
                     <div class="form-group">
-                        <input type="submit" class="btn btn-primary btn-lg btn-block pb_btn-pill  btn-shadow-blue" value="register">
+                        <input type="submit" class="btn btn-primary btn-lg btn-block pb_btn-pill  btn-shadow-blue" value="Daftar">
                     </div>
                 </form>
 
