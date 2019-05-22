@@ -3,8 +3,8 @@
 namespace frontend\controllers;
 
 use Yii;
-use backend\models\Notifikasi;
-use backend\models\NotifikasiSearch;
+use frontend\models\Notifikasi;
+use frontend\models\NotifikasiSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
