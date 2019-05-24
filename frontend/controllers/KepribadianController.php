@@ -3,16 +3,16 @@
 namespace frontend\controllers;
 
 use Yii;
-use frontend\models\Tipenotifiikasi;
-use frontend\models\TipeNotifiikasiSearch;
+use frontend\models\kepribadian;
+use frontend\models\kepribadianSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 
 /**
- * TipenotifiikasiController implements the CRUD actions for Tipenotifiikasi model.
+ * KepribadianController implements the CRUD actions for kepribadian model.
  */
-class TipenotifiikasiController extends Controller
+class KepribadianController extends Controller
 {
     /**
      * {@inheritdoc}
@@ -30,22 +30,24 @@ class TipenotifiikasiController extends Controller
     }
 
     /**
-     * Lists all Tipenotifiikasi models.
+     * Lists all kepribadian models.
      * @return mixed
      */
     public function actionIndex()
     {
-        $searchModel = new TipeNotifiikasiSearch();
+        $searchModel = new kepribadianSearch();
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
+        $dataKepribadian = Kepribadian::find()->all();
 
         return $this->render('index', [
             'searchModel' => $searchModel,
             'dataProvider' => $dataProvider,
+            'dataKepribadian' => $dataKepribadian,
         ]);
     }
 
     /**
-     * Displays a single Tipenotifiikasi model.
+     * Displays a single kepribadian model.
      * @param integer $id
      * @return mixed
      * @throws NotFoundHttpException if the model cannot be found
@@ -58,16 +60,16 @@ class TipenotifiikasiController extends Controller
     }
 
     /**
-     * Creates a new Tipenotifiikasi model.
+     * Creates a new kepribadian model.
      * If creation is successful, the browser will be redirected to the 'view' page.
      * @return mixed
      */
     public function actionCreate()
     {
-        $model = new Tipenotifiikasi();
+        $model = new kepribadian();
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->IDTYPENOTIFIKASI]);
+            return $this->redirect(['view', 'id' => $model->IDKEPRIBADIAN]);
         }
 
         return $this->render('create', [
@@ -76,7 +78,7 @@ class TipenotifiikasiController extends Controller
     }
 
     /**
-     * Updates an existing Tipenotifiikasi model.
+     * Updates an existing kepribadian model.
      * If update is successful, the browser will be redirected to the 'view' page.
      * @param integer $id
      * @return mixed
@@ -87,7 +89,7 @@ class TipenotifiikasiController extends Controller
         $model = $this->findModel($id);
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->IDTYPENOTIFIKASI]);
+            return $this->redirect(['view', 'id' => $model->IDKEPRIBADIAN]);
         }
 
         return $this->render('update', [
@@ -96,7 +98,7 @@ class TipenotifiikasiController extends Controller
     }
 
     /**
-     * Deletes an existing Tipenotifiikasi model.
+     * Deletes an existing kepribadian model.
      * If deletion is successful, the browser will be redirected to the 'index' page.
      * @param integer $id
      * @return mixed
@@ -110,15 +112,15 @@ class TipenotifiikasiController extends Controller
     }
 
     /**
-     * Finds the Tipenotifiikasi model based on its primary key value.
+     * Finds the kepribadian model based on its primary key value.
      * If the model is not found, a 404 HTTP exception will be thrown.
      * @param integer $id
-     * @return Tipenotifiikasi the loaded model
+     * @return kepribadian the loaded model
      * @throws NotFoundHttpException if the model cannot be found
      */
     protected function findModel($id)
     {
-        if (($model = Tipenotifiikasi::findOne($id)) !== null) {
+        if (($model = kepribadian::findOne($id)) !== null) {
             return $model;
         }
 

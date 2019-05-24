@@ -1,6 +1,6 @@
 <?php
 
-namespace frontend\models;
+namespace backend\models;
 
 use Yii;
 
@@ -31,7 +31,6 @@ class Kepribadian extends \yii\db\ActiveRecord
         return [
             [['NAMAKEPRIBADIAN'], 'string', 'max' => 100],
             [['DESKRIPSIKEPRIBADIAN'], 'string', 'max' => 1000],
-
         ];
     }
 
