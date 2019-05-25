@@ -28,9 +28,11 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'FOTO')->textInput(['maxlength' => true]) ?>
 
-    <?= $form->field($model, 'JENISKELAMIN')->textInput(['maxlength' => true]) ?>
+    <!-- <?= $form->field($model, 'JENISKELAMIN')->textInput(['maxlength' => true]) ?> -->
 
-    <?= $form->field($model, 'userId')->textInput() ?>
+    <?= $form->field($model, 'JENISKELAMIN')->dropDownList(
+			['Laki Laki' => 'Laki Laki', 'Perempuan' => 'Perempuan']
+			); ?>
 
     <div class="form-group">
         <?= Html::submitButton('Save', ['class' => 'btn btn-success']) ?>

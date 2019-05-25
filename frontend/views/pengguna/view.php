@@ -39,8 +39,8 @@ $this->params['breadcrumbs'][] = $this->title;
             'BIO',
             'FOTO',
             'JENISKELAMIN',
-            'userId',
         ],
     ]) ?>
+    <?= Html::a('Kembali ke home', ['home'], ['class' => 'btn btn-primary']) ?>
 
 </div>
