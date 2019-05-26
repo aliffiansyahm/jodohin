@@ -26,7 +26,7 @@ $this->params['breadcrumbs'][] = $this->title;
         ]) ?>
     </p>
 
-    <?= DetailView::widget([
+    <!-- <?= DetailView::widget([
         'model' => $model,
         'attributes' => [
             'IDPOST',
@@ -35,6 +35,10 @@ $this->params['breadcrumbs'][] = $this->title;
             'CAPTION',
             'WAKTUPOST',
         ],
-    ]) ?>
+    ]) ?> -->
+    <?php echo $model->WAKTUPOST; ?><br>
+    <img src="../fotopost/<?php echo $model->GAMBARPOST; ?>" alt="gambar kosong" width="200"><br>
+    <?php echo $model->CAPTION; ?><br>
+    <?= Html::a('Kembali ke semua post saya', ['index'], ['class' => 'btn btn-primary']) ?>
 
 </div>
