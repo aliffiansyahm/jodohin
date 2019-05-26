@@ -2,6 +2,7 @@
 
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
+use kartik\date\DatePicker;
 
 /* @var $this yii\web\View */
 /* @var $model frontend\models\Pengguna */
@@ -12,23 +13,26 @@ use yii\widgets\ActiveForm;
 
     <?php $form = ActiveForm::begin(); ?>
 
-    <?= $form->field($model, 'IDKEPRIBADIAN')->textInput() ?>
-
     <?= $form->field($model, 'EMAIL')->textInput(['maxlength' => true]) ?>
 
     <?= $form->field($model, 'PASSWORD')->passwordInput(['maxlength' => true]) ?>
 
-    <?= $form->field($model, 'NAMA')->textInput(['maxlength' => true]) ?>
+    <!-- <?= $form->field($model, 'TANGGALLAHIR')->textInput() ?> -->
 
-    <?= $form->field($model, 'TANGGALLAHIR')->textInput() ?>
+    <?= $form->field($model, 'TANGGALLAHIR')->widget(DatePicker::classname(), [
+        'options' => ['placeholder' => 'Masukkan tanggal lahir'],
+        'pluginOptions' => [
+            'autoclose'=>false,
+            'format' => 'yyyy-M-dd',
+          ]
+        ]);
+    ?>
 
     <?= $form->field($model, 'ALAMAT')->textInput(['maxlength' => true]) ?>
 
     <?= $form->field($model, 'BIO')->textInput(['maxlength' => true]) ?>
 
     <?= $form->field($model, 'FOTO')->textInput(['maxlength' => true]) ?>
-
-    <!-- <?= $form->field($model, 'JENISKELAMIN')->textInput(['maxlength' => true]) ?> -->
 
     <?= $form->field($model, 'JENISKELAMIN')->dropDownList(
 			['Laki Laki' => 'Laki Laki', 'Perempuan' => 'Perempuan']

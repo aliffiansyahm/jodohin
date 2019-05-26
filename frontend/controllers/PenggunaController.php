@@ -140,8 +140,9 @@ class PenggunaController extends Controller
         $password = $_POST['password'];
 
         $pengguna =  Pengguna::find()
-    ->where(['NAMA' => $nama])
-    ->one();
+        ->where(['NAMA' => $nama,
+                'PASSWORD' => $password])
+        ->one();
 
         $_SESSION['login'] = true;
         $_SESSION['nama'] = $nama;
@@ -149,6 +150,8 @@ class PenggunaController extends Controller
 
         if (!empty($pengguna)) {
           return $this->render('dasbot');
+        }else {
+          echo "Gagal masuk";
         }
 
 
