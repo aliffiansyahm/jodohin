@@ -14,9 +14,11 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'IDPENGGUNA')->hiddenInput(['value'=> $_SESSION['id']])->label(false);?>
 
-    <?= $form->field($model, 'GAMBARPOST')->textInput(['maxlength' => true]) ?>
+    <?= $form->field($model, 'GAMBARPOST')->fileInput() ?>
 
     <?= $form->field($model, 'CAPTION')->textArea(['maxlength' => true]) ?>
+
+    <?= $form->field($model, 'WAKTUPOST')->hiddenInput(['value'=> date('Y-m-d')])->label(false);?>
 
     <div class="form-group">
         <?= Html::submitButton('Save', ['class' => 'btn btn-success']) ?>
