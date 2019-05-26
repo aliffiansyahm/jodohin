@@ -7,8 +7,8 @@ use yii\widgets\DetailView;
 /* @var $model frontend\models\Pengguna */
 
 $this->title = $model->IDPENGGUNA;
-$this->params['breadcrumbs'][] = ['label' => 'Penggunas', 'url' => ['index']];
-$this->params['breadcrumbs'][] = $this->title;
+  // $this->params['breadcrumbs'][] = ['label' => 'Penggunas', 'url' => ['index']];
+  // $this->params['breadcrumbs'][] = $this->title;
 \yii\web\YiiAsset::register($this);
 ?>
 <div class="pengguna-view">
@@ -17,13 +17,13 @@ $this->params['breadcrumbs'][] = $this->title;
 
     <p>
         <?= Html::a('Update', ['update', 'id' => $model->IDPENGGUNA], ['class' => 'btn btn-primary']) ?>
-        <?= Html::a('Delete', ['delete', 'id' => $model->IDPENGGUNA], [
+        <!-- <?= Html::a('Delete', ['delete', 'id' => $model->IDPENGGUNA], [
             'class' => 'btn btn-danger',
             'data' => [
                 'confirm' => 'Are you sure you want to delete this item?',
                 'method' => 'post',
             ],
-        ]) ?>
+        ]) ?> -->
     </p>
 
     <?= DetailView::widget([
@@ -39,8 +39,8 @@ $this->params['breadcrumbs'][] = $this->title;
             'BIO',
             'FOTO',
             'JENISKELAMIN',
-            'userId',
         ],
     ]) ?>
+    <?= Html::a('Kembali ke home', ['home'], ['class' => 'btn btn-primary']) ?>
 
 </div>

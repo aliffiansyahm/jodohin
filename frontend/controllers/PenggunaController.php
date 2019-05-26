@@ -71,32 +71,32 @@ class PenggunaController extends Controller
         $model->PASSWORD = $_POST['password'];
 
         if ($model->save()) {
-            return $this->goBack();
+            return $this->redirect('../site/login');
         }
 
-        // jangan diapa"in ya yg ini ... picturenya belum 
+        // jangan diapa"in ya yg ini ... picturenya belum
         // if ($model->load(Yii::$app->request->post()) && $model->save()) {
             // $model->NAMA = $_POST['name'];
             // $model->EMAIL = $_POST['email'];
             // $model->PASSWORD = $_POST['password'];
 
             // $model->FOTO = UploadedFile::getInstance($model, 'FOTO');
-            
+
             // $model->FOTO->saveAs('uploads/' . $model->FOTO->baseName . '.' .$model->FOTO->extension);
             //   if ($model->FOTO && $model->validate()) {
             //     $model->FOTO->saveAs('upload/' . $model->FOTO->baseName . '.' .$model->FOTO->extension);
             //   }
-            
+
             // $model->save();
 
             // return $this->redirect(['view', 'id' => $model->IDPENGGUNA]);
         // }
     }
 
-    public function beforeAction($action) 
-    { 
-        $this->enableCsrfValidation = false; 
-        return parent::beforeAction($action); 
+    public function beforeAction($action)
+    {
+        $this->enableCsrfValidation = false;
+        return parent::beforeAction($action);
     }
     /**
      * Updates an existing Pengguna model.
@@ -135,24 +135,30 @@ class PenggunaController extends Controller
     public function actionLogin()
     {
         $model = new Pengguna();
-        
+
         $nama = $_POST['name'];
         $password = $_POST['password'];
 
-        $pengguna = Pengguna::find()
-        ->where('NAMA', $nama);
+        $pengguna =  Pengguna::find()
+        ->where(['NAMA' => $nama,
+                'PASSWORD' => $password])
+        ->one();
 
         $_SESSION['login'] = true;
         $_SESSION['nama'] = $nama;
-        
+        $_SESSION['id'] = $pengguna['IDPENGGUNA'];
+
         if (!empty($pengguna)) {
-            return $this->goBack();
+          return $this->render('dasbot');
+        }else {
+          echo "Gagal masuk";
         }
+
 
         // if ($model->load(Yii::$app->request->post())) {
         //     $pengguna = Pengguna::find()
         //     ->where('NAMA', $model->NAMA);
-            
+
         //     $_SESSION['login'] = true;
         //     $_SESSION['nama'] = $model->NAMA;
 
@@ -161,13 +167,21 @@ class PenggunaController extends Controller
         //     }
 
         //     else {
-        //         // belum dikasi validasi error, kalo semisal user ndak ada 
-        //     } 
+        //         // belum dikasi validasi error, kalo semisal user ndak ada
+        //     }
         // }
 
         // return $this->render('login', [
         //     'model' => $model,
         // ]);
+    }
+    public function actionHome(){
+        return $this->render('dasbot');
+    }
+    public function actionKeluar(){
+        session_destroy();
+        print_r($_SESSION);
+        return $this->redirect('../site/login');
     }
 
     /**

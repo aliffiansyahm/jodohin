@@ -17,7 +17,7 @@ class PenggunaSearch extends Pengguna
     public function rules()
     {
         return [
-            [['IDPENGGUNA', 'IDKEPRIBADIAN', 'userId'], 'integer'],
+            [['IDPENGGUNA', 'IDKEPRIBADIAN'], 'integer'],
             [['EMAIL', 'PASSWORD', 'NAMA', 'TANGGALLAHIR', 'ALAMAT', 'BIO', 'FOTO', 'JENISKELAMIN'], 'safe'],
         ];
     }
@@ -61,7 +61,6 @@ class PenggunaSearch extends Pengguna
             'IDPENGGUNA' => $this->IDPENGGUNA,
             'IDKEPRIBADIAN' => $this->IDKEPRIBADIAN,
             'TANGGALLAHIR' => $this->TANGGALLAHIR,
-            'userId' => $this->userId,
         ]);
 
         $query->andFilterWhere(['like', 'EMAIL', $this->EMAIL])
