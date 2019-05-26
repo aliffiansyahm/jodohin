@@ -8,6 +8,7 @@ use frontend\models\PostSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
+use yii\web\UploadedFile;
 
 /**
  * PostController implements the CRUD actions for Post model.
@@ -38,7 +39,8 @@ class PostController extends Controller
         $searchModel = new PostSearch();
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
         $postingan =  Post::find()
-                    ->where(['IDPENGGUNA' => $_SESSION['id']]);
+                    ->where(['IDPENGGUNA' => $_SESSION['id']])
+                    ->all();
         return $this->render('index', [
             'searchModel' => $searchModel,
             'dataProvider' => $dataProvider,
@@ -68,7 +70,11 @@ class PostController extends Controller
     {
         $model = new Post();
 
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
+        if ($model->load(Yii::$app->request->post())) {
+            $model->GAMBARPOST = UploadedFile::getInstance($model,'GAMBARPOST');
+            $model->GAMBARPOST->saveAs(Yii::$app->basePath.'\web\fotopost'.'/'.$model->GAMBARPOST->baseName.'.'.$model->GAMBARPOST->extension);
+            $model->GAMBARPOST = $model->GAMBARPOST->baseName.'.'.$model->GAMBARPOST->extension;
+            $model->save();
             return $this->redirect(['view', 'id' => $model->IDPOST]);
         }
 
@@ -88,7 +94,11 @@ class PostController extends Controller
     {
         $model = $this->findModel($id);
 
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
+        if ($model->load(Yii::$app->request->post())) {
+          $model->GAMBARPOST = UploadedFile::getInstance($model,'GAMBARPOST');
+          $model->GAMBARPOST->saveAs(Yii::$app->basePath.'\web\fotopost'.'/'.$model->GAMBARPOST->baseName.'.'.$model->GAMBARPOST->extension);
+          $model->GAMBARPOST = $model->GAMBARPOST->baseName.'.'.$model->GAMBARPOST->extension;
+          $model->save();
             return $this->redirect(['view', 'id' => $model->IDPOST]);
         }
 
