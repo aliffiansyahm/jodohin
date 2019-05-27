@@ -37,10 +37,11 @@ class TipenotifiikasiController extends Controller
     {
         $searchModel = new TipeNotifiikasiSearch();
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
-
+        $dataTypeNotifikasi = TipeNotifiikasi::find()->all();
         return $this->render('index', [
             'searchModel' => $searchModel,
             'dataProvider' => $dataProvider,
+            'dataTypeNotifikasi' => $dataTypeNotifikasi,
         ]);
     }
 
