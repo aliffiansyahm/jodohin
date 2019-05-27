@@ -38,10 +38,12 @@ class NotifikasiController extends Controller
     {
         $searchModel = new NotifikasiSearch();
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
+        $dataNotifikasi = Notifikasi::find()->all();
 
         return $this->render('index', [
             'searchModel' => $searchModel,
             'dataProvider' => $dataProvider,
+            'dataNotifikasi' => $dataNotifikasi,
         ]);
     }
 

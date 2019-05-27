@@ -37,33 +37,36 @@ $this->params['breadcrumbs'][] = $this->title;
         ],
     ]); ?>
     -->
-    <table class="table table-hover">
-    <thead>
-      <tr>
-        <th>IDPERTANYAAN</th>
-        <th>PERTANYAAN</th>
-        <th>JAWABAN 1</th>
-        <th>JAWABAN 2</th>
-        <th>JAWABAN 3</th>
-        <th>JAWABAN 4</th>
-      </tr>
-    </thead>
-    <tbody><?php $i=1; ?>
-      <?php foreach ($dataPertanyaan as $nilai) { ?>
+    <div class="table-responsive">
+      <table class="table table-hover">
+      <thead>
         <tr>
-          <td><?php echo $nilai["IDPERTANYAAN"]; ?></td>
-          <td><?php echo $nilai["PERTANYAAN"]; ?></td>
-          <td><?php echo $nilai["PILIHAN1"]; ?></td>
-          <td><?php echo $nilai["PILIHAN2"]; ?></td>
-          <td><?php echo $nilai["PILIHAN3"]; ?></td>
-          <td><?php echo $nilai["PILIHAN4"]; ?></td>
-          <td><?= Html::a('Lihat',['view','id'=>$nilai['IDPERTANYAAN']],['class' => 'btn btn-info btn-block']) ?><br><br>
-              <?= Html::a('Ubah',['update','id'=>$nilai['IDPERTANYAAN']],['class' => 'btn btn-warning btn-block']) ?><br><br>
-              <?= Html::a('Hapus',['delete','id'=>$nilai['IDPERTANYAAN']],['class' => 'btn btn-danger btn-block']) ?></td>
+          <th>IDPERTANYAAN</th>
+          <th>PERTANYAAN</th>
+          <!-- <th>JAWABAN 1</th>
+          <th>JAWABAN 2</th>
+          <th>JAWABAN 3</th>
+          <th>JAWABAN 4</th> -->
         </tr>
-      <?php } ?>
+      </thead>
+      <tbody><?php $i=1; ?>
+        <?php foreach ($dataPertanyaan as $nilai) { ?>
+          <tr>
+            <td><?php echo $nilai["IDPERTANYAAN"]; ?></td>
+            <td><?php echo $nilai["PERTANYAAN"]; ?></td>
+            <!-- <td><?php echo $nilai["PILIHAN1"]; ?></td>
+            <td><?php echo $nilai["PILIHAN2"]; ?></td>
+            <td><?php echo $nilai["PILIHAN3"]; ?></td>
+            <td><?php echo $nilai["PILIHAN4"]; ?></td> -->
+            <td><?= Html::a('Lihat',['view','id'=>$nilai['IDPERTANYAAN']],['class' => 'btn btn-info btn-block']) ?><br><br>
+                <?= Html::a('Ubah',['update','id'=>$nilai['IDPERTANYAAN']],['class' => 'btn btn-warning btn-block']) ?><br><br>
+                <?= Html::a('Hapus',['delete','id'=>$nilai['IDPERTANYAAN']],['class' => 'btn btn-danger btn-block']) ?></td>
+          </tr>
+        <?php } ?>
 
-    </tbody>
-  </table>
+      </tbody>
+    </table>
+    </div>
+
 
 </div>
