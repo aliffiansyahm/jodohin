@@ -9,9 +9,9 @@ use yii\widgets\Breadcrumbs;
 use common\widgets\Alert;
 
 $route = Yii::$app->controller->getRoute();
-//if($route === 'site/login' || $route === 'site/signup') {
+if($route === 'site/login' || $route === 'site/signup') {
     AppAsset::register($this);
-//}
+}
 ?>
 <?php $this->beginPage() ?>
 <!DOCTYPE html>
@@ -26,26 +26,25 @@ $route = Yii::$app->controller->getRoute();
         $this->head();
         if($route !== 'site/login' || $route !== 'site/signup') {
     ?>
-            <!-- Fontfaces CSS-->
-            <link href="cool-assets/css/font-face.css" rel="stylesheet" media="all">
-            <link href="cool-assets/vendor/font-awesome-4.7/css/font-awesome.min.css" rel="stylesheet" media="all">
-            <link href="cool-assets/vendor/font-awesome-5/css/fontawesome-all.min.css" rel="stylesheet" media="all">
-            <link href="cool-assets/vendor/mdi-font/css/material-design-iconic-font.min.css" rel="stylesheet" media="all">
+            <!-- Main Font -->
+            <script src="olympus/js/webfontloader.min.js"></script>
+            <script>
+                WebFont.load({
+                    google: {
+                        families: ['Roboto:300,400,500,700:latin']
+                    }
+                });
+            </script>
 
-            <!-- Bootstrap CSS-->
-            <link href="cool-assets/vendor/bootstrap-4.1/bootstrap.min.css" rel="stylesheet" media="all">
+            <!-- Bootstrap CSS -->
+            <link rel="stylesheet" type="text/css" href="olympus/Bootstrap/dist/css/bootstrap-reboot.css">
+            <link rel="stylesheet" type="text/css" href="olympus/Bootstrap/dist/css/bootstrap.css">
+            <link rel="stylesheet" type="text/css" href="olympus/Bootstrap/dist/css/bootstrap-grid.css">
 
-            <!-- Vendor CSS-->
-            <link href="cool-assets/vendor/animsition/animsition.min.css" rel="stylesheet" media="all">
-            <link href="cool-assets/vendor/bootstrap-progressbar/bootstrap-progressbar-3.3.4.min.css" rel="stylesheet" media="all">
-            <link href="cool-assets/vendor/wow/animate.css" rel="stylesheet" media="all">
-            <link href="cool-assets/vendor/css-hamburgers/hamburgers.min.css" rel="stylesheet" media="all">
-            <link href="cool-assets/vendor/slick/slick.css" rel="stylesheet" media="all">
-            <link href="cool-assets/vendor/select2/select2.min.css" rel="stylesheet" media="all">
-            <link href="cool-assets/vendor/perfect-scrollbar/perfect-scrollbar.css" rel="stylesheet" media="all">
+            <!-- Main Styles CSS -->
+            <link rel="stylesheet" type="text/css" href="olympus/css/main.min.css">
+            <link rel="stylesheet" type="text/css" href="olympus/css/fonts.min.css">
 
-            <!-- Main CSS-->
-            <link href="cool-assets/css/theme.css" rel="stylesheet" media="all">
     <?php
         }
     ?>
@@ -60,6 +59,52 @@ $route = Yii::$app->controller->getRoute();
     <?= Alert::widget() ?>
     <?= $content ?>
 </div>
+<?php
+if($route !== 'site/login' || $route !== 'site/signup') {
+    ?>
+    <!-- JS Scripts -->
+    <script src="olympus/js/jquery-3.2.1.js"></script>
+    <script src="olympus/js/jquery.appear.js"></script>
+    <script src="olympus/js/jquery.mousewheel.js"></script>
+    <script src="olympus/js/perfect-scrollbar.js"></script>
+    <script src="olympus/js/jquery.matchHeight.js"></script>
+    <script src="olympus/js/svgxuse.js"></script>
+    <script src="olympus/js/imagesloaded.pkgd.js"></script>
+    <script src="olympus/js/Headroom.js"></script>
+    <script src="olympus/js/velocity.js"></script>
+    <script src="olympus/js/ScrollMagic.js"></script>
+    <script src="olympus/js/jquery.waypoints.js"></script>
+    <script src="olympus/js/jquery.countTo.js"></script>
+    <script src="olympus/js/popper.min.js"></script>
+    <script src="olympus/js/material.min.js"></script>
+    <script src="olympus/js/bootstrap-select.js"></script>
+    <script src="olympus/js/smooth-scroll.js"></script>
+    <script src="olympus/js/selectize.js"></script>
+    <script src="olympus/js/swiper.jquery.js"></script>
+    <script src="olympus/js/moment.js"></script>
+    <script src="olympus/js/daterangepicker.js"></script>
+    <script src="olympus/js/simplecalendar.js"></script>
+    <script src="olympus/js/fullcalendar.js"></script>
+    <script src="olympus/js/isotope.pkgd.js"></script>
+    <script src="olympus/js/ajax-pagination.js"></script>
+    <script src="olympus/js/Chart.js"></script>
+    <script src="olympus/js/chartjs-plugin-deferred.js"></script>
+    <script src="olympus/js/circle-progress.js"></script>
+    <script src="olympus/js/loader.js"></script>
+    <script src="olympus/js/run-chart.js"></script>
+    <script src="olympus/js/jquery.magnific-popup.js"></script>
+    <script src="olympus/js/jquery.gifplayer.js"></script>
+    <script src="olympus/js/mediaelement-and-player.js"></script>
+    <script src="olympus/js/mediaelement-playlist-plugin.min.js"></script>
+
+    <script src="olympus/js/base-init.js"></script>
+    <script defer src="olympus/fonts/fontawesome-all.js"></script>
+
+    <script src="olympus/Bootstrap/dist/js/bootstrap.bundle.js"></script>
+
+    <?php
+}
+?>
 <?php $this->endBody() ?>
 </body>
 </html>
