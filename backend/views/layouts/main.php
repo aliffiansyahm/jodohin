@@ -268,7 +268,7 @@ AppAsset::register($this);
               <a class="dropdown-item">
                 Check Inbox
               </a>
-              <a class="dropdown-item">
+              <a href="<?php echo Yii::$app->request->BaseUrl ?>/site/logout" class="dropdown-item" >
                 Sign Out
               </a>
             </div>

@@ -216,7 +216,7 @@ $this->title = 'My Yii Application';
               <img class="img-xs rounded-circle" src="<?php echo Yii::$app->request->BaseUrl ?>/images/faces/face1.jpg" alt="Profile image">
             </a>
             <div class="dropdown-menu dropdown-menu-right navbar-dropdown" aria-labelledby="UserDropdown">
-              <a class="dropdown-item">
+              <a href="<?php echo Yii::$app->request->BaseUrl ?>/site/logout" class="dropdown-item">
                 Sign Out
               </a>
             </div>
