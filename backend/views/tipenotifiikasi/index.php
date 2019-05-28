@@ -18,20 +18,26 @@ $this->params['breadcrumbs'][] = $this->title;
         <?= Html::a('Create Tipenotifiikasi', ['create'], ['class' => 'btn btn-success']) ?>
     </p>
 
-    <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
+    <table class="table table-hover">
+    <thead>
+      <tr>
+        <th>IDNOTIFIKASI</th>
+        <th>PENGIRIM</th>
+        <th>PENERIMA</th>
+      </tr>
+    </thead>
+    <tbody>
+      <?php foreach ($dataTypeNotifikasi as $nilai) { ?>
+        <tr>
+          <td><?php echo $nilai["IDTYPENOTIFIKASI"]; ?></td>
+          <td><?php echo $nilai["TIPENOTIFIKASI"]; ?></td>
+          <td><?= Html::a('Lihat',['view','id'=>$nilai['IDTYPENOTIFIKASI']],['class' => 'btn btn-info btn-block']) ?><br><br>
+              <?= Html::a('Ubah',['update','id'=>$nilai['IDTYPENOTIFIKASI']],['class' => 'btn btn-warning btn-block']) ?><br><br>
+              <?= Html::a('Hapus',['delete','id'=>$nilai['IDTYPENOTIFIKASI']],['class' => 'btn btn-danger btn-block']) ?></td>
+        </tr>
+      <?php } ?>
 
-    <?= GridView::widget([
-        'dataProvider' => $dataProvider,
-        'filterModel' => $searchModel,
-        'columns' => [
-            ['class' => 'yii\grid\SerialColumn'],
-
-            'IDTYPENOTIFIKASI',
-            'TIPENOTIFIKASI',
-
-            ['class' => 'yii\grid\ActionColumn'],
-        ],
-    ]); ?>
-
+    </tbody>
+    </table>
 
 </div>
