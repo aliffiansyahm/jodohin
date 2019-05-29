@@ -19,14 +19,7 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'TANGGALLAHIR')->textInput() ?>
 
-    <!-- <?= $form->field($model, 'TANGGALLAHIR')->widget(DatePicker::classname(), [
-        'options' => ['placeholder' => 'Masukkan tanggal lahir'],
-        'pluginOptions' => [
-            'autoclose'=>false,
-            'format' => 'yyyy-M-dd',
-          ]
-        ]);
-    ?> -->
+    
 
     <?= $form->field($model, 'ALAMAT')->textInput(['maxlength' => true]) ?>
 
