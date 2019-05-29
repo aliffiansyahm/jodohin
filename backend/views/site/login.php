@@ -41,7 +41,7 @@ $this->params['breadcrumbs'][] = $this->title;
   <!-- Required meta tags -->
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <title>Star Admin Free Bootstrap Admin Dashboard Template</title>
+  <title>JODOHIN Login [ admin ]</title>
   <!-- plugins:css -->
   <link rel="stylesheet" href="<?php echo Yii::$app->request->BaseUrl ?>/vendors/iconfonts/mdi/css/materialdesignicons.min.css">
   <link rel="stylesheet" href="<?php echo Yii::$app->request->BaseUrl ?>/vendors/iconfonts/puse-icons-feather/feather.css">

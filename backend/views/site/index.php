@@ -57,7 +57,7 @@ $this->title = 'My Yii Application';
   <!-- Required meta tags -->
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <title>Star Admin Free Bootstrap-4 Admin Dashboard Template</title>
+  <title>JODOHIN [ admin ]</title>
   <!-- plugins:css -->
   <link rel="stylesheet" href="<?php echo Yii::$app->request->BaseUrl ?>/vendors/iconfonts/mdi/css/materialdesignicons.min.css">
   <link rel="stylesheet" href="<?php echo Yii::$app->request->BaseUrl ?>/vendors/css/vendor.bundle.base.css">
@@ -76,11 +76,11 @@ $this->title = 'My Yii Application';
     <!-- partial:../../partials/_navbar.html -->
     <nav class="navbar default-layout col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
       <div class="text-center navbar-brand-wrapper d-flex align-items-top justify-content-center">
-        <a class="navbar-brand brand-logo" href="<?php echo Yii::$app->request->BaseUrl ?>/index.html">
-          <img src="<?php echo Yii::$app->request->BaseUrl ?>/images/logo.svg" alt="logo" />
+        <a class="navbar-brand brand-logo" href="<?php echo Yii::$app->request->BaseUrl ?>">
+          <img src="<?php echo Yii::$app->request->BaseUrl ?>/images/jodohin.png" alt="logo" />
         </a>
-        <a class="navbar-brand brand-logo-mini" href="<?php echo Yii::$app->request->BaseUrl ?>/index.html">
-          <img src="<?php echo Yii::$app->request->BaseUrl ?>/images/logo-mini.svg" alt="logo" />
+        <a class="navbar-brand brand-logo-mini" href="<?php echo Yii::$app->request->BaseUrl ?>">
+          <img src="<?php echo Yii::$app->request->BaseUrl ?>/images/jodohin-mini.png" alt="logo" />
         </a>
       </div>
       <div class="navbar-menu-wrapper d-flex align-items-center">
@@ -211,15 +211,15 @@ $this->title = 'My Yii Application';
             </div>
           </li>-->
           <li class="nav-item dropdown d-none d-xl-inline-block">
-            <a class="nav-link dropdown-toggle" id="UserDropdown" href="#" data-toggle="dropdown" aria-expanded="false">
+            <a class="nav-link">
               <span class="profile-text">Hello, Admin</span>
               <img class="img-xs rounded-circle" src="<?php echo Yii::$app->request->BaseUrl ?>/images/faces/face1.jpg" alt="Profile image">
             </a>
-            <div class="dropdown-menu dropdown-menu-right navbar-dropdown" aria-labelledby="UserDropdown">
-              <a href="<?php echo Yii::$app->request->BaseUrl ?>/site/logout" class="dropdown-item">
-                Sign Out
-              </a>
-            </div>
+          </li>
+          <li class="nav-item dropdown d-none d-xl-inline-block">
+            <a class="nav-link" href="<?php echo Yii::$app->request->BaseUrl ?>/site/logout" class="dropdown-item">
+              Sign Out
+            </a>
           </li>
         </ul>
         <button class="navbar-toggler navbar-toggler-right d-lg-none align-self-center" type="button" data-toggle="offcanvas">
@@ -240,16 +240,13 @@ $this->title = 'My Yii Application';
                   <img src="<?php echo Yii::$app->request->BaseUrl ?>/images/faces/face1.jpg" alt="profile image">
                 </div>
                 <div class="text-wrapper">
-                  <p class="profile-name">Richard V.Welsh</p>
+                  <p class="profile-name">ADMIN</p>
                   <div>
                     <small class="designation text-muted">Manager</small>
                     <span class="status-indicator online"></span>
                   </div>
                 </div>
               </div>
-              <button class="btn btn-success btn-block">New Project
-                <i class="mdi mdi-plus"></i>
-              </button>
             </div>
           </li>
           <li class="nav-item">
@@ -360,6 +357,7 @@ $this->title = 'My Yii Application';
             <div class="col-lg-12 grid-margin stretch-card">
               <div class="card">
                 <div class="card-body">
+                  <h1>WELCOME ADMIN</h1>
                 </div>
               </div>
             </div>
