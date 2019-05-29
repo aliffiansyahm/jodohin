@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 20 Bulan Mei 2019 pada 07.55
--- Versi server: 10.1.31-MariaDB
--- Versi PHP: 7.2.4
+-- Generation Time: May 29, 2019 at 04:09 PM
+-- Server version: 10.1.31-MariaDB
+-- PHP Version: 7.2.4
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -25,7 +25,7 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `follow`
+-- Table structure for table `follow`
 --
 
 CREATE TABLE `follow` (
@@ -37,7 +37,7 @@ CREATE TABLE `follow` (
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `hobi`
+-- Table structure for table `hobi`
 --
 
 CREATE TABLE `hobi` (
@@ -45,10 +45,19 @@ CREATE TABLE `hobi` (
   `NAMAHOBI` varchar(100) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Dumping data for table `hobi`
+--
+
+INSERT INTO `hobi` (`IDHOBI`, `NAMAHOBI`) VALUES
+(1, 'Blogging'),
+(2, 'Memasak'),
+(3, 'Menulis');
+
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `hobikepengguna`
+-- Table structure for table `hobikepengguna`
 --
 
 CREATE TABLE `hobikepengguna` (
@@ -60,7 +69,7 @@ CREATE TABLE `hobikepengguna` (
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `hubungan`
+-- Table structure for table `hubungan`
 --
 
 CREATE TABLE `hubungan` (
@@ -73,19 +82,29 @@ CREATE TABLE `hubungan` (
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `kepribadian`
+-- Table structure for table `kepribadian`
 --
 
 CREATE TABLE `kepribadian` (
   `IDKEPRIBADIAN` int(11) NOT NULL,
   `NAMAKEPRIBADIAN` varchar(100) DEFAULT NULL,
-  `DESKRIPSIKEPRIBADIAN` varchar(200) DEFAULT NULL
+  `DESKRIPSIKEPRIBADIAN` varchar(1000) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `kepribadian`
+--
+
+INSERT INTO `kepribadian` (`IDKEPRIBADIAN`, `NAMAKEPRIBADIAN`, `DESKRIPSIKEPRIBADIAN`) VALUES
+(1, 'Koleris', 'Kepribadian pertama yang disebutkan dalam teori Hippocrate-Galenus adalah Koleris. Koleris dikenal sebagai tipe kepribadian yang memiliki semangat dan selalu optimis. Selain itu sifat tersebut juga disertai dengan keras kepala hingga mudah marah.\r\n\r\nSisi negatif dari sifat koleris ini adalah sifatnya yang tidak sabaran dan menyukai keributan hingga pertengkaran yang berujung perkelahian. Intinya karakter koleris adalah tipe yang memiliki semangat tinggi serta emosi yang meledak-ledak.'),
+(2, 'Melankolis', 'Orang yang termasuk golongan Melankolis adalah mereka yang sering merasa khawatir dan orang-orang yang mudah menyerah. Namun kelebihan Melankolis adalah seseorang yang analitis dan sangat kreatif. Walaupun begitu Melankolis kadang sering meremehkan diri mereka sendiri yang pada kenyataannya diri mereka tidak seburuk itu.'),
+(3, 'Plegmatis', 'Tidak suka kekerasan dan selalu cinta damai adalah karakter khas dari seorang Plegmatis. Plegmatis juga seorang yang sering menyebarkan kebahagiaan lewat humor-humornya yang jenaka.\r\n\r\nPlegmatis juga orang yang tidak mudah terpengaruh dan tipe yang tidak mau terlihat populer. Plegmatis lebih suka ketenangan dan tidak mau ambil pusing terhadap hal-hal yang menurutnya tidak terlalu penting. Hayo, siapa nih yang Plegmatis?'),
+(4, 'Sanguinis', 'Selalu mendahulukan perasaan daripada pemikiran adalah karakter khas tipe Sanguinis. Selalu bersemangat dan hangat kepada setiap orang yang ia temui membuat dirinya dicintai banyak orang akibat keramahannya tersebut.\r\n\r\nSangat tidak suka dengan kesedihan membuat Sanguinis selalu mencari cara untuk terus bahagia. Dan sisi negatif dari Sanguinis adala mereka orang yang takut untuk tidak populer. Mereka menyukai kepopuleran dan akan stress jika mereka tidak populer dalam hidup.');
 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `komentar`
+-- Table structure for table `komentar`
 --
 
 CREATE TABLE `komentar` (
@@ -98,7 +117,7 @@ CREATE TABLE `komentar` (
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `migration`
+-- Table structure for table `migration`
 --
 
 CREATE TABLE `migration` (
@@ -107,7 +126,7 @@ CREATE TABLE `migration` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `migration`
+-- Dumping data for table `migration`
 --
 
 INSERT INTO `migration` (`version`, `apply_time`) VALUES
@@ -118,7 +137,7 @@ INSERT INTO `migration` (`version`, `apply_time`) VALUES
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `notifikasi`
+-- Table structure for table `notifikasi`
 --
 
 CREATE TABLE `notifikasi` (
@@ -132,16 +151,16 @@ CREATE TABLE `notifikasi` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `notifikasi`
+-- Dumping data for table `notifikasi`
 --
 
 INSERT INTO `notifikasi` (`IDNOTIFIKASI`, `IDPENGIRIMNOTIF`, `IDTYPENOTIFIKASI`, `IDPENERIMANOTIF`, `ISI`, `WAKTUNOTIFIKASI`, `STATUSNOTIFIKASI`) VALUES
-(1, 1, 1, 2, 'isi pesan pribadi 1', '2019-05-20 05:22:43', 1);
+(1, 3, 2, 4, '2 suka foto 1', '2019-05-27 07:03:49', 1);
 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `pengguna`
+-- Table structure for table `pengguna`
 --
 
 CREATE TABLE `pengguna` (
@@ -158,17 +177,17 @@ CREATE TABLE `pengguna` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `pengguna`
+-- Dumping data for table `pengguna`
 --
 
 INSERT INTO `pengguna` (`IDPENGGUNA`, `IDKEPRIBADIAN`, `EMAIL`, `PASSWORD`, `NAMA`, `TANGGALLAHIR`, `ALAMAT`, `BIO`, `FOTO`, `JENISKELAMIN`) VALUES
-(1, NULL, NULL, NULL, 'fian', NULL, NULL, NULL, NULL, NULL),
-(2, NULL, NULL, NULL, 'aldi', NULL, NULL, NULL, NULL, NULL);
+(3, NULL, 'lulu@gmail.com', 'lulululu', 'lulu', NULL, '', '', '', 'Perempuan'),
+(4, NULL, 'fian@gmail.com', 'fianfian', 'fian', '1999-02-08', '', 'hai semmuanya', '', 'Laki Laki');
 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `pertanyaan`
+-- Table structure for table `pertanyaan`
 --
 
 CREATE TABLE `pertanyaan` (
@@ -181,7 +200,7 @@ CREATE TABLE `pertanyaan` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `pertanyaan`
+-- Dumping data for table `pertanyaan`
 --
 
 INSERT INTO `pertanyaan` (`IDPERTANYAAN`, `PERTANYAAN`, `PILIHAN1`, `PILIHAN2`, `PILIHAN3`, `PILIHAN4`) VALUES
@@ -209,7 +228,7 @@ INSERT INTO `pertanyaan` (`IDPERTANYAAN`, `PERTANYAAN`, `PILIHAN1`, `PILIHAN2`, 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `pesan`
+-- Table structure for table `pesan`
 --
 
 CREATE TABLE `pesan` (
@@ -224,7 +243,7 @@ CREATE TABLE `pesan` (
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `post`
+-- Table structure for table `post`
 --
 
 CREATE TABLE `post` (
@@ -235,10 +254,25 @@ CREATE TABLE `post` (
   `WAKTUPOST` date DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Dumping data for table `post`
+--
+
+INSERT INTO `post` (`IDPOST`, `IDPENGGUNA`, `GAMBARPOST`, `CAPTION`, `WAKTUPOST`) VALUES
+(1, 4, '', 'post fian pertama', NULL),
+(2, 4, '', 'post fian ke 2\r\n', NULL),
+(3, 4, '', '33 fian\r\n', '0000-00-00'),
+(4, 3, '', 'lulu post 1\r\n', '2019-05-26'),
+(5, 4, '', 'post 4 fian\r\n', '2019-05-26'),
+(6, 4, '', 'gambar 1', '2019-05-26'),
+(7, 4, '', 'gambar 1', '2019-05-26'),
+(8, 4, 'Capture5.png', 'gambar 1', '2019-05-26'),
+(9, 4, 'Capture7.png', 'network', '2019-05-26');
+
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `suka`
+-- Table structure for table `suka`
 --
 
 CREATE TABLE `suka` (
@@ -250,7 +284,7 @@ CREATE TABLE `suka` (
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `tipenotifiikasi`
+-- Table structure for table `tipenotifiikasi`
 --
 
 CREATE TABLE `tipenotifiikasi` (
@@ -259,17 +293,17 @@ CREATE TABLE `tipenotifiikasi` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `tipenotifiikasi`
+-- Dumping data for table `tipenotifiikasi`
 --
 
 INSERT INTO `tipenotifiikasi` (`IDTYPENOTIFIKASI`, `TIPENOTIFIKASI`) VALUES
 (1, 'Pesan Pribadi'),
-(2, 'Bootle');
+(2, 'Suka');
 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `tipepesan`
+-- Table structure for table `tipepesan`
 --
 
 CREATE TABLE `tipepesan` (
@@ -280,7 +314,7 @@ CREATE TABLE `tipepesan` (
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `tipestatus`
+-- Table structure for table `tipestatus`
 --
 
 CREATE TABLE `tipestatus` (
@@ -291,7 +325,7 @@ CREATE TABLE `tipestatus` (
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `user`
+-- Table structure for table `user`
 --
 
 CREATE TABLE `user` (
@@ -308,7 +342,7 @@ CREATE TABLE `user` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Dumping data untuk tabel `user`
+-- Dumping data for table `user`
 --
 
 INSERT INTO `user` (`id`, `username`, `auth_key`, `password_hash`, `password_reset_token`, `email`, `status`, `created_at`, `updated_at`, `verification_token`) VALUES
@@ -319,7 +353,7 @@ INSERT INTO `user` (`id`, `username`, `auth_key`, `password_hash`, `password_res
 --
 
 --
--- Indeks untuk tabel `follow`
+-- Indexes for table `follow`
 --
 ALTER TABLE `follow`
   ADD PRIMARY KEY (`IDFOLLOW`),
@@ -328,14 +362,14 @@ ALTER TABLE `follow`
   ADD KEY `PENGIKUTNYA_FK` (`IDPENGGUNA`);
 
 --
--- Indeks untuk tabel `hobi`
+-- Indexes for table `hobi`
 --
 ALTER TABLE `hobi`
   ADD PRIMARY KEY (`IDHOBI`),
   ADD UNIQUE KEY `HOBI_PK` (`IDHOBI`);
 
 --
--- Indeks untuk tabel `hobikepengguna`
+-- Indexes for table `hobikepengguna`
 --
 ALTER TABLE `hobikepengguna`
   ADD PRIMARY KEY (`IDHOBIKEPENGGUNA`),
@@ -344,7 +378,7 @@ ALTER TABLE `hobikepengguna`
   ADD KEY `HOBI_PENGGUNA_APA_FK` (`IDPENGGUNA`);
 
 --
--- Indeks untuk tabel `hubungan`
+-- Indexes for table `hubungan`
 --
 ALTER TABLE `hubungan`
   ADD PRIMARY KEY (`IDHUBUNGAN`),
@@ -354,14 +388,14 @@ ALTER TABLE `hubungan`
   ADD KEY `PENGGUNAKEDUA_FK` (`IDPENGGUNA2`);
 
 --
--- Indeks untuk tabel `kepribadian`
+-- Indexes for table `kepribadian`
 --
 ALTER TABLE `kepribadian`
   ADD PRIMARY KEY (`IDKEPRIBADIAN`),
   ADD UNIQUE KEY `KEPRIBADIAN_PK` (`IDKEPRIBADIAN`);
 
 --
--- Indeks untuk tabel `komentar`
+-- Indexes for table `komentar`
 --
 ALTER TABLE `komentar`
   ADD PRIMARY KEY (`IDKOMENTAR`),
@@ -370,13 +404,13 @@ ALTER TABLE `komentar`
   ADD KEY `KOMENTAR_PADA_POST_FK` (`IDPOST`);
 
 --
--- Indeks untuk tabel `migration`
+-- Indexes for table `migration`
 --
 ALTER TABLE `migration`
   ADD PRIMARY KEY (`version`);
 
 --
--- Indeks untuk tabel `notifikasi`
+-- Indexes for table `notifikasi`
 --
 ALTER TABLE `notifikasi`
   ADD PRIMARY KEY (`IDNOTIFIKASI`),
@@ -386,7 +420,7 @@ ALTER TABLE `notifikasi`
   ADD KEY `PENERIMANOTIFIKASI_FK` (`IDPENERIMANOTIF`);
 
 --
--- Indeks untuk tabel `pengguna`
+-- Indexes for table `pengguna`
 --
 ALTER TABLE `pengguna`
   ADD PRIMARY KEY (`IDPENGGUNA`),
@@ -394,14 +428,14 @@ ALTER TABLE `pengguna`
   ADD KEY `KEPRIBADIAN_PENGGUNA_APA_FK` (`IDKEPRIBADIAN`);
 
 --
--- Indeks untuk tabel `pertanyaan`
+-- Indexes for table `pertanyaan`
 --
 ALTER TABLE `pertanyaan`
   ADD PRIMARY KEY (`IDPERTANYAAN`),
   ADD UNIQUE KEY `PERTANYAAN_PK` (`IDPERTANYAAN`);
 
 --
--- Indeks untuk tabel `pesan`
+-- Indexes for table `pesan`
 --
 ALTER TABLE `pesan`
   ADD PRIMARY KEY (`IDPESAN`),
@@ -411,7 +445,7 @@ ALTER TABLE `pesan`
   ADD KEY `TIPE_PESANNYA_APA_FK` (`IDTIPEPESAN`);
 
 --
--- Indeks untuk tabel `post`
+-- Indexes for table `post`
 --
 ALTER TABLE `post`
   ADD PRIMARY KEY (`IDPOST`),
@@ -419,7 +453,7 @@ ALTER TABLE `post`
   ADD KEY `PENGGUNA_BUAT_POST_FK` (`IDPENGGUNA`);
 
 --
--- Indeks untuk tabel `suka`
+-- Indexes for table `suka`
 --
 ALTER TABLE `suka`
   ADD PRIMARY KEY (`IDSUKA`),
@@ -428,28 +462,28 @@ ALTER TABLE `suka`
   ADD KEY `SIAPA_YANG_LIKE_SUATU_POST_FK` (`IDPENGGUNA`);
 
 --
--- Indeks untuk tabel `tipenotifiikasi`
+-- Indexes for table `tipenotifiikasi`
 --
 ALTER TABLE `tipenotifiikasi`
   ADD PRIMARY KEY (`IDTYPENOTIFIKASI`),
   ADD UNIQUE KEY `TIPENOTIFIIKASI_PK` (`IDTYPENOTIFIKASI`);
 
 --
--- Indeks untuk tabel `tipepesan`
+-- Indexes for table `tipepesan`
 --
 ALTER TABLE `tipepesan`
   ADD PRIMARY KEY (`IDTIPEPESAN`),
   ADD UNIQUE KEY `TIPEPESAN_PK` (`IDTIPEPESAN`);
 
 --
--- Indeks untuk tabel `tipestatus`
+-- Indexes for table `tipestatus`
 --
 ALTER TABLE `tipestatus`
   ADD PRIMARY KEY (`IDSTATUS`),
   ADD UNIQUE KEY `TIPESTATUS_PK` (`IDSTATUS`);
 
 --
--- Indeks untuk tabel `user`
+-- Indexes for table `user`
 --
 ALTER TABLE `user`
   ADD PRIMARY KEY (`id`),
@@ -458,125 +492,125 @@ ALTER TABLE `user`
   ADD UNIQUE KEY `password_reset_token` (`password_reset_token`);
 
 --
--- AUTO_INCREMENT untuk tabel yang dibuang
+-- AUTO_INCREMENT for dumped tables
 --
 
 --
--- AUTO_INCREMENT untuk tabel `follow`
+-- AUTO_INCREMENT for table `follow`
 --
 ALTER TABLE `follow`
   MODIFY `IDFOLLOW` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT untuk tabel `hobi`
+-- AUTO_INCREMENT for table `hobi`
 --
 ALTER TABLE `hobi`
-  MODIFY `IDHOBI` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `IDHOBI` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
--- AUTO_INCREMENT untuk tabel `hobikepengguna`
+-- AUTO_INCREMENT for table `hobikepengguna`
 --
 ALTER TABLE `hobikepengguna`
   MODIFY `IDHOBIKEPENGGUNA` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT untuk tabel `hubungan`
+-- AUTO_INCREMENT for table `hubungan`
 --
 ALTER TABLE `hubungan`
   MODIFY `IDHUBUNGAN` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT untuk tabel `kepribadian`
+-- AUTO_INCREMENT for table `kepribadian`
 --
 ALTER TABLE `kepribadian`
-  MODIFY `IDKEPRIBADIAN` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `IDKEPRIBADIAN` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
--- AUTO_INCREMENT untuk tabel `komentar`
+-- AUTO_INCREMENT for table `komentar`
 --
 ALTER TABLE `komentar`
   MODIFY `IDKOMENTAR` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT untuk tabel `notifikasi`
+-- AUTO_INCREMENT for table `notifikasi`
 --
 ALTER TABLE `notifikasi`
   MODIFY `IDNOTIFIKASI` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
--- AUTO_INCREMENT untuk tabel `pengguna`
+-- AUTO_INCREMENT for table `pengguna`
 --
 ALTER TABLE `pengguna`
-  MODIFY `IDPENGGUNA` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `IDPENGGUNA` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
--- AUTO_INCREMENT untuk tabel `pertanyaan`
+-- AUTO_INCREMENT for table `pertanyaan`
 --
 ALTER TABLE `pertanyaan`
   MODIFY `IDPERTANYAAN` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 
 --
--- AUTO_INCREMENT untuk tabel `pesan`
+-- AUTO_INCREMENT for table `pesan`
 --
 ALTER TABLE `pesan`
   MODIFY `IDPESAN` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT untuk tabel `post`
+-- AUTO_INCREMENT for table `post`
 --
 ALTER TABLE `post`
-  MODIFY `IDPOST` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `IDPOST` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
--- AUTO_INCREMENT untuk tabel `suka`
+-- AUTO_INCREMENT for table `suka`
 --
 ALTER TABLE `suka`
   MODIFY `IDSUKA` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT untuk tabel `tipenotifiikasi`
+-- AUTO_INCREMENT for table `tipenotifiikasi`
 --
 ALTER TABLE `tipenotifiikasi`
   MODIFY `IDTYPENOTIFIKASI` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
--- AUTO_INCREMENT untuk tabel `tipepesan`
+-- AUTO_INCREMENT for table `tipepesan`
 --
 ALTER TABLE `tipepesan`
   MODIFY `IDTIPEPESAN` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT untuk tabel `tipestatus`
+-- AUTO_INCREMENT for table `tipestatus`
 --
 ALTER TABLE `tipestatus`
   MODIFY `IDSTATUS` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT untuk tabel `user`
+-- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
--- Ketidakleluasaan untuk tabel pelimpahan (Dumped Tables)
+-- Constraints for dumped tables
 --
 
 --
--- Ketidakleluasaan untuk tabel `follow`
+-- Constraints for table `follow`
 --
 ALTER TABLE `follow`
   ADD CONSTRAINT `FK_FOLLOW_PENGGUNAN_PENGGUNA` FOREIGN KEY (`IDPENGIKUT`) REFERENCES `pengguna` (`IDPENGGUNA`) ON DELETE CASCADE,
   ADD CONSTRAINT `FK_FOLLOW_PENGIKUTN_PENGGUNA` FOREIGN KEY (`IDPENGGUNA`) REFERENCES `pengguna` (`IDPENGGUNA`) ON DELETE CASCADE;
 
 --
--- Ketidakleluasaan untuk tabel `hobikepengguna`
+-- Constraints for table `hobikepengguna`
 --
 ALTER TABLE `hobikepengguna`
   ADD CONSTRAINT `FK_HOBIKEPE_HOBI_PENG_PENGGUNA` FOREIGN KEY (`IDPENGGUNA`) REFERENCES `pengguna` (`IDPENGGUNA`) ON DELETE CASCADE,
   ADD CONSTRAINT `FK_HOBIKEPE_JENIS_HOB_HOBI` FOREIGN KEY (`IDHOBI`) REFERENCES `hobi` (`IDHOBI`);
 
 --
--- Ketidakleluasaan untuk tabel `hubungan`
+-- Constraints for table `hubungan`
 --
 ALTER TABLE `hubungan`
   ADD CONSTRAINT `FK_HUBUNGAN_PENGGUNAK_PENGGUNA` FOREIGN KEY (`IDPENGGUNA2`) REFERENCES `pengguna` (`IDPENGGUNA`) ON DELETE CASCADE,
@@ -584,14 +618,14 @@ ALTER TABLE `hubungan`
   ADD CONSTRAINT `FK_HUBUNGAN_TIPE_HUBU_TIPESTAT` FOREIGN KEY (`IDSTATUS`) REFERENCES `tipestatus` (`IDSTATUS`);
 
 --
--- Ketidakleluasaan untuk tabel `komentar`
+-- Constraints for table `komentar`
 --
 ALTER TABLE `komentar`
   ADD CONSTRAINT `FK_KOMENTAR_KOMENTAR__POST` FOREIGN KEY (`IDPOST`) REFERENCES `post` (`IDPOST`) ON DELETE CASCADE,
   ADD CONSTRAINT `FK_KOMENTAR_SIAPA_YAN_PENGGUNA` FOREIGN KEY (`IDPENGGUNA`) REFERENCES `pengguna` (`IDPENGGUNA`) ON DELETE CASCADE;
 
 --
--- Ketidakleluasaan untuk tabel `notifikasi`
+-- Constraints for table `notifikasi`
 --
 ALTER TABLE `notifikasi`
   ADD CONSTRAINT `FK_NOTIFIKA_PENERIMAN_PENGGUNA` FOREIGN KEY (`IDPENERIMANOTIF`) REFERENCES `pengguna` (`IDPENGGUNA`) ON DELETE CASCADE,
@@ -599,13 +633,13 @@ ALTER TABLE `notifikasi`
   ADD CONSTRAINT `FK_NOTIFIKA_RELATIONS_TIPENOTI` FOREIGN KEY (`IDTYPENOTIFIKASI`) REFERENCES `tipenotifiikasi` (`IDTYPENOTIFIKASI`);
 
 --
--- Ketidakleluasaan untuk tabel `pengguna`
+-- Constraints for table `pengguna`
 --
 ALTER TABLE `pengguna`
   ADD CONSTRAINT `FK_PENGGUNA_KEPRIBADI_KEPRIBAD` FOREIGN KEY (`IDKEPRIBADIAN`) REFERENCES `kepribadian` (`IDKEPRIBADIAN`);
 
 --
--- Ketidakleluasaan untuk tabel `pesan`
+-- Constraints for table `pesan`
 --
 ALTER TABLE `pesan`
   ADD CONSTRAINT `FK_PESAN_PENERIMAP_PENGGUNA` FOREIGN KEY (`IDPENGIRIMPESAN`) REFERENCES `pengguna` (`IDPENGGUNA`) ON DELETE CASCADE,
@@ -613,13 +647,13 @@ ALTER TABLE `pesan`
   ADD CONSTRAINT `FK_PESAN_TIPE_PESA_TIPEPESA` FOREIGN KEY (`IDTIPEPESAN`) REFERENCES `tipepesan` (`IDTIPEPESAN`);
 
 --
--- Ketidakleluasaan untuk tabel `post`
+-- Constraints for table `post`
 --
 ALTER TABLE `post`
   ADD CONSTRAINT `FK_POST_PENGGUNA__PENGGUNA` FOREIGN KEY (`IDPENGGUNA`) REFERENCES `pengguna` (`IDPENGGUNA`) ON DELETE CASCADE;
 
 --
--- Ketidakleluasaan untuk tabel `suka`
+-- Constraints for table `suka`
 --
 ALTER TABLE `suka`
   ADD CONSTRAINT `FK_SUKA_LIKE_PADA_POST` FOREIGN KEY (`IDPOST`) REFERENCES `post` (`IDPOST`) ON DELETE CASCADE,
