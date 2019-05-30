@@ -64,6 +64,7 @@ $this->title = 'My Yii Application';
   <link rel="stylesheet" href="<?php echo Yii::$app->request->BaseUrl ?>/vendors/css/vendor.bundle.addons.css">
   <!-- endinject -->
   <!-- plugin css for this page -->
+  <link rel="stylesheet" href="<?php echo Yii::$app->request->BaseUrl ?>/vendors/iconfonts/font-awesome/css/font-awesome.min.css" />
   <!-- End plugin css for this page -->
   <!-- inject:css -->
   <link rel="stylesheet" href="<?php echo Yii::$app->request->BaseUrl ?>/css/style.css">
@@ -325,26 +326,44 @@ $this->title = 'My Yii Application';
           <!-- TAMBAHAN LINK KE CONTROLLER BACKEND-->
           <li class="nav-item">
             <a class="nav-link" href="<?php echo Yii::$app->request->BaseUrl ?>/kepribadian">
-              <i class="menu-icon mdi mdi-backup-restore"></i>
+              <i class="menu-icon fa fa-smile-o"></i>
               <span class="menu-title">Kepribadian</span>
             </a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="<?php echo Yii::$app->request->BaseUrl ?>/notifikasi">
-              <i class="menu-icon mdi mdi-backup-restore"></i>
+              <i class="menu-icon fa fa-bell-o"></i>
               <span class="menu-title">Notifikasi</span>
             </a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="<?php echo Yii::$app->request->BaseUrl ?>/pertanyaan">
-              <i class="menu-icon mdi mdi-backup-restore"></i>
+              <i class="menu-icon fa fa-question"></i>
               <span class="menu-title">Pertanyaan</span>
             </a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="<?php echo Yii::$app->request->BaseUrl ?>/tipenotifiikasi">
-              <i class="menu-icon mdi mdi-backup-restore"></i>
+              <i class="menu-icon fa fa-exclamation"></i>
               <span class="menu-title">Tipe Notifikasi</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="<?php echo Yii::$app->request->BaseUrl ?>/hobi">
+              <i class="menu-icon fa fa-child"></i>
+              <span class="menu-title">Hobi</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="<?php echo Yii::$app->request->BaseUrl ?>/tipe-pesan">
+              <i class="menu-icon fa fa-comments-o"></i>
+              <span class="menu-title">Tipe Pesan</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="<?php echo Yii::$app->request->BaseUrl ?>/pengguna">
+              <i class="menu-icon fa fa-user"></i>
+              <span class="menu-title">Pengguna</span>
             </a>
           </li>
         </ul>

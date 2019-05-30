@@ -20,17 +20,16 @@ $this->params['breadcrumbs'][] = $this->title;
         <?= Html::a('Create Notifikasi', ['create'], ['class' => 'btn btn-success']) ?>
     </p>
 
-    <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
     <table class="table table-hover">
     <thead>
       <tr>
-        <th>IDNOTIFIKASI</th>
+        <th>ID NOTIFIKASI</th>
         <th>PENGIRIM</th>
         <th>PENERIMA</th>
-        <th>TIPENOTIF</th>
+        <th>TIPE NOTIF</th>
         <th>ISI</th>
         <th>WAKTU</th>
-        <th>STATUSNOTIFIKASI</th>
+        <th>STATUS NOTIFIKASI</th>
       </tr>
     </thead>
     <tbody>
@@ -56,6 +55,7 @@ $this->params['breadcrumbs'][] = $this->title;
             ?>
           </td>
           <td><?php echo $nilai["ISI"]; ?></td>
+          <td><?php echo $nilai["WAKTUNOTIFIKASI"]; ?></td>
           <td>
             <?php
               if($nilai["STATUSNOTIFIKASI"]==1){
@@ -65,9 +65,9 @@ $this->params['breadcrumbs'][] = $this->title;
               }
             ?>
           </td>
-          <td><?= Html::a('Lihat',['view','id'=>$nilai['IDNOTIFIKASI']],['class' => 'btn btn-info btn-block']) ?><br><br>
-              <?= Html::a('Ubah',['update','id'=>$nilai['IDNOTIFIKASI']],['class' => 'btn btn-warning btn-block']) ?><br><br>
-              <?= Html::a('Hapus',['delete','id'=>$nilai['IDNOTIFIKASI']],['class' => 'btn btn-danger btn-block']) ?></td>
+          <td align="right"><?= Html::a('Lihat',['view','id'=>$nilai['IDNOTIFIKASI']],['class' => 'btn btn-info']) ?>
+              <?= Html::a('Ubah',['update','id'=>$nilai['IDNOTIFIKASI']],['class' => 'btn btn-warning']) ?>
+              <?= Html::a('Hapus',['delete','id'=>$nilai['IDNOTIFIKASI']],['class' => 'btn btn-danger']) ?></td>
         </tr>
       <?php } ?>
 
