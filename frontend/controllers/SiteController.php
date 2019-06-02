@@ -77,6 +77,10 @@ class SiteController extends Controller
         return $this->render('index');
     }
 
+    public function actionLanding(){
+        return $this->render('landing');
+    }
+
     /**
      * Logs in a user.
      *

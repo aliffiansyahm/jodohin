@@ -20,9 +20,8 @@ $this->params['breadcrumbs'][] = $this->title;
     <table class="table table-hover">
     <thead>
       <tr>
-        <th>IDNOTIFIKASI</th>
-        <th>PENGIRIM</th>
-        <th>PENERIMA</th>
+        <th>ID HOBI</th>
+        <th>NAMA HOBI</th>
       </tr>
     </thead>
     <tbody>
@@ -30,9 +29,9 @@ $this->params['breadcrumbs'][] = $this->title;
         <tr>
           <td><?php echo $nilai["IDHOBI"]; ?></td>
           <td><?php echo $nilai["NAMAHOBI"]; ?></td>
-          <td><?= Html::a('Lihat',['view','id'=>$nilai['IDHOBI']],['class' => 'btn btn-info btn-block']) ?><br><br>
-              <?= Html::a('Ubah',['update','id'=>$nilai['IDHOBI']],['class' => 'btn btn-warning btn-block']) ?><br><br>
-              <?= Html::a('Hapus',['delete','id'=>$nilai['IDHOBI']],['class' => 'btn btn-danger btn-block']) ?></td>
+          <td align="right"><?= Html::a('Lihat',['view','id'=>$nilai['IDHOBI']],['class' => 'btn btn-info']) ?>
+              <?= Html::a('Ubah',['update','id'=>$nilai['IDHOBI']],['class' => 'btn btn-warning']) ?>
+              <?= Html::a('Hapus',['delete','id'=>$nilai['IDHOBI']],['class' => 'btn btn-danger']) ?></td>
         </tr>
       <?php } ?>
 
