@@ -2,10 +2,9 @@
 
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
-//use kartik\date\DatePicker;
 
 /* @var $this yii\web\View */
-/* @var $model frontend\models\Pengguna */
+/* @var $model backend\models\Pengguna */
 /* @var $form yii\widgets\ActiveForm */
 ?>
 
@@ -13,13 +12,15 @@ use yii\widgets\ActiveForm;
 
     <?php $form = ActiveForm::begin(); ?>
 
+    <?= $form->field($model, 'IDKEPRIBADIAN')->textInput() ?>
+
     <?= $form->field($model, 'EMAIL')->textInput(['maxlength' => true]) ?>
 
     <?= $form->field($model, 'PASSWORD')->passwordInput(['maxlength' => true]) ?>
 
-    <?= $form->field($model, 'TANGGALLAHIR')->textInput() ?>
+    <?= $form->field($model, 'NAMA')->textInput(['maxlength' => true]) ?>
 
-    
+    <?= $form->field($model, 'TANGGALLAHIR')->textInput() ?>
 
     <?= $form->field($model, 'ALAMAT')->textInput(['maxlength' => true]) ?>
 

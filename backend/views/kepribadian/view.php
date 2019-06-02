@@ -16,6 +16,7 @@ $this->params['breadcrumbs'][] = $this->title;
     <h1><?= Html::encode($this->title) ?></h1>
 
     <p>
+        <?= Html::a('All', 'index', ['class' => 'btn btn-info']) ?>
         <?= Html::a('Update', ['update', 'id' => $model->IDKEPRIBADIAN], ['class' => 'btn btn-primary']) ?>
         <?= Html::a('Delete', ['delete', 'id' => $model->IDKEPRIBADIAN], [
             'class' => 'btn btn-danger',
@@ -26,13 +27,20 @@ $this->params['breadcrumbs'][] = $this->title;
         ]) ?>
     </p>
 
-    <?= DetailView::widget([
+    <!-- <?= DetailView::widget([
         'model' => $model,
         'attributes' => [
             'IDKEPRIBADIAN',
             'NAMAKEPRIBADIAN',
             'DESKRIPSIKEPRIBADIAN',
         ],
-    ]) ?>
+    ]) ?> -->
+    <br>
+    IDKEPRIBADIAN :
+    <?php echo $model["IDKEPRIBADIAN"]; ?><br><br>
+    NAMAKEPRIBADIAN :
+    <?php echo $model["NAMAKEPRIBADIAN"]; ?><br><br>
+    DESKRIPSIKEPRIBADIAN :<br>
+    <?php echo $model["DESKRIPSIKEPRIBADIAN"]; ?>
 
 </div>

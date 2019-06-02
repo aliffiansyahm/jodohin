@@ -4,21 +4,21 @@ use yii\helpers\Html;
 use yii\widgets\DetailView;
 
 /* @var $this yii\web\View */
-/* @var $model backend\models\Notifikasi */
+/* @var $model backend\models\TipePesan */
 
-$this->title = $model->IDNOTIFIKASI;
-$this->params['breadcrumbs'][] = ['label' => 'Notifikasis', 'url' => ['index']];
+$this->title = $model->IDTIPEPESAN;
+$this->params['breadcrumbs'][] = ['label' => 'Tipe Pesans', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 \yii\web\YiiAsset::register($this);
 ?>
-<div class="notifikasi-view">
+<div class="tipe-pesan-view">
 
     <h1><?= Html::encode($this->title) ?></h1>
 
     <p>
         <?= Html::a('All', 'index', ['class' => 'btn btn-info']) ?>
-        <?= Html::a('Update', ['update', 'id' => $model->IDNOTIFIKASI], ['class' => 'btn btn-primary']) ?>
-        <?= Html::a('Delete', ['delete', 'id' => $model->IDNOTIFIKASI], [
+        <?= Html::a('Update', ['update', 'id' => $model->IDTIPEPESAN], ['class' => 'btn btn-primary']) ?>
+        <?= Html::a('Delete', ['delete', 'id' => $model->IDTIPEPESAN], [
             'class' => 'btn btn-danger',
             'data' => [
                 'confirm' => 'Are you sure you want to delete this item?',
@@ -30,13 +30,8 @@ $this->params['breadcrumbs'][] = $this->title;
     <?= DetailView::widget([
         'model' => $model,
         'attributes' => [
-            'IDNOTIFIKASI',
-            'IDPENGIRIMNOTIF',
-            'tYPENOTIFIKASI.TIPENOTIFIKASI',
-            'IDPENERIMANOTIF',
-            'ISI',
-            'WAKTUNOTIFIKASI',
-            'STATUSNOTIFIKASI',
+            'IDTIPEPESAN',
+            'NAMATIPEPESAN',
         ],
     ]) ?>
 

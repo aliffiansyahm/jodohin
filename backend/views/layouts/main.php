@@ -87,13 +87,14 @@ AppAsset::register($this);
   <!-- Required meta tags -->
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <title>Star Admin Free Bootstrap-4 Admin Dashboard Template</title>
+  <title>JODOHIN [ admin ]</title>
   <!-- plugins:css -->
   <link rel="stylesheet" href="<?php echo Yii::$app->request->BaseUrl ?>/vendors/iconfonts/mdi/css/materialdesignicons.min.css">
   <link rel="stylesheet" href="<?php echo Yii::$app->request->BaseUrl ?>/vendors/css/vendor.bundle.base.css">
   <link rel="stylesheet" href="<?php echo Yii::$app->request->BaseUrl ?>/vendors/css/vendor.bundle.addons.css">
   <!-- endinject -->
   <!-- plugin css for this page -->
+  <link rel="stylesheet" href="<?php echo Yii::$app->request->BaseUrl ?>/vendors/iconfonts/font-awesome/css/font-awesome.min.css" />
   <!-- End plugin css for this page -->
   <!-- inject:css -->
   <link rel="stylesheet" href="<?php echo Yii::$app->request->BaseUrl ?>/css/style.css">
@@ -106,15 +107,15 @@ AppAsset::register($this);
     <!-- partial:../../partials/_navbar.html -->
     <nav class="navbar default-layout col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
       <div class="text-center navbar-brand-wrapper d-flex align-items-top justify-content-center">
-        <a class="navbar-brand brand-logo" href="<?php echo Yii::$app->request->BaseUrl ?>/index.html">
-          <img src="<?php echo Yii::$app->request->BaseUrl ?>/images/logo.svg" alt="logo" />
+        <a class="navbar-brand brand-logo" href="<?php echo Yii::$app->request->BaseUrl ?>">
+          <img src="<?php echo Yii::$app->request->BaseUrl ?>/images/jodohin.png" alt="logo" />
         </a>
-        <a class="navbar-brand brand-logo-mini" href="<?php echo Yii::$app->request->BaseUrl ?>/index.html">
-          <img src="<?php echo Yii::$app->request->BaseUrl ?>/images/logo-mini.svg" alt="logo" />
+        <a class="navbar-brand brand-logo-mini" href="<?php echo Yii::$app->request->BaseUrl ?>">
+          <img src="<?php echo Yii::$app->request->BaseUrl ?>/images/jodohin-mini.png" alt="logo" />
         </a>
       </div>
       <div class="navbar-menu-wrapper d-flex align-items-center">
-        <ul class="navbar-nav navbar-nav-left header-links d-none d-md-flex">
+        <!-- <ul class="navbar-nav navbar-nav-left header-links d-none d-md-flex">
           <li class="nav-item">
             <a href="#" class="nav-link">Schedule
               <span class="badge badge-primary ml-1">New</span>
@@ -128,9 +129,9 @@ AppAsset::register($this);
             <a href="#" class="nav-link">
               <i class="mdi mdi-bookmark-plus-outline"></i>Score</a>
           </li>
-        </ul>
+        </ul> -->
         <ul class="navbar-nav navbar-nav-right">
-          <li class="nav-item dropdown">
+          <!-- <li class="nav-item dropdown">
             <a class="nav-link count-indicator dropdown-toggle" id="messageDropdown" href="#" data-toggle="dropdown" aria-expanded="false">
               <i class="mdi mdi-file-document-box"></i>
               <span class="count">7</span>
@@ -239,39 +240,17 @@ AppAsset::register($this);
                 </div>
               </a>
             </div>
-          </li>
+          </li> -->
           <li class="nav-item dropdown d-none d-xl-inline-block">
-            <a class="nav-link dropdown-toggle" id="UserDropdown" href="#" data-toggle="dropdown" aria-expanded="false">
-              <span class="profile-text">Hello, Richard V.Welsh !</span>
+            <a class="nav-link">
+              <span class="profile-text">Hello, Admin</span>
               <img class="img-xs rounded-circle" src="<?php echo Yii::$app->request->BaseUrl ?>/images/faces/face1.jpg" alt="Profile image">
             </a>
-            <div class="dropdown-menu dropdown-menu-right navbar-dropdown" aria-labelledby="UserDropdown">
-              <a class="dropdown-item p-0">
-                <div class="d-flex border-bottom">
-                  <div class="py-3 px-4 d-flex align-items-center justify-content-center">
-                    <i class="mdi mdi-bookmark-plus-outline mr-0 text-gray"></i>
-                  </div>
-                  <div class="py-3 px-4 d-flex align-items-center justify-content-center border-left border-right">
-                    <i class="mdi mdi-account-outline mr-0 text-gray"></i>
-                  </div>
-                  <div class="py-3 px-4 d-flex align-items-center justify-content-center">
-                    <i class="mdi mdi-alarm-check mr-0 text-gray"></i>
-                  </div>
-                </div>
-              </a>
-              <a class="dropdown-item mt-2">
-                Manage Accounts
-              </a>
-              <a class="dropdown-item">
-                Change Password
-              </a>
-              <a class="dropdown-item">
-                Check Inbox
-              </a>
-              <a href="<?php echo Yii::$app->request->BaseUrl ?>/site/logout" class="dropdown-item" >
-                Sign Out
-              </a>
-            </div>
+          </li>
+          <li class="nav-item dropdown d-none d-xl-inline-block">
+            <a class="nav-link" href="<?php echo Yii::$app->request->BaseUrl ?>/site/logout" class="dropdown-item">
+              Sign Out
+            </a>
           </li>
         </ul>
         <button class="navbar-toggler navbar-toggler-right d-lg-none align-self-center" type="button" data-toggle="offcanvas">
@@ -292,16 +271,13 @@ AppAsset::register($this);
                   <img src="<?php echo Yii::$app->request->BaseUrl ?>/images/faces/face1.jpg" alt="profile image">
                 </div>
                 <div class="text-wrapper">
-                  <p class="profile-name">Richard V.Welsh</p>
+                  <p class="profile-name">ADMIN</p>
                   <div>
                     <small class="designation text-muted">Manager</small>
                     <span class="status-indicator online"></span>
                   </div>
                 </div>
               </div>
-              <button class="btn btn-success btn-block">New Project
-                <i class="mdi mdi-plus"></i>
-              </button>
             </div>
           </li>
           <li class="nav-item">
@@ -380,26 +356,44 @@ AppAsset::register($this);
           <!-- TAMBAHAN LINK KE CONTROLLER BACKEND-->
           <li class="nav-item">
             <a class="nav-link" href="<?php echo Yii::$app->request->BaseUrl ?>/kepribadian">
-              <i class="menu-icon mdi mdi-backup-restore"></i>
+              <i class="menu-icon fa fa-smile-o"></i>
               <span class="menu-title">Kepribadian</span>
             </a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="<?php echo Yii::$app->request->BaseUrl ?>/notifikasi">
-              <i class="menu-icon mdi mdi-backup-restore"></i>
+              <i class="menu-icon fa fa-bell-o"></i>
               <span class="menu-title">Notifikasi</span>
             </a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="<?php echo Yii::$app->request->BaseUrl ?>/pertanyaan">
-              <i class="menu-icon mdi mdi-backup-restore"></i>
+              <i class="menu-icon fa fa-question"></i>
               <span class="menu-title">Pertanyaan</span>
             </a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="<?php echo Yii::$app->request->BaseUrl ?>/tipenotifiikasi">
-              <i class="menu-icon mdi mdi-backup-restore"></i>
+              <i class="menu-icon fa fa-exclamation"></i>
               <span class="menu-title">Tipe Notifikasi</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="<?php echo Yii::$app->request->BaseUrl ?>/hobi">
+              <i class="menu-icon fa fa-child"></i>
+              <span class="menu-title">Hobi</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="<?php echo Yii::$app->request->BaseUrl ?>/tipe-pesan">
+              <i class="menu-icon fa fa-comments-o"></i>
+              <span class="menu-title">Tipe Pesan</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="<?php echo Yii::$app->request->BaseUrl ?>/pengguna">
+              <i class="menu-icon fa fa-user"></i>
+              <span class="menu-title">Pengguna</span>
             </a>
           </li>
         </ul>
