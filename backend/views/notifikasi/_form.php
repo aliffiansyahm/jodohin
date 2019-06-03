@@ -12,11 +12,11 @@ use yii\widgets\ActiveForm;
 
     <?php $form = ActiveForm::begin(); ?>
 
-    <?= $form->field($model, 'IDPENGIRIMNOTIF')->textInput() ?>
+    <?= $form->field($model, 'IDPENGIRIMNOTIF')->dropDownList($pengguna,['prompt'=>'-pilih satu-'])->label('Pengirim') ?>
 
     <?= $form->field($model, 'IDTYPENOTIFIKASI')->dropDownList($tipeNotifikasi,['prompt'=>'-pilih satu-'])->label('Kategory Pesan') ?>
 
-    <?= $form->field($model, 'IDPENERIMANOTIF')->textInput() ?>
+    <?= $form->field($model, 'IDPENERIMANOTIF')->dropDownList($pengguna,['prompt'=>'-pilih satu-'])->label('PENERIMA') ?>
 
     <?= $form->field($model, 'ISI')->textInput(['maxlength' => true]) ?>
 

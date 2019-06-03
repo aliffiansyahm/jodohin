@@ -3,20 +3,20 @@
 use yii\helpers\Html;
 
 /* @var $this yii\web\View */
-/* @var $model backend\models\Notifikasi */
+/* @var $model backend\models\Pesan */
 
-$this->title = 'Create Notifikasi';
-$this->params['breadcrumbs'][] = ['label' => 'Notifikasis', 'url' => ['index']];
+$this->title = 'Create Pesan';
+$this->params['breadcrumbs'][] = ['label' => 'Pesans', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
-<div class="notifikasi-create">
+<div class="pesan-create">
 
     <h1><?= Html::encode($this->title) ?></h1>
 
     <?= $this->render('_form', [
         'model' => $model,
-        'tipeNotifikasi' => $tipeNotifikasi,
         'pengguna' => $pengguna,
+        'tipePesan' => $tipePesan,
     ]) ?>
 
 </div>
