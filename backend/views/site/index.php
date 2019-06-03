@@ -361,8 +361,14 @@ $this->title = 'My Yii Application';
             </a>
           </li>
           <li class="nav-item">
+            <a class="nav-link" href="<?php echo Yii::$app->request->BaseUrl ?>/pesan">
+              <i class="menu-icon fa fa-telegram"></i>
+              <span class="menu-title">Pesan</span>
+            </a>
+          </li>
+          <li class="nav-item">
             <a class="nav-link" href="<?php echo Yii::$app->request->BaseUrl ?>/pengguna">
-              <i class="menu-icon fa fa-user"></i>
+              <i class="menu-icon fa fa-users"></i>
               <span class="menu-title">Pengguna</span>
             </a>
           </li>

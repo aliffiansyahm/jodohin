@@ -59,9 +59,9 @@ $this->params['breadcrumbs'][] = $this->title;
           <td>
             <?php
               if($nilai["STATUSNOTIFIKASI"]==1){
-                echo "DIBACA";
-              } else {
                 echo "BELUM DIBACA";
+              } else {
+                echo "DIBACA";
               }
             ?>
           </td>
