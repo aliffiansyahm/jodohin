@@ -81,6 +81,10 @@ class SiteController extends Controller
         return $this->render('landing');
     }
 
+    public function actionMain(){
+        return $this->render('main');
+    }
+
     /**
      * Logs in a user.
      *

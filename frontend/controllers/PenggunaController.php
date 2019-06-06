@@ -66,12 +66,15 @@ class PenggunaController extends Controller
     {
         $model = new Pengguna();
 
-        $model->NAMA = $_POST['name'];
+        $model->NAMA = $_POST['first_name'].$_POST['last_name'];
         $model->EMAIL = $_POST['email'];
         $model->PASSWORD = $_POST['password'];
+        $model->TANGGALLAHIR = $_POST['datetimepicker'];
+        $model->JENISKELAMIN = $_POST['gender'];
 
-        if ($model->save()) {
-            return $this->redirect('../site/login');
+
+        if ($model->save() && isset($_POST['optionsCheckboxes'])) {
+            return $this->redirect('../site/landing');
         }
 
         // jangan diapa"in ya yg ini ... picturenya belum
@@ -136,20 +139,21 @@ class PenggunaController extends Controller
     {
         $model = new Pengguna();
 
-        $nama = $_POST['name'];
+        $email = $_POST['email'];
         $password = $_POST['password'];
 
         $pengguna =  Pengguna::find()
-        ->where(['NAMA' => $nama,
+        ->where(['EMAIL' => $email,
                 'PASSWORD' => $password])
         ->one();
 
         $_SESSION['login'] = true;
-        $_SESSION['nama'] = $nama;
+        $_SESSION['nama'] = $pengguna['NAMA'];
         $_SESSION['id'] = $pengguna['IDPENGGUNA'];
+        $_SESSION['email'] = $email;
 
         if (!empty($pengguna)) {
-          return $this->render('dasbot');
+          return $this->redirect('../site/index');
         }else {
           echo "Gagal masuk";
         }

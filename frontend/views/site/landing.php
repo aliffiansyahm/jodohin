@@ -256,7 +256,7 @@
 				<div class="tab-content">
 					<div class="tab-pane active" id="home" role="tabpanel" data-mh="log-tab">
 						<div class="title h6">Register to Olympus</div>
-						<form class="content" method="post" action="../web/pengguna/create">
+						<form class="content" method="post" action="<?php echo Yii::$app->request->BaseUrl ?>/pengguna/create">
 							<div class="row">
 								<div class="col col-12 col-xl-6 col-lg-6 col-md-6 col-sm-12">
 									<div class="form-group label-floating is-empty">
@@ -316,16 +316,16 @@
 
 					<div class="tab-pane" id="profile" role="tabpanel" data-mh="log-tab">
 						<div class="title h6">Login to your Account</div>
-						<form class="content">
+						<form class="content" action="../pengguna/login" method="post" >
 							<div class="row">
 								<div class="col col-12 col-xl-12 col-lg-12 col-md-12 col-sm-12">
 									<div class="form-group label-floating is-empty">
 										<label class="control-label">Your Email</label>
-										<input class="form-control" placeholder="" type="email">
+										<input class="form-control" placeholder="" type="email" name="email">
 									</div>
 									<div class="form-group label-floating is-empty">
 										<label class="control-label">Your Password</label>
-										<input class="form-control" placeholder="" type="password">
+										<input class="form-control" placeholder="" type="password" name="password">
 									</div>
 
 									<div class="remember">
@@ -339,7 +339,12 @@
 										<a href="#" class="forgot">Forgot my Password</a>
 									</div>
 
-									<a href="#" class="btn btn-lg btn-primary full-width">Login</a>
+									<input type="submit" value="Login" class="btn btn-lg btn-primary full-width">
+
+
+									<!-- <input type="submit" value="Login" class="btn btn-lg btn-primary full-width"> -->
+
+									<!-- <a href="" class="btn btn-lg btn-primary full-width">Login</a> -->
 
 									<div class="or"></div>
 
