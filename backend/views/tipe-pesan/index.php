@@ -17,9 +17,6 @@ $this->params['breadcrumbs'][] = $this->title;
     <p>
         <?= Html::a('Create Tipe Pesan', ['create'], ['class' => 'btn btn-success']) ?>
     </p>
-    <div class="col-6">
-
-    </div>
     <table class="table table-hover">
     <thead>
       <tr>

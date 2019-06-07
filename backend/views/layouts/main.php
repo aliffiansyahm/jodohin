@@ -280,7 +280,7 @@ AppAsset::register($this);
               </div>
             </div>
           </li>
-          <li class="nav-item">
+          <!-- <li class="nav-item">
             <a class="nav-link" href="<?php echo Yii::$app->request->BaseUrl ?>/index.html">
               <i class="menu-icon mdi mdi-television"></i>
               <span class="menu-title">Dashboard</span>
@@ -302,14 +302,14 @@ AppAsset::register($this);
                 </li>
               </ul>
             </div>
-          </li>
+          </li> -->
           <li class="nav-item">
             <a class="nav-link" href="<?php echo Yii::$app->request->BaseUrl ?>/pages/forms/basic_elements.html">
               <i class="menu-icon mdi mdi-backup-restore"></i>
               <span class="menu-title">Form elements</span>
             </a>
           </li>
-          <li class="nav-item">
+          <!-- <li class="nav-item">
             <a class="nav-link" href="<?php echo Yii::$app->request->BaseUrl ?>/pages/charts/chartjs.html">
               <i class="menu-icon mdi mdi-chart-line"></i>
               <span class="menu-title">Charts</span>
@@ -320,7 +320,7 @@ AppAsset::register($this);
               <i class="menu-icon mdi mdi-table"></i>
               <span class="menu-title">Tables</span>
             </a>
-          </li>
+          </li> -->
           <li class="nav-item">
             <a class="nav-link" href="<?php echo Yii::$app->request->BaseUrl ?>/pages/icons/font-awesome.html">
               <i class="menu-icon mdi mdi-sticker"></i>
@@ -387,7 +387,7 @@ AppAsset::register($this);
           <li class="nav-item">
             <a class="nav-link" href="<?php echo Yii::$app->request->BaseUrl ?>/tipe-pesan">
               <i class="menu-icon fa fa-comments-o"></i>
-              <span class="menu-title">Tipe Pesan</span>
+              <span class="menu-title">Tipe-Pesan</span>
             </a>
           </li>
           <li class="nav-item">
@@ -400,6 +400,18 @@ AppAsset::register($this);
             <a class="nav-link" href="<?php echo Yii::$app->request->BaseUrl ?>/pengguna">
               <i class="menu-icon fa fa-users"></i>
               <span class="menu-title">Pengguna</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="<?php echo Yii::$app->request->BaseUrl ?>/tipe-status">
+              <i class="menu-icon fa fa-quote-left"></i>
+              <span class="menu-title">Tipe Status</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="<?php echo Yii::$app->request->BaseUrl ?>/hubungan">
+              <i class="menu-icon fa fa-heart"></i>
+              <span class="menu-title">Hubungan</span>
             </a>
           </li>
         </ul>
