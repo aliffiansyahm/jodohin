@@ -99,7 +99,7 @@ AppAsset::register($this);
 	<link rel="stylesheet" type="text/css" href="<?php echo Yii::$app->request->BaseUrl ?>/olympus/Bootstrap/dist/css/bootstrap-grid.css">
 
 	<!-- Main Styles CSS -->
-	<link rel="stylesheet" type="text/css" href="<?php echo Yii::$app->request->BaseUrl ?>/olympus/css/main.min.css">
+ 	<link rel="stylesheet" type="text/css" href="<?php echo Yii::$app->request->BaseUrl ?>/olympus/css/main.min.css">
 
 	<!-- Main Font -->
 	<script src="<?php echo Yii::$app->request->BaseUrl ?>/olympus/js/webfontloader.min.js"></script>
@@ -194,7 +194,7 @@ AppAsset::register($this);
 				<img src="<?php echo Yii::$app->request->BaseUrl ?>/olympus/img/logo.png" alt="Olympus">
 			</div>
 			<div class="title-block">
-				<h6 class="logo-title">olympus</h6>
+				<h6 class="logo-title">Jodohin</h6>
 			</div>
 		</a>
 
@@ -209,7 +209,7 @@ AppAsset::register($this);
 				<li>
 					<a href="<?php echo Yii::$app->request->BaseUrl ?>/olympus/03-Newsfeed.html">
 						<svg class="olymp-newsfeed-icon left-menu-icon" data-toggle="tooltip" data-placement="right"   data-original-title="NEWSFEED"><use xlink:href="<?php echo Yii::$app->request->BaseUrl ?>/olympus/svg-icons/sprites/icons.svg#olymp-newsfeed-icon"></use></svg>
-						<span class="left-menu-title">Newsfeed</span>
+						<span class="left-menu-title">Post</span>
 					</a>
 				</li>
 				<li>
@@ -306,7 +306,7 @@ AppAsset::register($this);
 				<img src="<?php echo Yii::$app->request->BaseUrl ?>/olympus/img/logo.png" alt="Olympus">
 			</div>
 			<div class="title-block">
-				<h6 class="logo-title">olympus</h6>
+				<h6 class="logo-title">Jodohin</h6>
 			</div>
 		</a>
 
@@ -320,7 +320,7 @@ AppAsset::register($this);
 					</div>
 					<a href="<?php echo Yii::$app->request->BaseUrl ?>/olympus/02-ProfilePage.html" class="author-name fn">
 						<div class="author-title">
-							James Spiegel <svg class="olymp-dropdown-arrow-icon"><use xlink:href="<?php echo Yii::$app->request->BaseUrl ?>/olympus/svg-icons/sprites/icons.svg#olymp-dropdown-arrow-icon"></use></svg>
+							 <svg class="olymp-dropdown-arrow-icon"><use xlink:href="<?php echo Yii::$app->request->BaseUrl ?>/olympus/svg-icons/sprites/icons.svg#olymp-dropdown-arrow-icon"></use></svg>
 						</div>
 						<span class="author-subtitle">SPACE COWBOY</span>
 					</a>
@@ -903,7 +903,8 @@ AppAsset::register($this);
 				</div>
 				<a href="02-ProfilePage.html" class="author-name fn">
 					<div class="author-title">
-						James Spiegel <svg class="olymp-dropdown-arrow-icon"><use xlink:href="<?php echo Yii::$app->request->BaseUrl ?>/olympus/svg-icons/sprites/icons.svg#olymp-dropdown-arrow-icon"></use></svg>
+						<?php echo $_SESSION['nama'] ?> 
+						<svg class="olymp-dropdown-arrow-icon"><use xlink:href="<?php echo Yii::$app->request->BaseUrl ?>/olympus/svg-icons/sprites/icons.svg#olymp-dropdown-arrow-icon"></use></svg>
 					</div>
 					<span class="author-subtitle">SPACE COWBOY</span>
 				</a>
