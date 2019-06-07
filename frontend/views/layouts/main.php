@@ -903,7 +903,7 @@ AppAsset::register($this);
 				</div>
 				<a href="02-ProfilePage.html" class="author-name fn">
 					<div class="author-title">
-						<?php echo $_SESSION['nama'] ?> 
+						
 						<svg class="olymp-dropdown-arrow-icon"><use xlink:href="<?php echo Yii::$app->request->BaseUrl ?>/olympus/svg-icons/sprites/icons.svg#olymp-dropdown-arrow-icon"></use></svg>
 					</div>
 					<span class="author-subtitle">SPACE COWBOY</span>
