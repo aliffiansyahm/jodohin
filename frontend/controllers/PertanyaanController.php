@@ -53,7 +53,7 @@ class PertanyaanController extends Controller
         $dataPertanyaan = Pertanyaan::find()->all();
 
 
-        return $this->render('mengerjakan', [
+        return $this->render('halamanPertanyaan', [
             'searchModel' => $searchModel,
             'dataProvider' => $dataProvider,
             'dataPertanyaan' => $dataPertanyaan,
@@ -107,6 +107,8 @@ class PertanyaanController extends Controller
             'dataSkor' => $hasil,
             'tipe' => $n,
         ]);
+
+        $_SESSION['idkepribadian']=$tipe;
     }
     /**
      * Displays a single Pertanyaan model.
