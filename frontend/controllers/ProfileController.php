@@ -13,5 +13,8 @@ class ProfileController extends \yii\web\Controller
     {
 
     }
+    public function actionSesi(){
+        return $this->render('halsesi');
+    }
 
 }
