@@ -3,18 +3,16 @@
 namespace backend\controllers;
 
 use Yii;
-use backend\models\Notifikasi;
-use backend\models\NotifikasiSearch;
+use backend\models\TipeStatus;
+use backend\models\TipeStatusSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
-use backend\models\Tipenotifiikasi;
-use backend\models\Pengguna;
-use yii\helpers\ArrayHelper;
+
 /**
- * NotifikasiController implements the CRUD actions for Notifikasi model.
+ * TipeStatusController implements the CRUD actions for TipeStatus model.
  */
-class NotifikasiController extends Controller
+class TipeStatusController extends Controller
 {
     /**
      * {@inheritdoc}
@@ -32,24 +30,23 @@ class NotifikasiController extends Controller
     }
 
     /**
-     * Lists all Notifikasi models.
+     * Lists all TipeStatus models.
      * @return mixed
      */
     public function actionIndex()
     {
-        $searchModel = new NotifikasiSearch();
+        $searchModel = new TipeStatusSearch();
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
-        $dataNotifikasi = Notifikasi::find()->all();
-
+        $dataTipeStatus = TipeStatus::find()->all();
         return $this->render('index', [
             'searchModel' => $searchModel,
             'dataProvider' => $dataProvider,
-            'dataNotifikasi' => $dataNotifikasi,
+            'dataTipeStatus' => $dataTipeStatus,
         ]);
     }
 
     /**
-     * Displays a single Notifikasi model.
+     * Displays a single TipeStatus model.
      * @param integer $id
      * @return mixed
      * @throws NotFoundHttpException if the model cannot be found
@@ -62,32 +59,25 @@ class NotifikasiController extends Controller
     }
 
     /**
-     * Creates a new Notifikasi model.
+     * Creates a new TipeStatus model.
      * If creation is successful, the browser will be redirected to the 'view' page.
      * @return mixed
      */
     public function actionCreate()
     {
-        $model = new Notifikasi();
-        $tipeNotifikasi = Tipenotifiikasi::find()->all();
-        $tipeNotifikasi = ArrayHelper::map($tipeNotifikasi,'IDTYPENOTIFIKASI','TIPENOTIFIKASI');
-
-        $pengguna = Pengguna::find()->all();
-        $pengguna = ArrayHelper::map($pengguna,'IDPENGGUNA','NAMA');
+        $model = new TipeStatus();
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->IDNOTIFIKASI]);
+            return $this->redirect(['view', 'id' => $model->IDSTATUS]);
         }
 
         return $this->render('create', [
             'model' => $model,
-            'tipeNotifikasi' => $tipeNotifikasi,
-            'pengguna' => $pengguna,
         ]);
     }
 
     /**
-     * Updates an existing Notifikasi model.
+     * Updates an existing TipeStatus model.
      * If update is successful, the browser will be redirected to the 'view' page.
      * @param integer $id
      * @return mixed
@@ -96,23 +86,18 @@ class NotifikasiController extends Controller
     public function actionUpdate($id)
     {
         $model = $this->findModel($id);
-        $tipeNotifikasi = Tipenotifiikasi::find()->all();
-        $tipeNotifikasi = ArrayHelper::map($tipeNotifikasi,'IDTYPENOTIFIKASI','TIPENOTIFIKASI');
-        $pengguna = Pengguna::find()->all();
-        $pengguna = ArrayHelper::map($pengguna,'IDPENGGUNA','NAMA');
+
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->IDNOTIFIKASI]);
+            return $this->redirect(['view', 'id' => $model->IDSTATUS]);
         }
 
         return $this->render('update', [
             'model' => $model,
-            'tipeNotifikasi' => $tipeNotifikasi,
-            'pengguna' => $pengguna,  
         ]);
     }
 
     /**
-     * Deletes an existing Notifikasi model.
+     * Deletes an existing TipeStatus model.
      * If deletion is successful, the browser will be redirected to the 'index' page.
      * @param integer $id
      * @return mixed
@@ -126,15 +111,15 @@ class NotifikasiController extends Controller
     }
 
     /**
-     * Finds the Notifikasi model based on its primary key value.
+     * Finds the TipeStatus model based on its primary key value.
      * If the model is not found, a 404 HTTP exception will be thrown.
      * @param integer $id
-     * @return Notifikasi the loaded model
+     * @return TipeStatus the loaded model
      * @throws NotFoundHttpException if the model cannot be found
      */
     protected function findModel($id)
     {
-        if (($model = Notifikasi::findOne($id)) !== null) {
+        if (($model = TipeStatus::findOne($id)) !== null) {
             return $model;
         }
 

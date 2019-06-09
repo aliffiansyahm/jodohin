@@ -3,18 +3,19 @@
 namespace backend\controllers;
 
 use Yii;
-use backend\models\Notifikasi;
-use backend\models\NotifikasiSearch;
+use backend\models\Hubungan;
+use backend\models\HubunganSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
-use backend\models\Tipenotifiikasi;
 use backend\models\Pengguna;
+use backend\models\Tipestatus;
 use yii\helpers\ArrayHelper;
+
 /**
- * NotifikasiController implements the CRUD actions for Notifikasi model.
+ * HubunganController implements the CRUD actions for Hubungan model.
  */
-class NotifikasiController extends Controller
+class HubunganController extends Controller
 {
     /**
      * {@inheritdoc}
@@ -32,24 +33,23 @@ class NotifikasiController extends Controller
     }
 
     /**
-     * Lists all Notifikasi models.
+     * Lists all Hubungan models.
      * @return mixed
      */
     public function actionIndex()
     {
-        $searchModel = new NotifikasiSearch();
+        $searchModel = new HubunganSearch();
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
-        $dataNotifikasi = Notifikasi::find()->all();
-
+        $dataHubungan = Hubungan::find()->all();
         return $this->render('index', [
             'searchModel' => $searchModel,
             'dataProvider' => $dataProvider,
-            'dataNotifikasi' => $dataNotifikasi,
+            'dataHubungan' => $dataHubungan,
         ]);
     }
 
     /**
-     * Displays a single Notifikasi model.
+     * Displays a single Hubungan model.
      * @param integer $id
      * @return mixed
      * @throws NotFoundHttpException if the model cannot be found
@@ -62,32 +62,33 @@ class NotifikasiController extends Controller
     }
 
     /**
-     * Creates a new Notifikasi model.
+     * Creates a new Hubungan model.
      * If creation is successful, the browser will be redirected to the 'view' page.
      * @return mixed
      */
     public function actionCreate()
     {
-        $model = new Notifikasi();
-        $tipeNotifikasi = Tipenotifiikasi::find()->all();
-        $tipeNotifikasi = ArrayHelper::map($tipeNotifikasi,'IDTYPENOTIFIKASI','TIPENOTIFIKASI');
+        $model = new Hubungan();
 
         $pengguna = Pengguna::find()->all();
         $pengguna = ArrayHelper::map($pengguna,'IDPENGGUNA','NAMA');
 
+        $tipeHubungan = Tipestatus::find()->all();
+        $tipeHubungan = ArrayHelper::map($tipeHubungan,'IDSTATUS','NAMASTATUS');
+
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->IDNOTIFIKASI]);
+            return $this->redirect(['view', 'id' => $model->IDHUBUNGAN]);
         }
 
         return $this->render('create', [
             'model' => $model,
-            'tipeNotifikasi' => $tipeNotifikasi,
             'pengguna' => $pengguna,
+            'tipeHubungan' => $tipeHubungan,
         ]);
     }
 
     /**
-     * Updates an existing Notifikasi model.
+     * Updates an existing Hubungan model.
      * If update is successful, the browser will be redirected to the 'view' page.
      * @param integer $id
      * @return mixed
@@ -96,23 +97,26 @@ class NotifikasiController extends Controller
     public function actionUpdate($id)
     {
         $model = $this->findModel($id);
-        $tipeNotifikasi = Tipenotifiikasi::find()->all();
-        $tipeNotifikasi = ArrayHelper::map($tipeNotifikasi,'IDTYPENOTIFIKASI','TIPENOTIFIKASI');
+
         $pengguna = Pengguna::find()->all();
         $pengguna = ArrayHelper::map($pengguna,'IDPENGGUNA','NAMA');
+
+        $tipeHubungan = Tipestatus::find()->all();
+        $tipeHubungan = ArrayHelper::map($tipeHubungan,'IDSTATUS','NAMASTATUS');
+
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->IDNOTIFIKASI]);
+            return $this->redirect(['view', 'id' => $model->IDHUBUNGAN]);
         }
 
         return $this->render('update', [
             'model' => $model,
-            'tipeNotifikasi' => $tipeNotifikasi,
-            'pengguna' => $pengguna,  
+            'pengguna' => $pengguna,
+            'tipeHubungan' => $tipeHubungan,
         ]);
     }
 
     /**
-     * Deletes an existing Notifikasi model.
+     * Deletes an existing Hubungan model.
      * If deletion is successful, the browser will be redirected to the 'index' page.
      * @param integer $id
      * @return mixed
@@ -126,15 +130,15 @@ class NotifikasiController extends Controller
     }
 
     /**
-     * Finds the Notifikasi model based on its primary key value.
+     * Finds the Hubungan model based on its primary key value.
      * If the model is not found, a 404 HTTP exception will be thrown.
      * @param integer $id
-     * @return Notifikasi the loaded model
+     * @return Hubungan the loaded model
      * @throws NotFoundHttpException if the model cannot be found
      */
     protected function findModel($id)
     {
-        if (($model = Notifikasi::findOne($id)) !== null) {
+        if (($model = Hubungan::findOne($id)) !== null) {
             return $model;
         }
 

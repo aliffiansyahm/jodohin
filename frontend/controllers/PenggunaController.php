@@ -9,6 +9,7 @@ use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 use yii\web\UploadedFile;
+use  yii\web\Session;
 
 /**
  * PenggunaController implements the CRUD actions for Pengguna model.
@@ -139,8 +140,7 @@ class PenggunaController extends Controller
     public function actionLogin()
     {
         $model = new Pengguna();
-        // session_start();
-
+        //session_start();
         $email = $_POST['email'];
         $password = $_POST['password'];
 
@@ -149,13 +149,15 @@ class PenggunaController extends Controller
                 'PASSWORD' => $password])
         ->one();
 
-        $_SESSION['login'] = true;
-        $_SESSION['nama'] = $pengguna['NAMA'];
-        $_SESSION['id'] = $pengguna['IDPENGGUNA'];
-        $_SESSION['email'] = $email;
-        $_SESSION['idkepribadian'] = $pengguna['IDKEPRIBADIAN'];
-
-        if (!empty($pengguna) && isset($_SESSION)) {
+        $session  = Yii::$app->session;
+        //$session->open();
+        $session['login'] = true;
+        $session['nama'] = $pengguna['NAMA'];
+        $session['id'] = $pengguna['IDPENGGUNA'];
+        $session['email'] = $email;
+        $session['idkepribadian'] = $pengguna['IDKEPRIBADIAN'];
+        //$session->close();
+        if (!empty($pengguna) && isset($session)) {
             // print_r($_SESSION);
             return $this->redirect('../profile/index');
         //   return $this->redirect('../site/index');
@@ -167,11 +169,12 @@ class PenggunaController extends Controller
     public function actionHome(){
         return $this->render('dasbot');
     }
-    
+
     public function actionKeluar(){
-        session_destroy();
-        print_r($_SESSION);
-        return $this->redirect('../site/login');
+        $session  = Yii::$app->session;
+        $session->removeAll();
+        //print_r($_SESSION);
+        return $this->redirect('../site/landing');
     }
 
     public function actionProfile(){
@@ -189,7 +192,7 @@ class PenggunaController extends Controller
         if ($model->FOTO && $model->validate()) {
             $model->FOTO->saveAs('upload/' . $model->FOTO->baseName . '.' .$model->FOTO->extension);
         }
-        
+
         if ($model->save()) {
             return $this->goBack();
         }

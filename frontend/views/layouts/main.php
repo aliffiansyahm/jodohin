@@ -9,6 +9,7 @@ use yii\bootstrap\Nav;
 use yii\bootstrap\NavBar;
 use yii\widgets\Breadcrumbs;
 use common\widgets\Alert;
+$session  = Yii::$app->session;
 /*
 AppAsset::register($this);
 ?>
@@ -320,6 +321,7 @@ AppAsset::register($this);
 					</div>
 					<a href="<?php echo Yii::$app->request->BaseUrl ?>/olympus/02-ProfilePage.html" class="author-name fn">
 						<div class="author-title">
+							d<?php echo $session['nama']; ?>s
 							 <svg class="olymp-dropdown-arrow-icon"><use xlink:href="<?php echo Yii::$app->request->BaseUrl ?>/olympus/svg-icons/sprites/icons.svg#olymp-dropdown-arrow-icon"></use></svg>
 						</div>
 						<span class="author-subtitle">SPACE COWBOY</span>
@@ -452,6 +454,11 @@ AppAsset::register($this);
 				<li>
 					<a href="#">
 						<span>Contact</span>
+					</a>
+				</li>
+				<li>
+					<a href="<?php echo Yii::$app->request->BaseUrl ?>/pengguna/keluar">
+						<span>Log Out</span>
 					</a>
 				</li>
 			</ul>
@@ -896,6 +903,11 @@ AppAsset::register($this);
 										<span>Contact</span>
 									</a>
 								</li>
+								<li>
+									<a href="<?php echo Yii::$app->request->BaseUrl ?>/pengguna/keluar">
+										<span>Log Out</span>
+									</a>
+								</li>
 							</ul>
 						</div>
 
@@ -903,7 +915,7 @@ AppAsset::register($this);
 				</div>
 				<a href="02-ProfilePage.html" class="author-name fn">
 					<div class="author-title">
-						<?php echo $_SESSION['nama'] ?> 
+							<?php echo $session['nama']; ?>
 						<svg class="olymp-dropdown-arrow-icon"><use xlink:href="<?php echo Yii::$app->request->BaseUrl ?>/olympus/svg-icons/sprites/icons.svg#olymp-dropdown-arrow-icon"></use></svg>
 					</div>
 					<span class="author-subtitle">SPACE COWBOY</span>

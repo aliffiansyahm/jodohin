@@ -250,13 +250,13 @@ $this->title = 'My Yii Application';
               </div>
             </div>
           </li>
-          <li class="nav-item">
+          <!-- <li class="nav-item">
             <a class="nav-link" href="<?php echo Yii::$app->request->BaseUrl ?>/index.html">
               <i class="menu-icon mdi mdi-television"></i>
               <span class="menu-title">Dashboard</span>
             </a>
-          </li>
-          <li class="nav-item">
+          </li> -->
+          <!-- <li class="nav-item">
             <a class="nav-link" data-toggle="collapse" href="#ui-basic" aria-expanded="false" aria-controls="ui-basic">
               <i class="menu-icon mdi mdi-content-copy"></i>
               <span class="menu-title">Basic UI Elements</span>
@@ -272,14 +272,14 @@ $this->title = 'My Yii Application';
                 </li>
               </ul>
             </div>
-          </li>
+          </li> -->
           <li class="nav-item">
             <a class="nav-link" href="<?php echo Yii::$app->request->BaseUrl ?>/pages/forms/basic_elements.html">
               <i class="menu-icon mdi mdi-backup-restore"></i>
               <span class="menu-title">Form elements</span>
             </a>
           </li>
-          <li class="nav-item">
+          <!-- <li class="nav-item">
             <a class="nav-link" href="<?php echo Yii::$app->request->BaseUrl ?>/pages/charts/chartjs.html">
               <i class="menu-icon mdi mdi-chart-line"></i>
               <span class="menu-title">Charts</span>
@@ -290,7 +290,7 @@ $this->title = 'My Yii Application';
               <i class="menu-icon mdi mdi-table"></i>
               <span class="menu-title">Tables</span>
             </a>
-          </li>
+          </li> -->
           <li class="nav-item">
             <a class="nav-link" href="<?php echo Yii::$app->request->BaseUrl ?>/pages/icons/font-awesome.html">
               <i class="menu-icon mdi mdi-sticker"></i>
@@ -361,9 +361,27 @@ $this->title = 'My Yii Application';
             </a>
           </li>
           <li class="nav-item">
+            <a class="nav-link" href="<?php echo Yii::$app->request->BaseUrl ?>/pesan">
+              <i class="menu-icon fa fa-telegram"></i>
+              <span class="menu-title">Pesan</span>
+            </a>
+          </li>
+          <li class="nav-item">
             <a class="nav-link" href="<?php echo Yii::$app->request->BaseUrl ?>/pengguna">
-              <i class="menu-icon fa fa-user"></i>
+              <i class="menu-icon fa fa-users"></i>
               <span class="menu-title">Pengguna</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="<?php echo Yii::$app->request->BaseUrl ?>/tipe-status">
+              <i class="menu-icon fa fa-quote-left"></i>
+              <span class="menu-title">Tipe Status</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="<?php echo Yii::$app->request->BaseUrl ?>/hubungan">
+              <i class="menu-icon fa fa-heart"></i>
+              <span class="menu-title">Hubungan</span>
             </a>
           </li>
         </ul>
