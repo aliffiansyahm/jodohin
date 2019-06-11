@@ -12,8 +12,6 @@ $this->title = 'Update Pengguna: ' . $model->IDPENGGUNA;
 ?>
 <div class="pengguna-update">
 
-    <h1><?= Html::encode($this->title) ?></h1>
-
     <?= $this->render('_form', [
         'model' => $model,
     ]) ?>

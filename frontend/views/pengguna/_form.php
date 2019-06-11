@@ -9,32 +9,24 @@ use yii\widgets\ActiveForm;
 /* @var $form yii\widgets\ActiveForm */
 ?>
 
-<div class="pengguna-form">
+<div class="ui-block">
+        <div class="ui-block-title">
+          <h6 class="title">Update Foto Profil</h6>
+        </div>
+        <div class="ui-block-content">
+        <div class="pengguna-form">
 
-    <?php $form = ActiveForm::begin(); ?>
+<?php $form = ActiveForm::begin(); ?>
 
-    <?= $form->field($model, 'EMAIL')->textInput(['maxlength' => true]) ?>
+<?= $form->field($model, 'FOTO')->fileInput() ?>
 
-    <?= $form->field($model, 'PASSWORD')->passwordInput(['maxlength' => true]) ?>
+<div class="form-group">
+    <?= Html::submitButton('Save', ['class' => 'btn btn-success']) ?>
+</div>
 
-    <?= $form->field($model, 'TANGGALLAHIR')->textInput() ?>
-
-    
-
-    <?= $form->field($model, 'ALAMAT')->textInput(['maxlength' => true]) ?>
-
-    <?= $form->field($model, 'BIO')->textInput(['maxlength' => true]) ?>
-
-    <?= $form->field($model, 'FOTO')->textInput(['maxlength' => true]) ?>
-
-    <?= $form->field($model, 'JENISKELAMIN')->dropDownList(
-			['Laki Laki' => 'Laki Laki', 'Perempuan' => 'Perempuan']
-			); ?>
-
-    <div class="form-group">
-        <?= Html::submitButton('Save', ['class' => 'btn btn-success']) ?>
-    </div>
-
-    <?php ActiveForm::end(); ?>
+<?php ActiveForm::end(); ?>
 
 </div>
+        </div>
+        </div>
+
