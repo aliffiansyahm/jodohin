@@ -32,6 +32,7 @@ $this->params['breadcrumbs'][] = $this->title;
             'IDKOMENTAR',
             'IDPENGGUNA',
             'IDPOST',
+            'ISIKOMENTAR',
             'WAKTUKOMENTAR',
         ],
     ]) ?>

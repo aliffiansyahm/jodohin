@@ -21,6 +21,8 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'IDPOST') ?>
 
+    <?= $form->field($model, 'ISIKOMENTAR') ?>
+
     <?= $form->field($model, 'WAKTUKOMENTAR') ?>
 
     <div class="form-group">
