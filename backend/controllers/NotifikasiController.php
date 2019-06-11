@@ -9,6 +9,7 @@ use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 use backend\models\Tipenotifiikasi;
+use backend\models\Pengguna;
 use yii\helpers\ArrayHelper;
 /**
  * NotifikasiController implements the CRUD actions for Notifikasi model.
@@ -38,10 +39,12 @@ class NotifikasiController extends Controller
     {
         $searchModel = new NotifikasiSearch();
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
+        $dataNotifikasi = Notifikasi::find()->all();
 
         return $this->render('index', [
             'searchModel' => $searchModel,
             'dataProvider' => $dataProvider,
+            'dataNotifikasi' => $dataNotifikasi,
         ]);
     }
 
@@ -68,6 +71,10 @@ class NotifikasiController extends Controller
         $model = new Notifikasi();
         $tipeNotifikasi = Tipenotifiikasi::find()->all();
         $tipeNotifikasi = ArrayHelper::map($tipeNotifikasi,'IDTYPENOTIFIKASI','TIPENOTIFIKASI');
+
+        $pengguna = Pengguna::find()->all();
+        $pengguna = ArrayHelper::map($pengguna,'IDPENGGUNA','NAMA');
+
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             return $this->redirect(['view', 'id' => $model->IDNOTIFIKASI]);
         }
@@ -75,6 +82,7 @@ class NotifikasiController extends Controller
         return $this->render('create', [
             'model' => $model,
             'tipeNotifikasi' => $tipeNotifikasi,
+            'pengguna' => $pengguna,
         ]);
     }
 
@@ -90,6 +98,8 @@ class NotifikasiController extends Controller
         $model = $this->findModel($id);
         $tipeNotifikasi = Tipenotifiikasi::find()->all();
         $tipeNotifikasi = ArrayHelper::map($tipeNotifikasi,'IDTYPENOTIFIKASI','TIPENOTIFIKASI');
+        $pengguna = Pengguna::find()->all();
+        $pengguna = ArrayHelper::map($pengguna,'IDPENGGUNA','NAMA');
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             return $this->redirect(['view', 'id' => $model->IDNOTIFIKASI]);
         }
@@ -97,6 +107,7 @@ class NotifikasiController extends Controller
         return $this->render('update', [
             'model' => $model,
             'tipeNotifikasi' => $tipeNotifikasi,
+            'pengguna' => $pengguna,  
         ]);
     }
 

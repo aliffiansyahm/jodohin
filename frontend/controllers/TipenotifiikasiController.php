@@ -3,8 +3,8 @@
 namespace frontend\controllers;
 
 use Yii;
-use backend\models\Tipenotifiikasi;
-use backend\models\TipeNotifiikasiSearch;
+use frontend\models\Tipenotifiikasi;
+use frontend\models\TipeNotifiikasiSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;

@@ -10,17 +10,18 @@ use frontend\models\SignupForm;
     <div class="container">
         <div class="row align-items-center justify-content-center">
             <div class="col-md-5 relative align-self-center">
+                <form action="../pengguna/login" class="bg-white rounded pb_form_v1" method="post">
+                    <h2 class="mb-4 mt-0 text-center">Login</h2>
+                    <div class="form-group">
+                        <input type="text" class="form-control pb_height-50 reverse" name="name" placeholder="name">
+                    </div>
+                    <div class="form-group">
+                        <input type="password" class="form-control pb_height-50 reverse" name="password" placeholder="password">
 
-                <form action="#" class="bg-white rounded pb_form_v1" id="login-form" method="post">
-                    <h2 class="mb-4 mt-0 text-center">Masuk</h2>
-                    <div class="form-group">
-                        <input type="text" class="form-control pb_height-50 reverse" name="username" placeholder="username">
                     </div>
+                    <input type="hidden" name="_csrf" value="<?=Yii::$app->request->getCsrfToken()?>" />
                     <div class="form-group">
-                        <input type="text" class="form-control pb_height-50 reverse" placeholder="password" name="password">
-                    </div>
-                    <div class="form-group">
-                        <input type="submit" class="btn btn-primary btn-lg btn-block pb_btn-pill  btn-shadow-blue" value="Masuk" name="login-button">
+                        <input type="submit" class="btn btn-primary btn-lg btn-block pb_btn-pill  btn-shadow-blue" value="login">
                     </div>
                 </form>
 

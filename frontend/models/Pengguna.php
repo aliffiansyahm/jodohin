@@ -17,7 +17,6 @@ use Yii;
  * @property string $BIO
  * @property string $FOTO
  * @property string $JENISKELAMIN
- *
  * @property Follow[] $follows
  * @property Follow[] $follows0
  * @property Hobikepengguna[] $hobikepenggunas
