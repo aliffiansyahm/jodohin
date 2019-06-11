@@ -28,7 +28,8 @@ $this->params['breadcrumbs'][] = $this->title;
       </p>
       <a href="<?php echo Yii::$app->request->BaseUrl ?>/post/view?id=<?php echo $model->IDPOST; ?>">
         <div class="post-thumb">
-          <img src="<?php echo Yii::$app->request->BaseUrl ?>/fotopost/<?php echo $model->GAMBARPOST; ?>" alt="photo">
+          <?= Html::img(Yii::getAlias('@fileUrl').'/post/'.$model->GAMBARPOST);?>
+          <!-- <img src="<?php echo Yii::$app->request->BaseUrl ?>/fotopost/<?php echo $model->GAMBARPOST; ?>" alt="photo"> -->
         </div>
       </a>
 
