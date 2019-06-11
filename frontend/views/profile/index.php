@@ -20,7 +20,7 @@
 										<a href="02-ProfilePage.html" class="active">Timeline</a>
 									</li>
 									<li>
-										<a href="sesi">cek sesi coba</a>
+										<a href="<?php echo Yii::$app->request->BaseUrl ?>/profile/sesi">cek sesi coba</a>
 									</li>
 									<li>
 										<a href="06-ProfilePage.html">Friends</a>

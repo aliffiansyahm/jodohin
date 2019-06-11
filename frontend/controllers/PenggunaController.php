@@ -155,6 +155,7 @@ class PenggunaController extends Controller
         $session['nama'] = $pengguna['NAMA'];
         $session['id'] = $pengguna['IDPENGGUNA'];
         $session['email'] = $email;
+        $session['foto'] = $pengguna['FOTO'];
         $session['idkepribadian'] = $pengguna['IDKEPRIBADIAN'];
         //$session->close();
         if (!empty($pengguna) && isset($session)) {
