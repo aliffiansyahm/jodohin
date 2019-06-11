@@ -103,12 +103,17 @@ class PertanyaanController extends Controller
             if($n < $hasil[$i])
                 $n = $i;
         }
-        return $this->render('skor', [
-            'dataSkor' => $hasil,
-            'tipe' => $n,
-        ]);
 
-        $_SESSION['idkepribadian']=$tipe;
+        $_SESSION['idkepribadian']=$n;
+
+        return $this->redirect('../pengguna/personality');
+
+
+        // return $this->render('skor', [
+        //     'dataSkor' => $hasil,
+        //     'tipe' => $n,
+        // ]);
+
     }
     /**
      * Displays a single Pertanyaan model.
@@ -173,6 +178,11 @@ class PertanyaanController extends Controller
         $this->findModel($id)->delete();
 
         return $this->redirect(['index']);
+    }
+
+    public function actionSkor(){
+
+        return $this->render('skor');
     }
 
     /**
