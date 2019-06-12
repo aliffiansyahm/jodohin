@@ -103,7 +103,18 @@ AppAsset::register($this);
 
 	<!-- Main Styles CSS -->
  	<link rel="stylesheet" type="text/css" href="<?php echo Yii::$app->request->BaseUrl ?>/olympus/css/main.min.css">
+<style>
+    .image-upload-post > input
+    {
+        display: none;
+    }
 
+    .image-upload-post img
+    {
+        width: 80px;
+        cursor: pointer;
+    }
+</style>
 	<!-- Main Font -->
 	<script src="<?php echo Yii::$app->request->BaseUrl ?>/olympus/js/webfontloader.min.js"></script>
 	<script>

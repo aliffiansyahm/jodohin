@@ -5,6 +5,7 @@ namespace frontend\controllers;
 use Yii;
 use frontend\models\Post;
 use frontend\models\PostSearch;
+use yii\db\Query;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
@@ -38,9 +39,13 @@ class PostController extends Controller
     {
         $searchModel = new PostSearch();
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
-        $postingan =  Post::find()
-                    ->where(['IDPENGGUNA' => $_SESSION['id']])
-                    ->all();
+        $subquery = (new Query())->select('IDPENGGUNA')->distinct()->from('follow')->where(['follow.IDPENGIKUT' => $_SESSION['id']]);
+        $postingan =  (new Query())
+            ->from('post')
+            ->join('JOIN', 'pengguna', 'post.IDPENGGUNA = pengguna.IDPENGGUNA')
+            ->where(['IN', 'post.IDPENGGUNA', $subquery])
+            ->orWhere(['post.IDPENGGUNA' => $_SESSION['id']])
+            ->all();
         return $this->render('index', [
             'searchModel' => $searchModel,
             'dataProvider' => $dataProvider,
@@ -87,6 +92,23 @@ class PostController extends Controller
         return $this->render('create', [
             'model' => $model,
         ]);
+    }
+
+    public function actionStore()
+    {
+        if (Yii::$app->request->isPost) {
+            $post = new Post();
+            $post->file_gambar = UploadedFile::getInstanceByName('file_gambar');
+            $post->IDPENGGUNA = $_SESSION['id'];
+            if ($post->file_gambar != "") {
+                $post->GAMBARPOST = $post->file_gambar->getBaseName() . "." . $post->file_gambar->getExtension();
+                $post->file_gambar->saveAs(Yii::getAlias('@filePath').'/'.'post'.'/'.$post->file_gambar->getBaseName().'.'.$post->file_gambar->getExtension());
+            }
+            $post->CAPTION = Yii::$app->request->post('CAPTION');
+            $post->WAKTUPOST = date('Y-m-d');
+            $post->save();
+        }
+        return $this->redirect(['index']);
     }
 
     /**

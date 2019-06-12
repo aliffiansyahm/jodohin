@@ -22,6 +22,9 @@ class Post extends \yii\db\ActiveRecord
     /**
      * {@inheritdoc}
      */
+
+    public $file_gambar;
+
     public static function tableName()
     {
         return 'post';
@@ -37,6 +40,7 @@ class Post extends \yii\db\ActiveRecord
             [['WAKTUPOST'], 'safe'],
             [['GAMBARPOST', 'CAPTION'], 'string', 'max' => 200],
             [['IDPENGGUNA'], 'exist', 'skipOnError' => true, 'targetClass' => Pengguna::className(), 'targetAttribute' => ['IDPENGGUNA' => 'IDPENGGUNA']],
+            [['file_gambar'], 'file', 'skipOnEmpty' => false]
         ];
     }
 
