@@ -145,7 +145,7 @@ $main_services = new MainServices();
 					</a>
 				</li>
 				<li>
-					<a href="<?php echo Yii::$app->request->BaseUrl ?>/olympus/16-FavPagesFeed.html">
+					<a href="<?php echo Yii::$app->request->BaseUrl ?>/profile/find">
 						<svg class="olymp-star-icon left-menu-icon"  data-toggle="tooltip" data-placement="right"   data-original-title="FAV PAGE"><use xlink:href="<?php echo Yii::$app->request->BaseUrl ?>/olympus/svg-icons/sprites/icons.svg#olymp-star-icon"></use></svg>
 					</a>
 				</li>
@@ -218,7 +218,7 @@ $main_services = new MainServices();
 					</a>
 				</li>
 				<li>
-					<a href="<?php echo Yii::$app->request->BaseUrl ?>/olympus/16-FavPagesFeed.html">
+					<a href="<?php echo Yii::$app->request->BaseUrl ?>/profile/find">
 						<svg class="olymp-star-icon left-menu-icon"  data-toggle="tooltip" data-placement="right"   data-original-title="FAV PAGE"><use xlink:href="<?php echo Yii::$app->request->BaseUrl ?>/olympus/svg-icons/sprites/icons.svg#olymp-star-icon"></use></svg>
 						<span class="left-menu-title">Fav Pages Feed</span>
 					</a>
@@ -345,13 +345,13 @@ $main_services = new MainServices();
 					</a>
 				</li>
 				<li>
-					<a href="<?php echo Yii::$app->request->BaseUrl ?>/olympus/mobile-index.html">
+					<a href="<?php echo Yii::$app->request->BaseUrl ?>/post">
 						<svg class="olymp-newsfeed-icon left-menu-icon" data-toggle="tooltip" data-placement="right"   data-original-title="NEWSFEED"><use xlink:href="<?php echo Yii::$app->request->BaseUrl ?>/olympus/svg-icons/sprites/icons.svg#olymp-newsfeed-icon"></use></svg>
 						<span class="left-menu-title">Newsfeed</span>
 					</a>
 				</li>
 				<li>
-					<a href="<?php echo Yii::$app->request->BaseUrl ?>/olympus/Mobile-28-YourAccount-PersonalInformation.html">
+					<a href="<?php echo Yii::$app->request->BaseUrl ?>/profile/find">
 						<svg class="olymp-star-icon left-menu-icon"  data-toggle="tooltip" data-placement="right"   data-original-title="FAV PAGE"><use xlink:href="<?php echo Yii::$app->request->BaseUrl ?>/olympus/svg-icons/sprites/icons.svg#olymp-star-icon"></use></svg>
 						<span class="left-menu-title">Fav Pages Feed</span>
 					</a>
@@ -411,57 +411,11 @@ $main_services = new MainServices();
 			</div>
 
 			<ul class="account-settings">
-				<li>
-					<a href="#">
 
-						<svg class="olymp-menu-icon"><use xlink:href="<?php echo Yii::$app->request->BaseUrl ?>/olympus/svg-icons/sprites/icons.svg#olymp-menu-icon"></use></svg>
-
-						<span>Profile Settings</span>
-					</a>
-				</li>
-				<li>
-					<a href="#">
-						<svg class="olymp-star-icon left-menu-icon"  data-toggle="tooltip" data-placement="right"   data-original-title="FAV PAGE"><use xlink:href="<?php echo Yii::$app->request->BaseUrl ?>/olympus/svg-icons/sprites/icons.svg#olymp-star-icon"></use></svg>
-
-						<span>Create Fav Page</span>
-					</a>
-				</li>
-				<li>
-					<a href="#">
-						<svg class="olymp-logout-icon"><use xlink:href="<?php echo Yii::$app->request->BaseUrl ?>/olympus/svg-icons/sprites/icons.svg#olymp-logout-icon"></use></svg>
-
-						<span>Log Out</span>
-					</a>
-				</li>
-			</ul>
-
-			<div class="ui-block-title ui-block-title-small">
-				<h6 class="title">About Olympus</h6>
-			</div>
-
-			<ul class="about-olympus">
-				<li>
-					<a href="#">
-						<span>Terms and Conditions</span>
-					</a>
-				</li>
-				<li>
-					<a href="#">
-						<span>FAQs</span>
-					</a>
-				</li>
-				<li>
-					<a href="#">
-						<span>Careers</span>
-					</a>
-				</li>
-				<li>
-					<a href="#">
-						<span>Contact</span>
-					</a>
-				</li>
 				<li>
 					<a href="<?php echo Yii::$app->request->BaseUrl ?>/pengguna/keluar">
+						<svg class="olymp-logout-icon"><use xlink:href="<?php echo Yii::$app->request->BaseUrl ?>/olympus/svg-icons/sprites/icons.svg#olymp-logout-icon"></use></svg>
+
 						<span>Log Out</span>
 					</a>
 				</li>
@@ -621,34 +575,33 @@ $main_services = new MainServices();
 
 					<div class="mCustomScrollbar" data-mcs-theme="dark">
 						<ul class="notification-list friend-requests">
-							<li>
-								<div class="author-thumb">
-									<img src="<?php echo Yii::$app->request->BaseUrl ?>/olympus/img/avatar55-sm.jpg" alt="author">
-								</div>
-								<div class="notification-event">
-									<a href="#" class="h6 notification-friend">Tamara Romanoff</a>
-									<span class="chat-message-item">Mutual Friend: Sarah Hetfield</span>
-								</div>
-								<span class="notification-icon">
-									<a href="#" class="accept-request">
-										<span class="icon-add without-text">
-											<svg class="olymp-happy-face-icon"><use xlink:href="<?php echo Yii::$app->request->BaseUrl ?>/olympus/svg-icons/sprites/icons.svg#olymp-happy-face-icon"></use></svg>
-										</span>
-									</a>
+								<li>
+									<div class="author-thumb">
+										<img src="<?php echo Yii::$app->request->BaseUrl ?>/olympus/img/avatar55-sm.jpg" alt="author">
+									</div>
+									<div class="notification-event">
+										<a href="#" class="h6 notification-friend">Tamara Romanoff</a>
+										<span class="chat-message-item">Mutual Friend: Sarah Hetfield</span>
+									</div>
+									<span class="notification-icon">
+										<a href="#" class="accept-request">
+											<span class="icon-add without-text">
+												<svg class="olymp-happy-face-icon"><use xlink:href="<?php echo Yii::$app->request->BaseUrl ?>/olympus/svg-icons/sprites/icons.svg#olymp-happy-face-icon"></use></svg>
+											</span>
+										</a>
 
-									<a href="#" class="accept-request request-del">
-										<span class="icon-minus">
-											<svg class="olymp-happy-face-icon"><use xlink:href="<?php echo Yii::$app->request->BaseUrl ?>/olympus/svg-icons/sprites/icons.svg#olymp-happy-face-icon"></use></svg>
-										</span>
-									</a>
+										<a href="#" class="accept-request request-del">
+											<span class="icon-minus">
+												<svg class="olymp-happy-face-icon"><use xlink:href="<?php echo Yii::$app->request->BaseUrl ?>/olympus/svg-icons/sprites/icons.svg#olymp-happy-face-icon"></use></svg>
+											</span>
+										</a>
 
-								</span>
+									</span>
 
-								<!-- <div class="more">
-									<svg class="olymp-three-dots-icon"><use xlink:href="<?php echo Yii::$app->request->BaseUrl ?>/olympus/svg-icons/sprites/icons.svg#olymp-three-dots-icon"></use></svg>
-								</div> -->
-							</li>
-
+									<!-- <div class="more">
+										<svg class="olymp-three-dots-icon"><use xlink:href="<?php echo Yii::$app->request->BaseUrl ?>/olympus/svg-icons/sprites/icons.svg#olymp-three-dots-icon"></use></svg>
+									</div> -->
+								</li>
 						</ul>
 					</div>
 
@@ -809,14 +762,7 @@ $main_services = new MainServices();
 									</a>
 								</li>
 								<li>
-									<a href="<?php echo Yii::$app->request->BaseUrl ?>/olympus/36-FavPage-SettingsAndCreatePopup.html">
-										<svg class="olymp-star-icon left-menu-icon"  data-toggle="tooltip" data-placement="right"   data-original-title="FAV PAGE"><use xlink:href="<?php echo Yii::$app->request->BaseUrl ?>/olympus/svg-icons/sprites/icons.svg#olymp-star-icon"></use></svg>
-
-										<span>Create Fav Page</span>
-									</a>
-								</li>
-								<li>
-									<a href="#">
+									<a href="<?php echo Yii::$app->request->BaseUrl ?>/pengguna/keluar">
 										<svg class="olymp-logout-icon"><use xlink:href="<?php echo Yii::$app->request->BaseUrl ?>/olympus/svg-icons/sprites/icons.svg#olymp-logout-icon"></use></svg>
 
 										<span>Log Out</span>
@@ -824,69 +770,6 @@ $main_services = new MainServices();
 								</li>
 							</ul>
 
-							<div class="ui-block-title ui-block-title-small">
-								<h6 class="title">Chat Settings</h6>
-							</div>
-
-							<ul class="chat-settings">
-								<li>
-									<a href="#">
-										<span class="icon-status online"></span>
-										<span>Online</span>
-									</a>
-								</li>
-								<li>
-									<a href="#">
-										<span class="icon-status away"></span>
-										<span>Away</span>
-									</a>
-								</li>
-								<li>
-									<a href="#">
-										<span class="icon-status disconected"></span>
-										<span>Disconnected</span>
-									</a>
-								</li>
-								<li>
-									<a href="#">
-										<span class="icon-status status-invisible"></span>
-										<span>Invisible</span>
-									</a>
-								</li>
-							</ul>
-
-
-							<div class="ui-block-title ui-block-title-small">
-								<h6 class="title">About Olympus</h6>
-							</div>
-
-							<ul>
-								<li>
-									<a href="#">
-										<span>Terms and Conditions</span>
-									</a>
-								</li>
-								<li>
-									<a href="#">
-										<span>FAQs</span>
-									</a>
-								</li>
-								<li>
-									<a href="#">
-										<span>Careers</span>
-									</a>
-								</li>
-								<li>
-									<a href="#">
-										<span>Contact</span>
-									</a>
-								</li>
-								<li>
-									<a href="<?php echo Yii::$app->request->BaseUrl ?>/pengguna/keluar">
-										<span>Log Out</span>
-									</a>
-								</li>
-							</ul>
 						</div>
 
 					</div>
@@ -957,8 +840,8 @@ $main_services = new MainServices();
 
 			<div class="mCustomScrollbar" data-mcs-theme="dark">
 				<div class="ui-block-title ui-block-title-small">
-					<h6 class="title">FRIEND REQUESTS</h6>
-					<a href="#">Find Friends</a>
+					<h6 class="title">Pemintaan Hubungan</h6>
+					<a href="#">Permintaan Hubungan</a>
 					<a href="#">Settings</a>
 				</div>
 				<ul class="notification-list friend-requests">

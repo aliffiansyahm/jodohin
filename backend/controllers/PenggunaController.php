@@ -8,6 +8,8 @@ use backend\models\PenggunaSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
+use backend\models\Kepribadian;
+use yii\helpers\ArrayHelper;
 
 /**
  * PenggunaController implements the CRUD actions for Pengguna model.
@@ -23,7 +25,7 @@ class PenggunaController extends Controller
             'verbs' => [
                 'class' => VerbFilter::className(),
                 'actions' => [
-                    'delete' => ['POST'],
+                    'delete' => ['get'],
                 ],
             ],
         ];
@@ -67,12 +69,16 @@ class PenggunaController extends Controller
     {
         $model = new Pengguna();
 
+        $kepribadian = Kepribadian::find()->all();
+        $kepribadian = ArrayHelper::map($kepribadian,'IDKEPRIBADIAN','NAMAKEPRIBADIAN');
+
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             return $this->redirect(['view', 'id' => $model->IDPENGGUNA]);
         }
 
         return $this->render('create', [
             'model' => $model,
+            'dataKepribadian' => $kepribadian,
         ]);
     }
 
@@ -87,12 +93,16 @@ class PenggunaController extends Controller
     {
         $model = $this->findModel($id);
 
+        $kepribadian = Kepribadian::find()->all();
+        $kepribadian = ArrayHelper::map($kepribadian,'IDKEPRIBADIAN','NAMAKEPRIBADIAN');
+
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             return $this->redirect(['view', 'id' => $model->IDPENGGUNA]);
         }
 
         return $this->render('update', [
             'model' => $model,
+            'dataKepribadian' => $kepribadian,
         ]);
     }
 
