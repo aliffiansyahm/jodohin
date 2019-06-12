@@ -71,31 +71,13 @@ class PenggunaController extends Controller
         $model->NAMA = $_POST['first_name'].$_POST['last_name'];
         $model->EMAIL = $_POST['email'];
         $model->PASSWORD = $_POST['password'];
-        $model->TANGGALLAHIR = $_POST['datetimepicker'];
+        $model->TANGGALLAHIR = date('Y-m-d', strtotime($_POST['datetimepicker']));
         $model->JENISKELAMIN = $_POST['gender'];
 
 
         if ($model->save() && isset($_POST['optionsCheckboxes'])) {
             return $this->redirect('../site/landing');
         }
-
-        // jangan diapa"in ya yg ini ... picturenya belum
-        // if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            // $model->NAMA = $_POST['name'];
-            // $model->EMAIL = $_POST['email'];
-            // $model->PASSWORD = $_POST['password'];
-
-            // $model->FOTO = UploadedFile::getInstance($model, 'FOTO');
-
-            // $model->FOTO->saveAs('uploads/' . $model->FOTO->baseName . '.' .$model->FOTO->extension);
-            //   if ($model->FOTO && $model->validate()) {
-            //     $model->FOTO->saveAs('upload/' . $model->FOTO->baseName . '.' .$model->FOTO->extension);
-            //   }
-
-            // $model->save();
-
-            // return $this->redirect(['view', 'id' => $model->IDPENGGUNA]);
-        // }
     }
 
     public function beforeAction($action)

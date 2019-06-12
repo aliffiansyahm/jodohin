@@ -9,6 +9,8 @@ use yii\bootstrap\Nav;
 use yii\bootstrap\NavBar;
 use yii\widgets\Breadcrumbs;
 use common\widgets\Alert;
+use frontend\services\MainServices;
+
 $session  = Yii::$app->session;
 /*
 AppAsset::register($this);
@@ -116,7 +118,9 @@ AppAsset::register($this);
 
 </head>
 <body>
-
+<?php
+$main_services = new MainServices();
+?>
 <!-- Fixed Sidebar Left -->
 
 <div class="fixed-sidebar">
@@ -431,18 +435,18 @@ AppAsset::register($this);
 
 		<div class="mCustomScrollbar" data-mcs-theme="dark">
 			<ul class="chat-users">
-				<li class="inline-items js-chat-open">
+                <?php foreach ($main_services->getFollowers($_SESSION['id']) as $follower) { ?>
+                <li class="inline-items js-chat-open">
 					<div class="author-thumb">
-						<img alt="author" src="<?php echo Yii::$app->request->BaseUrl ?>/olympus/img/avatar67-sm.jpg" class="avatar">
-						<span class="icon-status online"></span>
+                        <?php if ($follower['FOTO'] == ""): ?>
+                            <img width="45" src="<?php echo Yii::$app->request->BaseUrl ?>/olympus/img/author-main1.jpg" alt="author" class="avatar">
+                        <?php else: ?>
+                            <img width="45" src="<?php echo Yii::$app->request->BaseUrl ?>/foto/post/1.png" alt="author">
+                        <?php endif; ?>
+                        <span class="icon-status online"></span>
 					</div>
 				</li>
-				<li class="inline-items js-chat-open">
-					<div class="author-thumb">
-						<img alt="author" src="<?php echo Yii::$app->request->BaseUrl ?>/olympus/img/avatar62-sm.jpg" class="avatar">
-						<span class="icon-status online"></span>
-					</div>
-				</li>
+                <?php } ?>
 			</ul>
 		</div>
 
@@ -468,68 +472,42 @@ AppAsset::register($this);
 			</div>
 
 			<ul class="chat-users">
-				<li class="inline-items js-chat-open">
+                <?php foreach ($main_services->getFollowers($_SESSION['id']) as $follower) { ?>
+                    <li class="inline-items js-chat-open">
+                        <div class="author-thumb">
+                            <?php if ($follower['FOTO'] == ""): ?>
+                                <img width="45" src="<?php echo Yii::$app->request->BaseUrl ?>/olympus/img/author-main1.jpg" alt="author" class="avatar">
+                            <?php else: ?>
+                                <img width="45" src="<?php echo Yii::$app->request->BaseUrl ?>/foto/post/1.png" alt="author">
+                            <?php endif; ?>
+                            <span class="icon-status online"></span>
+                        </div>
 
-					<div class="author-thumb">
-						<img alt="author" src="<?php echo Yii::$app->request->BaseUrl ?>/olympus/img/avatar67-sm.jpg" class="avatar">
-						<span class="icon-status online"></span>
-					</div>
+                        <div class="author-status">
+                            <a href="#" class="h6 author-name"><?php echo $follower['NAMA'] ; ?></a>
+                            <span class="status">ONLINE</span>
+                        </div>
 
-					<div class="author-status">
-						<a href="#" class="h6 author-name">Carol Summers</a>
-						<span class="status">ONLINE</span>
-					</div>
+                        <div class="more"><svg class="olymp-three-dots-icon"><use xlink:href="<?php echo Yii::$app->request->BaseUrl ?>/olympus/svg-icons/sprites/icons.svg#olymp-three-dots-icon"></use></svg>
 
-					<div class="more"><svg class="olymp-three-dots-icon"><use xlink:href="<?php echo Yii::$app->request->BaseUrl ?>/olympus/svg-icons/sprites/icons.svg#olymp-three-dots-icon"></use></svg>
+                            <ul class="more-icons">
+                                <li>
+                                    <svg data-toggle="tooltip" data-placement="top" data-original-title="START CONVERSATION" class="olymp-comments-post-icon"><use xlink:href="<?php echo Yii::$app->request->BaseUrl ?>/olympus/svg-icons/sprites/icons.svg#olymp-comments-post-icon"></use></svg>
+                                </li>
 
-						<ul class="more-icons">
-							<li>
-								<svg data-toggle="tooltip" data-placement="top" data-original-title="START CONVERSATION" class="olymp-comments-post-icon"><use xlink:href="<?php echo Yii::$app->request->BaseUrl ?>/olympus/svg-icons/sprites/icons.svg#olymp-comments-post-icon"></use></svg>
-							</li>
+                                <li>
+                                    <svg data-toggle="tooltip" data-placement="top" data-original-title="ADD TO CONVERSATION" class="olymp-add-to-conversation-icon"><use xlink:href="<?php echo Yii::$app->request->BaseUrl ?>/olympus/svg-icons/sprites/icons.svg#olymp-add-to-conversation-icon"></use></svg>
+                                </li>
 
-							<li>
-								<svg data-toggle="tooltip" data-placement="top" data-original-title="ADD TO CONVERSATION" class="olymp-add-to-conversation-icon"><use xlink:href="<?php echo Yii::$app->request->BaseUrl ?>/olympus/svg-icons/sprites/icons.svg#olymp-add-to-conversation-icon"></use></svg>
-							</li>
+                                <li>
+                                    <svg data-toggle="tooltip" data-placement="top" data-original-title="BLOCK FROM CHAT" class="olymp-block-from-chat-icon"><use xlink:href="<?php echo Yii::$app->request->BaseUrl ?>/olympus/svg-icons/sprites/icons.svg#olymp-block-from-chat-icon"></use></svg>
+                                </li>
+                            </ul>
 
-							<li>
-								<svg data-toggle="tooltip" data-placement="top" data-original-title="BLOCK FROM CHAT" class="olymp-block-from-chat-icon"><use xlink:href="<?php echo Yii::$app->request->BaseUrl ?>/olympus/svg-icons/sprites/icons.svg#olymp-block-from-chat-icon"></use></svg>
-							</li>
-						</ul>
+                        </div>
 
-					</div>
-
-				</li>
-				<li class="inline-items js-chat-open">
-
-					<div class="author-thumb">
-						<img alt="author" src="<?php echo Yii::$app->request->BaseUrl ?>/olympus/img/avatar62-sm.jpg" class="avatar">
-						<span class="icon-status online"></span>
-					</div>
-
-					<div class="author-status">
-						<a href="#" class="h6 author-name">Mathilda Brinker</a>
-						<span class="status">AT WORK!</span>
-					</div>
-
-					<div class="more"><svg class="olymp-three-dots-icon"><use xlink:href="<?php echo Yii::$app->request->BaseUrl ?>/olympus/svg-icons/sprites/icons.svg#olymp-three-dots-icon"></use></svg>
-
-						<ul class="more-icons">
-							<li>
-								<svg data-toggle="tooltip" data-placement="top" data-original-title="START CONVERSATION" class="olymp-comments-post-icon"><use xlink:href="<?php echo Yii::$app->request->BaseUrl ?>/olympus/svg-icons/sprites/icons.svg#olymp-comments-post-icon"></use></svg>
-							</li>
-
-							<li>
-								<svg data-toggle="tooltip" data-placement="top" data-original-title="ADD TO CONVERSATION" class="olymp-add-to-conversation-icon"><use xlink:href="<?php echo Yii::$app->request->BaseUrl ?>/olympus/svg-icons/sprites/icons.svg#olymp-add-to-conversation-icon"></use></svg>
-							</li>
-
-							<li>
-								<svg data-toggle="tooltip" data-placement="top" data-original-title="BLOCK FROM CHAT" class="olymp-block-from-chat-icon"><use xlink:href="<?php echo Yii::$app->request->BaseUrl ?>/olympus/svg-icons/sprites/icons.svg#olymp-block-from-chat-icon"></use></svg>
-							</li>
-						</ul>
-
-					</div>
-
-				</li>
+                    </li>
+                <?php } ?>
 			</ul>
 
 		</div>
