@@ -9,7 +9,7 @@ use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 use yii\web\UploadedFile;
-
+use frontend\models\Komentar;
 /**
  * PostController implements the CRUD actions for Post model.
  */
@@ -24,7 +24,7 @@ class PostController extends Controller
             'verbs' => [
                 'class' => VerbFilter::className(),
                 'actions' => [
-                    'delete' => ['POST'],
+                    'delete' => ['get'],
                 ],
             ],
         ];
@@ -56,8 +56,12 @@ class PostController extends Controller
      */
     public function actionView($id)
     {
+        $dataKomentar = KOMENTAR::find()
+                      ->where(['IDPOST' => $id])
+                      ->all();
         return $this->render('view', [
             'model' => $this->findModel($id),
+            'dataKomentar' => $dataKomentar,
         ]);
     }
 
@@ -72,10 +76,12 @@ class PostController extends Controller
 
         if ($model->load(Yii::$app->request->post())) {
             $model->GAMBARPOST = UploadedFile::getInstance($model,'GAMBARPOST');
-            $model->GAMBARPOST->saveAs(Yii::$app->basePath.'\web\fotopost'.'/'.$model->GAMBARPOST->baseName.'.'.$model->GAMBARPOST->extension);
+            $model->GAMBARPOST->saveAs(Yii::getAlias('@filePath').'/'.'post'.'/'.$model->GAMBARPOST->baseName.'.'.$model->GAMBARPOST->extension);
+            //$model->GAMBARPOST->saveAs(Yii::$app->basePath.'\web\fotopost'.'/'.$model->GAMBARPOST->baseName.'.'.$model->GAMBARPOST->extension);
             $model->GAMBARPOST = $model->GAMBARPOST->baseName.'.'.$model->GAMBARPOST->extension;
             $model->save();
             return $this->redirect(['view', 'id' => $model->IDPOST]);
+            // return $this->goBack();
         }
 
         return $this->render('create', [
@@ -95,9 +101,9 @@ class PostController extends Controller
         $model = $this->findModel($id);
 
         if ($model->load(Yii::$app->request->post())) {
-          $model->GAMBARPOST = UploadedFile::getInstance($model,'GAMBARPOST');
-          $model->GAMBARPOST->saveAs(Yii::$app->basePath.'\web\fotopost'.'/'.$model->GAMBARPOST->baseName.'.'.$model->GAMBARPOST->extension);
-          $model->GAMBARPOST = $model->GAMBARPOST->baseName.'.'.$model->GAMBARPOST->extension;
+          // $model->GAMBARPOST = UploadedFile::getInstance($model,'GAMBARPOST');
+          // $model->GAMBARPOST->saveAs(Yii::$app->basePath.'\web\fotopost'.'/'.$model->GAMBARPOST->baseName.'.'.$model->GAMBARPOST->extension);
+          // $model->GAMBARPOST = $model->GAMBARPOST->baseName.'.'.$model->GAMBARPOST->extension;
           $model->save();
             return $this->redirect(['view', 'id' => $model->IDPOST]);
         }
@@ -135,5 +141,14 @@ class PostController extends Controller
         }
 
         throw new NotFoundHttpException('The requested page does not exist.');
+    }
+
+    public function actionBuatkomen(){
+        $model = new Komentar();
+        $model->IDPENGGUNA = Yii::$app->request->get('idpengguna');
+        $model->IDPOST = Yii::$app->request->get('idpost');
+        $model->ISIKOMENTAR = Yii::$app->request->get('isikomen');
+        $model->save();
+        return $this->redirect(['view', 'id' => $model->IDPOST]);
     }
 }

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 29, 2019 at 04:09 PM
+-- Generation Time: Jun 11, 2019 at 10:49 AM
 -- Server version: 10.1.31-MariaDB
 -- PHP Version: 7.2.4
 
@@ -79,6 +79,13 @@ CREATE TABLE `hubungan` (
   `IDPENGGUNA2` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Dumping data for table `hubungan`
+--
+
+INSERT INTO `hubungan` (`IDHUBUNGAN`, `IDSTATUS`, `IDPENGGUNA1`, `IDPENGGUNA2`) VALUES
+(1, 2, 3, 4);
+
 -- --------------------------------------------------------
 
 --
@@ -111,8 +118,20 @@ CREATE TABLE `komentar` (
   `IDKOMENTAR` int(11) NOT NULL,
   `IDPENGGUNA` int(11) DEFAULT NULL,
   `IDPOST` int(11) DEFAULT NULL,
-  `WAKTUKOMENTAR` timestamp NULL DEFAULT NULL
+  `ISIKOMENTAR` varchar(200) NOT NULL,
+  `WAKTUKOMENTAR` timestamp NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `komentar`
+--
+
+INSERT INTO `komentar` (`IDKOMENTAR`, `IDPENGGUNA`, `IDPOST`, `ISIKOMENTAR`, `WAKTUKOMENTAR`) VALUES
+(1, 7, 15, 'kom1', '2019-06-10 17:15:40'),
+(3, 7, 15, 'kom3', '2019-06-10 17:45:46'),
+(4, 7, 15, 'ko4', '2019-06-10 17:51:47'),
+(5, 3, 16, 'haha', '2019-06-10 17:57:55'),
+(6, 6, 17, 'halo', '2019-06-11 07:14:44');
 
 -- --------------------------------------------------------
 
@@ -155,7 +174,8 @@ CREATE TABLE `notifikasi` (
 --
 
 INSERT INTO `notifikasi` (`IDNOTIFIKASI`, `IDPENGIRIMNOTIF`, `IDTYPENOTIFIKASI`, `IDPENERIMANOTIF`, `ISI`, `WAKTUNOTIFIKASI`, `STATUSNOTIFIKASI`) VALUES
-(1, 3, 2, 4, '2 suka foto 1', '2019-05-27 07:03:49', 1);
+(1, 3, 2, 4, '2 suka foto 1', '2019-05-27 07:03:49', 1),
+(2, 3, 1, 4, 'hai fian', '2019-06-03 05:08:46', 1);
 
 -- --------------------------------------------------------
 
@@ -182,7 +202,10 @@ CREATE TABLE `pengguna` (
 
 INSERT INTO `pengguna` (`IDPENGGUNA`, `IDKEPRIBADIAN`, `EMAIL`, `PASSWORD`, `NAMA`, `TANGGALLAHIR`, `ALAMAT`, `BIO`, `FOTO`, `JENISKELAMIN`) VALUES
 (3, NULL, 'lulu@gmail.com', 'lulululu', 'lulu', NULL, '', '', '', 'Perempuan'),
-(4, NULL, 'fian@gmail.com', 'fianfian', 'fian', '1999-02-08', '', 'hai semmuanya', '', 'Laki Laki');
+(4, NULL, 'fian@gmail.com', 'fianfian', 'fian', '1999-02-08', '', 'hai semmuanya', '', 'Laki Laki'),
+(5, NULL, 'f@gmail.com', '12121212', 'fffff', NULL, '', '', '', 'Perempuan'),
+(6, NULL, 'baru@gmail.com', 'baru', 'baruanyar', '0000-00-00', NULL, NULL, NULL, 'Laki-laki'),
+(7, NULL, 'macan@gmail.com', 'macan', 'macan', '0000-00-00', NULL, NULL, NULL, 'Perempuan');
 
 -- --------------------------------------------------------
 
@@ -237,8 +260,24 @@ CREATE TABLE `pesan` (
   `IDTIPEPESAN` int(11) DEFAULT NULL,
   `IDPENERIMAPESAN` int(11) DEFAULT NULL,
   `ISIPESAN` varchar(200) DEFAULT NULL,
-  `WAKTUPESAN` timestamp NULL DEFAULT NULL
+  `WAKTUPESAN` timestamp NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `pesan`
+--
+
+INSERT INTO `pesan` (`IDPESAN`, `IDPENGIRIMPESAN`, `IDTIPEPESAN`, `IDPENERIMAPESAN`, `ISIPESAN`, `WAKTUPESAN`) VALUES
+(1, 4, 1, 3, 'HAI LULU', '2019-06-03 05:21:40'),
+(2, 3, 1, 4, 'hai fian', '2019-06-03 06:17:21'),
+(3, 4, 1, 5, 'hai ffff', '2019-06-03 06:17:44'),
+(4, 4, 1, 3, 'pakabar', '2019-06-03 07:12:10'),
+(5, 4, 1, 3, 'luk.', '2019-06-03 07:23:17'),
+(6, 4, 1, 3, '1', '2019-06-03 07:23:46'),
+(7, 4, 1, 3, 'halo', '2019-06-03 07:24:25'),
+(8, 3, 1, 4, 'iya', '2019-06-03 07:24:38'),
+(9, 3, 1, 5, 'halo fffff', '2019-06-03 07:28:43'),
+(10, 5, 1, 3, 'iya luk', '2019-06-03 07:28:55');
 
 -- --------------------------------------------------------
 
@@ -262,12 +301,17 @@ INSERT INTO `post` (`IDPOST`, `IDPENGGUNA`, `GAMBARPOST`, `CAPTION`, `WAKTUPOST`
 (1, 4, '', 'post fian pertama', NULL),
 (2, 4, '', 'post fian ke 2\r\n', NULL),
 (3, 4, '', '33 fian\r\n', '0000-00-00'),
-(4, 3, '', 'lulu post 1\r\n', '2019-05-26'),
 (5, 4, '', 'post 4 fian\r\n', '2019-05-26'),
 (6, 4, '', 'gambar 1', '2019-05-26'),
 (7, 4, '', 'gambar 1', '2019-05-26'),
 (8, 4, 'Capture5.png', 'gambar 1', '2019-05-26'),
-(9, 4, 'Capture7.png', 'network', '2019-05-26');
+(9, 4, 'Capture7.png', 'network', '2019-05-26'),
+(12, 7, 'Annotation 2019-04-09 195347.jpg', '123', '2019-06-10'),
+(15, 7, 'Annotation 2019-03-08 093541.jpg', '2', '2019-06-10'),
+(16, 3, 'Capture6.png', 'sss', '2019-06-10'),
+(17, 6, 'Capture.png', '1', '2019-06-11'),
+(18, 6, 'Capture8.png', 'r', '2019-06-11'),
+(20, 6, 'map.png', 'mmm', '2019-06-11');
 
 -- --------------------------------------------------------
 
@@ -311,6 +355,14 @@ CREATE TABLE `tipepesan` (
   `NAMATIPEPESAN` varchar(100) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Dumping data for table `tipepesan`
+--
+
+INSERT INTO `tipepesan` (`IDTIPEPESAN`, `NAMATIPEPESAN`) VALUES
+(1, 'Pesan Pribadi'),
+(2, 'Pesan Botol');
+
 -- --------------------------------------------------------
 
 --
@@ -321,6 +373,15 @@ CREATE TABLE `tipestatus` (
   `IDSTATUS` int(11) NOT NULL,
   `NAMASTATUS` varchar(100) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `tipestatus`
+--
+
+INSERT INTO `tipestatus` (`IDSTATUS`, `NAMASTATUS`) VALUES
+(1, 'di tolak'),
+(2, 'pending'),
+(3, 'di terima');
 
 -- --------------------------------------------------------
 
@@ -517,7 +578,7 @@ ALTER TABLE `hobikepengguna`
 -- AUTO_INCREMENT for table `hubungan`
 --
 ALTER TABLE `hubungan`
-  MODIFY `IDHUBUNGAN` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `IDHUBUNGAN` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `kepribadian`
@@ -529,19 +590,19 @@ ALTER TABLE `kepribadian`
 -- AUTO_INCREMENT for table `komentar`
 --
 ALTER TABLE `komentar`
-  MODIFY `IDKOMENTAR` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `IDKOMENTAR` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `notifikasi`
 --
 ALTER TABLE `notifikasi`
-  MODIFY `IDNOTIFIKASI` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `IDNOTIFIKASI` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `pengguna`
 --
 ALTER TABLE `pengguna`
-  MODIFY `IDPENGGUNA` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `IDPENGGUNA` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `pertanyaan`
@@ -553,13 +614,13 @@ ALTER TABLE `pertanyaan`
 -- AUTO_INCREMENT for table `pesan`
 --
 ALTER TABLE `pesan`
-  MODIFY `IDPESAN` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `IDPESAN` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT for table `post`
 --
 ALTER TABLE `post`
-  MODIFY `IDPOST` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `IDPOST` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 
 --
 -- AUTO_INCREMENT for table `suka`
@@ -577,13 +638,13 @@ ALTER TABLE `tipenotifiikasi`
 -- AUTO_INCREMENT for table `tipepesan`
 --
 ALTER TABLE `tipepesan`
-  MODIFY `IDTIPEPESAN` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `IDTIPEPESAN` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `tipestatus`
 --
 ALTER TABLE `tipestatus`
-  MODIFY `IDSTATUS` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `IDSTATUS` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `user`

@@ -18,7 +18,7 @@ class KomentarSearch extends Komentar
     {
         return [
             [['IDKOMENTAR', 'IDPENGGUNA', 'IDPOST'], 'integer'],
-            [['WAKTUKOMENTAR'], 'safe'],
+            [['ISIKOMENTAR', 'WAKTUKOMENTAR'], 'safe'],
         ];
     }
 
@@ -63,6 +63,8 @@ class KomentarSearch extends Komentar
             'IDPOST' => $this->IDPOST,
             'WAKTUKOMENTAR' => $this->WAKTUKOMENTAR,
         ]);
+
+        $query->andFilterWhere(['like', 'ISIKOMENTAR', $this->ISIKOMENTAR]);
 
         return $dataProvider;
     }

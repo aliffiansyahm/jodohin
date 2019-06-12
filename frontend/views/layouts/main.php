@@ -136,8 +136,8 @@ AppAsset::register($this);
 					</a>
 				</li>
 				<li>
-					<a href="<?php echo Yii::$app->request->BaseUrl ?>/olympus/03-Newsfeed.html">
-						<svg class="olymp-newsfeed-icon left-menu-icon" data-toggle="tooltip" data-placement="right"   data-original-title="NEWSFEED"><use xlink:href="<?php echo Yii::$app->request->BaseUrl ?>/olympus/svg-icons/sprites/icons.svg#olymp-newsfeed-icon"></use></svg>
+					<a href="<?php echo Yii::$app->request->BaseUrl ?>/post">
+						<svg class="olymp-newsfeed-icon left-menu-icon" data-toggle="tooltip" data-placement="right"   data-original-title="POST"><use xlink:href="<?php echo Yii::$app->request->BaseUrl ?>/olympus/svg-icons/sprites/icons.svg#olymp-newsfeed-icon"></use></svg>
 					</a>
 				</li>
 				<li>
@@ -208,8 +208,8 @@ AppAsset::register($this);
 					</a>
 				</li>
 				<li>
-					<a href="<?php echo Yii::$app->request->BaseUrl ?>/olympus/03-Newsfeed.html">
-						<svg class="olymp-newsfeed-icon left-menu-icon" data-toggle="tooltip" data-placement="right"   data-original-title="NEWSFEED"><use xlink:href="<?php echo Yii::$app->request->BaseUrl ?>/olympus/svg-icons/sprites/icons.svg#olymp-newsfeed-icon"></use></svg>
+					<a href="<?php echo Yii::$app->request->BaseUrl ?>/post">
+						<svg class="olymp-newsfeed-icon left-menu-icon" data-toggle="tooltip" data-placement="right"   data-original-title="Post"><use xlink:href="<?php echo Yii::$app->request->BaseUrl ?>/olympus/svg-icons/sprites/icons.svg#olymp-newsfeed-icon"></use></svg>
 						<span class="left-menu-title">Post</span>
 					</a>
 				</li>
@@ -611,11 +611,11 @@ AppAsset::register($this);
 <!-- Header-BP -->
 
 <header class="header" id="site-header">
-
+	<a href="<?php echo Yii::$app->request->BaseUrl ?>/profile">
 	<div class="page-title">
 		<h6>JODOHIN</h6>
 	</div>
-
+	</a>
 	<div class="header-content-wrapper">
 		<form class="search-bar w-search notification-list friend-requests">
 			<div class="form-group with-button">
