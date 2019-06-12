@@ -21,7 +21,7 @@
                                     <?php for ($i=1; $i < 5 ; $i++) { ?>
                                         <div class="radio">
                                             <label>
-                                                <input type="radio" name="jawaban<?php echo $nomer;?>" value="<?php echo $nilai["PILIHAN$i"]; ?>"><?php echo $nilai["PILIHAN$i"]; ?>
+                                                <input type="radio" name="jawaban<?php echo $nomer;?>" value="<?php echo $i; ?>"><?php echo $nilai["PILIHAN$i"]; ?>
                                             </label>
                                         </div>
                                     <?php } ?>

@@ -10,6 +10,7 @@ use Yii;
  * @property int $IDKOMENTAR
  * @property int $IDPENGGUNA
  * @property int $IDPOST
+ * @property string $ISIKOMENTAR
  * @property string $WAKTUKOMENTAR
  *
  * @property Post $pOST
@@ -32,7 +33,9 @@ class Komentar extends \yii\db\ActiveRecord
     {
         return [
             [['IDPENGGUNA', 'IDPOST'], 'integer'],
+            [['ISIKOMENTAR'], 'required'],
             [['WAKTUKOMENTAR'], 'safe'],
+            [['ISIKOMENTAR'], 'string', 'max' => 200],
             [['IDPOST'], 'exist', 'skipOnError' => true, 'targetClass' => Post::className(), 'targetAttribute' => ['IDPOST' => 'IDPOST']],
             [['IDPENGGUNA'], 'exist', 'skipOnError' => true, 'targetClass' => Pengguna::className(), 'targetAttribute' => ['IDPENGGUNA' => 'IDPENGGUNA']],
         ];
@@ -47,6 +50,7 @@ class Komentar extends \yii\db\ActiveRecord
             'IDKOMENTAR' => 'Idkomentar',
             'IDPENGGUNA' => 'Idpengguna',
             'IDPOST' => 'Idpost',
+            'ISIKOMENTAR' => 'Isikomentar',
             'WAKTUKOMENTAR' => 'Waktukomentar',
         ];
     }

@@ -71,31 +71,13 @@ class PenggunaController extends Controller
         $model->NAMA = $_POST['first_name'].$_POST['last_name'];
         $model->EMAIL = $_POST['email'];
         $model->PASSWORD = $_POST['password'];
-        $model->TANGGALLAHIR = $_POST['datetimepicker'];
+        $model->TANGGALLAHIR = date('Y-m-d', strtotime($_POST['datetimepicker']));
         $model->JENISKELAMIN = $_POST['gender'];
 
 
         if ($model->save() && isset($_POST['optionsCheckboxes'])) {
             return $this->redirect('../site/landing');
         }
-
-        // jangan diapa"in ya yg ini ... picturenya belum
-        // if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            // $model->NAMA = $_POST['name'];
-            // $model->EMAIL = $_POST['email'];
-            // $model->PASSWORD = $_POST['password'];
-
-            // $model->FOTO = UploadedFile::getInstance($model, 'FOTO');
-
-            // $model->FOTO->saveAs('uploads/' . $model->FOTO->baseName . '.' .$model->FOTO->extension);
-            //   if ($model->FOTO && $model->validate()) {
-            //     $model->FOTO->saveAs('upload/' . $model->FOTO->baseName . '.' .$model->FOTO->extension);
-            //   }
-
-            // $model->save();
-
-            // return $this->redirect(['view', 'id' => $model->IDPENGGUNA]);
-        // }
     }
 
     public function beforeAction($action)
@@ -112,15 +94,41 @@ class PenggunaController extends Controller
      */
     public function actionUpdate($id)
     {
+        // echo Yii::getAlias('@basePath');
         $model = $this->findModel($id);
+        
+        if (Yii::$app->request->isPost){
+            $foto = UploadedFile::getInstance($model, 'FOTO');
 
-        // if ($model->load(Yii::$app->request->post()) && $model->save()) {
-        //     return $this->redirect(['view', 'id' => $model->IDPENGGUNA]);
-        // }
+            $model->FOTO = $foto;
+            $model->FOTO->saveAs(Yii::getAlias('@folderfoto\fotoprofil'). "/" . $model->FOTO->baseName . '.' .$model->FOTO->extension);
+            $model->FOTO = $model->FOTO->baseName.'.'.$model->FOTO->extension;
 
-        // return $this->render('update', [
-        //     'model' => $model,
-        // ]);
+
+            // if ($model->FOTO) {
+            //     $model->FOTO->saveAs("Yii::getAlias('@basePath')" . $model->FOTO->baseName . '.' .$model->FOTO->extension);
+            //     $model->FOTO = $model->FOTO->baseName.'.'.$model->FOTO->extension;
+            // }
+            
+            if($model->save()){
+                return $this->redirect('../profile/index');
+            }else{
+                echo "gagal";
+            }
+
+        
+        
+
+        if ($model->save(false)) {
+            return $this->redirect('../profile/index');
+        }else {
+               
+        }
+    }
+
+        return $this->render('update', [
+            'model' => $model,
+        ]); 
     }
 
     /**
@@ -155,6 +163,7 @@ class PenggunaController extends Controller
         $session['nama'] = $pengguna['NAMA'];
         $session['id'] = $pengguna['IDPENGGUNA'];
         $session['email'] = $email;
+        $session['foto'] = $pengguna['FOTO'];
         $session['idkepribadian'] = $pengguna['IDKEPRIBADIAN'];
         //$session->close();
         if (!empty($pengguna) && isset($session)) {
@@ -166,9 +175,7 @@ class PenggunaController extends Controller
         }
 
     }
-    public function actionHome(){
-        return $this->render('dasbot');
-    }
+
 
     public function actionKeluar(){
         $session  = Yii::$app->session;
@@ -181,12 +188,31 @@ class PenggunaController extends Controller
         return $this->render('profile');
     }
 
-    public function actionProfilepictures($id)
+    public function actionPersonality(){
+        $model = $this->findModel($_SESSION['id']);
+
+        $model->IDKEPRIBADIAN = $_SESSION['idkepribadian'];
+ 
+        if ($model->save()) {
+            // echo $model->IDKEPRIBADIAN;
+            return $this->redirect('../pertanyaan/skor');        
+        } else 
+            echo "gagal";
+    }
+
+    public function actionProfilepictures()
     {
-        $model = $this->findModel($id);
+        $model = $this->findModel($_SESSION['id']);
         // $model->FOTO = $_POST['profilepicture'];
 
-        $model->FOTO = UploadedFile::getInstance($model, 'FOTO');
+        if (Yii::$app->request->isPost) {
+            $model->FOTO = UploadedFile::getInstance($model, 'picture');
+        
+
+        // $model->FOTO = UploadedFile::getInstanceByName('profilepicture');
+        if (empty($model->FOTO)) {
+            echo "gagal";
+        }else {
 
         // $model->FOTO->saveAs('uploads/' . $model->FOTO->baseName . '.' .$model->FOTO->extension);
         if ($model->FOTO && $model->validate()) {
@@ -194,8 +220,9 @@ class PenggunaController extends Controller
         }
 
         if ($model->save()) {
-            return $this->goBack();
+            return $this->redirect('../profile/index');
         }
+    }}
     }
 
     /**

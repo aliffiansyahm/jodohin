@@ -29,6 +29,7 @@ $this->params['breadcrumbs'][] = $this->title;
             'IDKOMENTAR',
             'IDPENGGUNA',
             'IDPOST',
+            'ISIKOMENTAR',
             'WAKTUKOMENTAR',
 
             ['class' => 'yii\grid\ActionColumn'],
