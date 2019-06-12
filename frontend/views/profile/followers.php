@@ -31,7 +31,7 @@ $profile_service = new ProfileService();
                                         <a href="<?php Yii::$app->request->BaseUrl ?>/profile/photos<?php if ($pengguna['IDPENGGUNA'] != $_SESSION['id']) { echo "?id=".$pengguna['IDPENGGUNA']; } ?>">Photos</a>
                                     </li>
                                     <li>
-                                        <a href="06-ProfilePage.html">Videos</a>
+                                        <a href="<?php echo Yii::$app->request->BaseUrl ?>/profile/sesi">cek sesi coba</a>
                                     </li>
                                 </ul>
                             </div>
@@ -41,7 +41,7 @@ $profile_service = new ProfileService();
                                         <a href="#" class="active">Followers</a>
                                     </li>
                                     <li>
-                                        <a href="<?php echo Yii::$app->request->BaseUrl ?>/profile/sesi">cek sesi coba</a>
+                                        <a href="<?php Yii::$app->request->BaseUrl ?>/profile/following<?php if ($pengguna['IDPENGGUNA'] != $_SESSION['id']) { echo "?id=".$pengguna['IDPENGGUNA']; } ?>">Following</a>
                                     </li>
                                     <li>
                                         <div class="more">
