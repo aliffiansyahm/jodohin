@@ -18,7 +18,11 @@
 			<div class="ui-block">
 				<div class="top-header">
 					<div class="top-header-thumb">
-						<img src="<?php echo Yii::$app->request->BaseUrl ?>/olympus/img/top-header1.jpg" alt="nature">
+						<?php if (isset($_SESSION['header'])) { ?>
+							<?= Html::img(Yii::getAlias('@fileUrl').'/header/'.$_SESSION['header']); ?>
+						<?php } else { ?>
+							<img src="<?php echo Yii::$app->request->BaseUrl ?>/olympus/img/top-header1.jpg" alt="nature">						
+						<?php }?>
 					</div>
 					<div class="profile-section">
 						<div class="row">
@@ -76,10 +80,10 @@
 
 								<ul class="more-dropdown more-with-triangle triangle-bottom-right">
 									<li>
-										<a href="#" data-toggle="modal" data-target="#update-header-photo">Update Profile Photo</a>
+										<a href="../pengguna/update?id=<?php echo $_SESSION['id']?>">Update Profile Photo</a>
 									</li>
 									<li>
-										<a href="#" data-toggle="modal" data-target="#update-header-photo">Update Header Photo</a>
+										<a href="../pengguna/profileheader?id=<?php echo $_SESSION['id']?>">Update Header Photo</a>
 									</li>
 									<li>
 										<a href="29-YourAccount-AccountSettings.html">Account Settings</a>
@@ -89,12 +93,12 @@
 						</div>
 					</div>
 					<div class="top-header-author">
-                        <a href="02-ProfilePage.html" class="author-thumb">
-                            <?php if ($pengguna['FOTO'] == ""): ?>
-                                <img src="<?php echo Yii::$app->request->BaseUrl ?>/olympus/img/author-main1.jpg" alt="author">
-                            <?php else: ?>
-                                <img src="<?php echo Yii::$app->request->BaseUrl ?>/foto/post/1.png" alt="author">
-                            <?php endif; ?>
+						<a href="02-ProfilePage.html" class="author-thumb">
+							<?php if (isset($_SESSION['profile'])) {?>
+								<?= Html::img(Yii::getAlias('@fileUrl').'/profile/'.$_SESSION['profile']); ?>
+							<?php } else {?>
+							<img src="<?php echo Yii::$app->request->BaseUrl ?>/olympus/img/author-main1.jpg" alt="author">
+							<?php }?>
 						</a>
 						<div class="author-content">
 							<a href="02-ProfilePage.html" class="h4 author-name"><?php echo $pengguna['NAMA']?></a>
