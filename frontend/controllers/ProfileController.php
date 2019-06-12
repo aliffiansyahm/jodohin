@@ -1,7 +1,5 @@
 <?php
-
 namespace frontend\controllers;
-
 use frontend\models\Pengguna;
 use frontend\models\Hubungan;
 use frontend\models\Notifikasi;
@@ -24,10 +22,8 @@ class ProfileController extends Controller
             ->one();
         return $this->render('index', compact('pengguna'));
     }
-
     public function actionUpdate($id)
     {
-
     }
 
     public function actionFind(){
