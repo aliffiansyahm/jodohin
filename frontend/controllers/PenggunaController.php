@@ -114,7 +114,7 @@ class PenggunaController extends Controller
     {
         // echo Yii::getAlias('@basePath');
         $model = $this->findModel($id);
-        
+
         if (Yii::$app->request->isPost){
             $foto = UploadedFile::getInstance($model, 'FOTO');
 
@@ -127,26 +127,26 @@ class PenggunaController extends Controller
             //     $model->FOTO->saveAs("Yii::getAlias('@basePath')" . $model->FOTO->baseName . '.' .$model->FOTO->extension);
             //     $model->FOTO = $model->FOTO->baseName.'.'.$model->FOTO->extension;
             // }
-            
+
             if($model->save()){
                 return $this->redirect('../profile/index');
             }else{
                 echo "gagal";
             }
 
-        
-        
+
+
 
         if ($model->save(false)) {
             return $this->redirect('../profile/index');
         }else {
-               
+
         }
     }
 
         return $this->render('update', [
             'model' => $model,
-        ]); 
+        ]);
     }
 
     /**
@@ -183,6 +183,7 @@ class PenggunaController extends Controller
         $session['email'] = $email;
         $session['foto'] = $pengguna['FOTO'];
         $session['idkepribadian'] = $pengguna['IDKEPRIBADIAN'];
+        $session['jeniskelamin'] = $pengguna['JENISKELAMIN'];
         //$session->close();
         if (!empty($pengguna) && isset($session)) {
             // print_r($_SESSION);
@@ -210,11 +211,11 @@ class PenggunaController extends Controller
         $model = $this->findModel($_SESSION['id']);
 
         $model->IDKEPRIBADIAN = $_SESSION['idkepribadian'];
- 
+
         if ($model->save()) {
             // echo $model->IDKEPRIBADIAN;
-            return $this->redirect('../pertanyaan/skor');        
-        } else 
+            return $this->redirect('../pertanyaan/skor');
+        } else
             echo "gagal";
     }
 
@@ -225,7 +226,7 @@ class PenggunaController extends Controller
 
         if (Yii::$app->request->isPost) {
             $model->FOTO = UploadedFile::getInstance($model, 'picture');
-        
+
 
         // $model->FOTO = UploadedFile::getInstanceByName('profilepicture');
         if (empty($model->FOTO)) {
