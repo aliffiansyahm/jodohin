@@ -43,6 +43,25 @@ class ProfileController extends Controller
         return $this->render('followers', compact('followers', 'pengguna'));
     }
 
+    public function actionFollowing($id = null)
+    {
+        if (is_null($id)) {
+            $id = $_SESSION['id'];
+        }
+        $followings = (new Query())
+            ->distinct()
+            ->from('follow')
+            ->join('JOIN', 'pengguna', 'follow.IDPENGGUNA = pengguna.IDPENGGUNA')
+            ->where('follow.IDPENGIKUT=:id_pengguna', [':id_pengguna' => $id])
+            ->all();
+        $pengguna = (new Query())
+            ->from('pengguna')
+            ->where('IDPENGGUNA=:id_pengguna', [':id_pengguna' => $id])
+            ->one();
+//        var_dump($followers);
+        return $this->render('following', compact('followings', 'pengguna'));
+    }
+
     public function actionPhotos($id = null)
     {
         if (is_null($id)) {
