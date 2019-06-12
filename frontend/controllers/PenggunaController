@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <?php
 namespace frontend\controllers;
 use Yii;
@@ -200,3 +201,6 @@ class PenggunaController extends Controller
         throw new NotFoundHttpException('The requested page does not exist.');
     }
 }
+=======
+
+>>>>>>> 779e965935cb7982df11cc6971ec23f03954891e
