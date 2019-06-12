@@ -38,4 +38,34 @@ class ProfileService
             ->limit(9)->all();
         return $self_photos;
     }
+
+    public function countFollowers($id_user)
+    {
+        $followers = (new Query())
+            ->from("follow")
+            ->where('IDPENGGUNA=:id_user', [
+                ':id_user' => $id_user,
+            ])->count();
+        return $followers;
+    }
+
+    public function countPhotos($id_user)
+    {
+        $photos = (new Query())
+            ->from("post")
+            ->where("IDPENGGUNA=:id_user AND GAMBARPOST != ''", [
+                ':id_user' => $id_user,
+            ])->count();
+        return $photos;
+    }
+
+    public function countPosts($id_user)
+    {
+        $posts = (new Query())
+            ->from("post")
+            ->where("IDPENGGUNA=:id_user", [
+                ':id_user' => $id_user,
+            ])->count();
+        return $posts;
+    }
 }

@@ -25,24 +25,24 @@
 							<div class="col col-lg-5 col-md-5 col-sm-12 col-12">
 								<ul class="profile-menu">
 									<li>
-										<a href="02-ProfilePage.html" class="active">Timeline</a>
+										<a href="#" class="active">Timeline</a>
 									</li>
+                                    <li>
+                                        <a href="<?php Yii::$app->request->BaseUrl ?>/profile/photos<?php if ($pengguna['IDPENGGUNA'] != $_SESSION['id']) { echo "?id=".$pengguna['IDPENGGUNA']; } ?>">Photos</a>
+                                    </li>
 									<li>
-										<a href="<?php echo Yii::$app->request->BaseUrl ?>/profile/sesi">cek sesi coba</a>
-									</li>
-									<li>
-										<a href="06-ProfilePage.html">Friends</a>
+										<a href="06-ProfilePage.html">Videos</a>
 									</li>
 								</ul>
 							</div>
 							<div class="col col-lg-5 ml-auto col-md-5 col-sm-12 col-12">
 								<ul class="profile-menu">
-									<li>
-										<a href="07-ProfilePage-Photos.html">Photos</a>
-									</li>
-									<li>
-										<a href="09-ProfilePage-Videos.html">Videos</a>
-									</li>
+                                    <li>
+                                        <a href="<?php Yii::$app->request->BaseUrl ?>/profile/followers<?php if ($pengguna['IDPENGGUNA'] != $_SESSION['id']) { echo "?id=".$pengguna['IDPENGGUNA']; } ?>">Followers</a>
+                                    </li>
+                                    <li>
+                                        <a href="<?php echo Yii::$app->request->BaseUrl ?>/profile/sesi">cek sesi coba</a>
+                                    </li>
 									<li>
 										<div class="more">
 											<svg class="olymp-three-dots-icon"><use xlink:href="<?php echo Yii::$app->request->BaseUrl ?>/olympus/svg-icons/sprites/icons.svg#olymp-three-dots-icon"></use></svg>
