@@ -9,7 +9,7 @@ use yii\widgets\ActiveForm;
 ?>
 <div class="ui-block">
   <div class="ui-block-title">
-    <h6><?= Html::encode($this->title) ?></h1>
+    <h6><?= Html::encode($this->title) ?></h6>
   </div>
   <div class="ui-block-content">
     <div class="post-form">
