@@ -53,7 +53,7 @@ class PertanyaanController extends Controller
         $dataPertanyaan = Pertanyaan::find()->all();
 
 
-        return $this->render('mengerjakan', [
+        return $this->render('halamanPertanyaan', [
             'searchModel' => $searchModel,
             'dataProvider' => $dataProvider,
             'dataPertanyaan' => $dataPertanyaan,
@@ -103,10 +103,17 @@ class PertanyaanController extends Controller
             if($n < $hasil[$i])
                 $n = $i;
         }
-        return $this->render('skor', [
-            'dataSkor' => $hasil,
-            'tipe' => $n,
-        ]);
+
+        $_SESSION['idkepribadian']=$n;
+
+        return $this->redirect('../pengguna/personality');
+
+
+        // return $this->render('skor', [
+        //     'dataSkor' => $hasil,
+        //     'tipe' => $n,
+        // ]);
+
     }
     /**
      * Displays a single Pertanyaan model.
@@ -171,6 +178,11 @@ class PertanyaanController extends Controller
         $this->findModel($id)->delete();
 
         return $this->redirect(['index']);
+    }
+
+    public function actionSkor(){
+
+        return $this->render('skor');
     }
 
     /**

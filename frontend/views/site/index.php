@@ -1,53 +1,34 @@
-<?php
+<div class="ui-block">
+  <div class="ui-block-title">
+    <h6 class="title">Color Palette</h6>
+  </div>
+  <div class="ui-block-content">
+    <div class="bg-secondary" style="color: #fff; padding: 35px; display: inline-block; font-size: 10px; font-weight: bold; margin-right: -4px;">3f4257</div>
+    <div class="bg-grey" style="color: #fff; padding: 35px; display: inline-block; font-size: 10px; font-weight: bold; margin-right: -4px;">515365</div>
+    <div class="bg-grey-light" style="color: #fff; padding: 35px; display: inline-block; font-size: 10px; font-weight: bold; margin-right: -4px;">888da8</div>
+    <div class="bg-grey-lighter" style="color: #fff; padding: 35px; display: inline-block; font-size: 10px; font-weight: bold; margin-right: -4px;">9a9fbf</div>
+    <div class="bg-primary" style="color: #fff; padding: 35px; display: inline-block; font-size: 10px; font-weight: bold; margin-right: -4px;">ff5e3a</div>
+    <div class="bg-purple" style="color: #fff; padding: 35px; display: inline-block; font-size: 10px; font-weight: bold; margin-right: -4px;">7c5ac2</div>
+    <div class="bg-blue" style="color: #fff; padding: 35px; display: inline-block; font-size: 10px; font-weight: bold; margin-right: -4px;">38a9ff</div>
+    <div class="bg-breez" style="color: #fff; padding: 35px; display: inline-block; font-size: 10px; font-weight: bold; margin-right: -4px;">08ddc1</div>
+    <div class="bg-breez-light" style="color: #fff; padding: 35px; display: inline-block; font-size: 10px; font-weight: bold; margin-right: -4px;">2aebcb</div>
+    <div class="bg-yellow" style="color: #fff; padding: 35px; display: inline-block; font-size: 10px; font-weight: bold; margin-right: -4px;">ffdc1b</div>
+    <div class="bg-smoke" style="color: #fff; padding: 35px; display: inline-block; font-size: 10px; font-weight: bold; margin-right: -4px;">e6ecf5</div>
+  </div>
+</div>
 
-/* @var $this yii\web\View */
 
-$this->title = 'My Yii Application';
-?>
-<div class="site-index">
-
-    <div class="jumbotron">
-        <h1>Congratulations!</h1>
-
-        <p class="lead">You have successfully created your Yii-powered application.</p>
-
-        <p><a class="btn btn-lg btn-success" href="http://www.yiiframework.com">Get started with Yii</a></p>
+  <div class="ui-block">
+    <div class="ui-block-title">
+      <h6 class="title">Test tanggal Palette</h6>
     </div>
-
-    <div class="body-content">
-
-        <div class="row">
-            <div class="col-lg-4">
-                <h2>Heading</h2>
-
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et
-                    dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
-                    ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
-                    fugiat nulla pariatur.</p>
-
-                <p><a class="btn btn-default" href="http://www.yiiframework.com/doc/">Yii Documentation &raquo;</a></p>
-            </div>
-            <div class="col-lg-4">
-                <h2>Heading</h2>
-
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et
-                    dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
-                    ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
-                    fugiat nulla pariatur.</p>
-
-                <p><a class="btn btn-default" href="http://www.yiiframework.com/forum/">Yii Forum &raquo;</a></p>
-            </div>
-            <div class="col-lg-4">
-                <h2>Heading</h2>
-
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et
-                    dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
-                    ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
-                    fugiat nulla pariatur.</p>
-
-                <p><a class="btn btn-default" href="http://www.yiiframework.com/extensions/">Yii Extensions &raquo;</a></p>
-            </div>
-        </div>
-
+    <div class="ui-block-content">
+      <label class="control-label">Calendar Field</label>
+      <div class="form-group date-time-picker">
+        <input type="text" name="datetimepicker" value="2013/02/01"/>
+        <span class="input-group-addon">
+          <svg class="olymp-month-calendar-icon icon"><use xlink:href="<?php echo Yii::$app->request->BaseUrl ?>/olympus/svg-icons/sprites/icons.svg#olymp-month-calendar-icon"></use></svg>
+        </span>
+      </div>
     </div>
 </div>
