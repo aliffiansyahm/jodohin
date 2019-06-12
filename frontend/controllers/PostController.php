@@ -76,7 +76,8 @@ class PostController extends Controller
 
         if ($model->load(Yii::$app->request->post())) {
             $model->GAMBARPOST = UploadedFile::getInstance($model,'GAMBARPOST');
-            $model->GAMBARPOST->saveAs(Yii::$app->basePath.'\web\fotopost'.'/'.$model->GAMBARPOST->baseName.'.'.$model->GAMBARPOST->extension);
+            $model->GAMBARPOST->saveAs(Yii::getAlias('@filePath').'/'.'post'.'/'.$model->GAMBARPOST->baseName.'.'.$model->GAMBARPOST->extension);
+            //$model->GAMBARPOST->saveAs(Yii::$app->basePath.'\web\fotopost'.'/'.$model->GAMBARPOST->baseName.'.'.$model->GAMBARPOST->extension);
             $model->GAMBARPOST = $model->GAMBARPOST->baseName.'.'.$model->GAMBARPOST->extension;
             $model->save();
             return $this->redirect(['view', 'id' => $model->IDPOST]);

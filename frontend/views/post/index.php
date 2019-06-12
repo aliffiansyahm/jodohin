@@ -58,7 +58,9 @@ $this->title = 'Posts';
         </p>
         <a href="<?php echo Yii::$app->request->BaseUrl ?>/post/view?id=<?php echo $nilai["IDPOST"]?>">
           <div class="post-thumb">
-            <img src="<?php echo Yii::$app->request->BaseUrl ?>/fotopost/<?php echo $nilai->GAMBARPOST; ?>" alt="photo">
+            <!-- <img src="<?php echo Yii::$app->request->BaseUrl ?>/fotopost/<?php echo $nilai->GAMBARPOST; ?>" alt="photo"> -->
+            <!-- <img src="<?php echo Yii::getAlias('@filePath') ?>/post/<?php echo $nilai->GAMBARPOST; ?>" alt="photo"> -->
+            <?= Html::img(Yii::getAlias('@fileUrl').'/post/'.$nilai->GAMBARPOST);?>
           </div>
         </a>
 
