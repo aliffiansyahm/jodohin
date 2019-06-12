@@ -18,31 +18,35 @@
 			<div class="ui-block">
 				<div class="top-header">
 					<div class="top-header-thumb">
-						<img src="<?php echo Yii::$app->request->BaseUrl ?>/olympus/img/top-header1.jpg" alt="nature">
+						<?php if (isset($_SESSION['header'])) { ?>
+							<?= Html::img(Yii::getAlias('@fileUrl').'/header/'.$_SESSION['header']); ?>
+						<?php } else { ?>
+							<img src="<?php echo Yii::$app->request->BaseUrl ?>/olympus/img/top-header1.jpg" alt="nature">						
+						<?php }?>
 					</div>
 					<div class="profile-section">
 						<div class="row">
 							<div class="col col-lg-5 col-md-5 col-sm-12 col-12">
 								<ul class="profile-menu">
 									<li>
-										<a href="#" class="active">Timeline</a>
+										<a href="02-ProfilePage.html" class="active">Timeline</a>
 									</li>
-                                    <li>
-                                        <a href="<?php Yii::$app->request->BaseUrl ?>/profile/photos<?php if ($pengguna['IDPENGGUNA'] != $_SESSION['id']) { echo "?id=".$pengguna['IDPENGGUNA']; } ?>">Photos</a>
-                                    </li>
-                                    <li>
-                                        <a href="<?php echo Yii::$app->request->BaseUrl ?>/profile/sesi">cek sesi coba</a>
-                                    </li>
+									<li>
+										<a href="<?php echo Yii::$app->request->BaseUrl ?>/profile/sesi">cek sesi coba</a>
+									</li>
+									<li>
+										<a href="06-ProfilePage.html">Friends</a>
+									</li>
 								</ul>
 							</div>
 							<div class="col col-lg-5 ml-auto col-md-5 col-sm-12 col-12">
 								<ul class="profile-menu">
-                                    <li>
-                                        <a href="<?php Yii::$app->request->BaseUrl ?>/profile/followers<?php if ($pengguna['IDPENGGUNA'] != $_SESSION['id']) { echo "?id=".$pengguna['IDPENGGUNA']; } ?>">Followers</a>
-                                    </li>
-                                    <li>
-                                        <a href="<?php Yii::$app->request->BaseUrl ?>/profile/following<?php if ($pengguna['IDPENGGUNA'] != $_SESSION['id']) { echo "?id=".$pengguna['IDPENGGUNA']; } ?>">Following</a>
-                                    </li>
+									<li>
+										<a href="07-ProfilePage-Photos.html">Photos</a>
+									</li>
+									<li>
+										<a href="09-ProfilePage-Videos.html">Videos</a>
+									</li>
 									<li>
 										<div class="more">
 											<svg class="olymp-three-dots-icon"><use xlink:href="<?php echo Yii::$app->request->BaseUrl ?>/olympus/svg-icons/sprites/icons.svg#olymp-three-dots-icon"></use></svg>
@@ -76,10 +80,10 @@
 
 								<ul class="more-dropdown more-with-triangle triangle-bottom-right">
 									<li>
-										<a href="#" data-toggle="modal" data-target="#update-header-photo">Update Profile Photo</a>
+										<a href="../pengguna/update?id=<?php echo $_SESSION['id']?>">Update Profile Photo</a>
 									</li>
 									<li>
-										<a href="#" data-toggle="modal" data-target="#update-header-photo">Update Header Photo</a>
+										<a href="../pengguna/profileheader?id=<?php echo $_SESSION['id']?>">Update Header Photo</a>
 									</li>
 									<li>
 										<a href="29-YourAccount-AccountSettings.html">Account Settings</a>
@@ -89,12 +93,12 @@
 						</div>
 					</div>
 					<div class="top-header-author">
-                        <a href="02-ProfilePage.html" class="author-thumb">
-                            <?php if ($pengguna['FOTO'] == ""): ?>
-                                <img src="<?php echo Yii::$app->request->BaseUrl ?>/olympus/img/author-main1.jpg" alt="author">
-                            <?php else: ?>
-                                <img src="<?php echo Yii::$app->request->BaseUrl ?>/foto/post/1.png" alt="author">
-                            <?php endif; ?>
+						<a href="02-ProfilePage.html" class="author-thumb">
+							<?php if (isset($_SESSION['profile'])) {?>
+								<?= Html::img(Yii::getAlias('@fileUrl').'/profile/'.$_SESSION['profile']); ?>
+							<?php } else {?>
+							<img src="<?php echo Yii::$app->request->BaseUrl ?>/olympus/img/author-main1.jpg" alt="author">
+							<?php }?>
 						</a>
 						<div class="author-content">
 							<a href="02-ProfilePage.html" class="h4 author-name"><?php echo $pengguna['NAMA']?></a>
@@ -265,7 +269,7 @@
 
 			<div class="ui-block">
 				<div class="ui-block-title">
-					<h6 class="title">Profile Details</h6>
+					<h6 class="title">Profile Intro</h6>
 				</div>
 				<div class="ui-block-content">
 
@@ -274,52 +278,28 @@
 					<ul class="widget w-personal-info item-block">
 						<li>
 							<span class="title">About Me:</span>
-                            <span class="text">
-                                <?php
-                                if ($pengguna['BIO'] != "") {
-                                    echo $pengguna['BIO'];
-                                } else {
-                                    echo "Bio doesn't update yet.";
-                                }
-                                ?>
-                            </span>
+							<span class="text"><?php echo $pengguna['BIO']; ?></span>
 						</li>
-                        <li>
-                            <span class="title">Personality:</span>
-                            <span class="text">
-                                <?php
-                                if ($pengguna['IDKEPRIBADIAN'] != "") {
-                                    echo $pengguna['IDKEPRIBADIAN'];
-                                } else {
-                                    echo "Personality doesn't update yet.";
-                                }
-                                ?>
-                            </span>
-                        </li>
-                        <li>
-                            <span class="title">DOB:</span>
-                            <span class="text"><?php echo date('d-m-Y', strtotime($pengguna['TANGGALLAHIR'])); ?></span>
-                        </li>
 					</ul>
 
 					<!-- .. end W-Personal-Info -->
 					<!-- W-Socials -->
 
-<!--					<div class="widget w-socials">-->
-<!--						<h6 class="title">Other Social Networks:</h6>-->
-<!--						<a href="#" class="social-item bg-facebook">-->
-<!--							<i class="fab fa-facebook-f" aria-hidden="true"></i>-->
-<!--							Facebook-->
-<!--						</a>-->
-<!--						<a href="#" class="social-item bg-twitter">-->
-<!--							<i class="fab fa-twitter" aria-hidden="true"></i>-->
-<!--							Twitter-->
-<!--						</a>-->
-<!--						<a href="#" class="social-item bg-dribbble">-->
-<!--							<i class="fab fa-dribbble" aria-hidden="true"></i>-->
-<!--							Dribbble-->
-<!--						</a>-->
-<!--					</div>-->
+					<div class="widget w-socials">
+						<h6 class="title">Other Social Networks:</h6>
+						<a href="#" class="social-item bg-facebook">
+							<i class="fab fa-facebook-f" aria-hidden="true"></i>
+							Facebook
+						</a>
+						<a href="#" class="social-item bg-twitter">
+							<i class="fab fa-twitter" aria-hidden="true"></i>
+							Twitter
+						</a>
+						<a href="#" class="social-item bg-dribbble">
+							<i class="fab fa-dribbble" aria-hidden="true"></i>
+							Dribbble
+						</a>
+					</div>
 
 					<!-- ... end W-Socials -->
 				</div>
@@ -359,25 +339,86 @@
 
 			<div class="ui-block">
 				<div class="ui-block-title">
-					<h6 class="title">Followers (<?php echo $profile_service->countFollowers($pengguna['IDPENGGUNA']); ?>)</h6>
+					<h6 class="title">Friends (86)</h6>
 				</div>
 				<div class="ui-block-content">
 
 					<!-- W-Faved-Page -->
 
 					<ul class="widget w-faved-page js-zoom-gallery">
-                        <?php foreach ($profile_service->getFollowers($pengguna['IDPENGGUNA'], 2) as $follower) { ?>
-                            <li>
-                                <a href="#">
-                                    <img width="45" src="<?php echo Yii::$app->request->BaseUrl ?>/olympus/img/avatar38-sm.jpg" alt="author">
-                                </a>
-                            </li>
-                        <?php } ?>
-                        <?php if ($profile_service->countFollowers($pengguna['IDPENGGUNA']) - 10 > 0): ?>
-						<li class="all-users">
-							<a href="#">+<?php echo $profile_service->countFollowers($pengguna['IDPENGGUNA']) - 10; ?></a>
+						<li>
+							<a href="#">
+								<img src="<?php echo Yii::$app->request->BaseUrl ?>/olympus/img/avatar38-sm.jpg" alt="author">
+							</a>
 						</li>
-                        <?php endif; ?>
+						<li>
+							<a href="#">
+								<img src="<?php echo Yii::$app->request->BaseUrl ?>/olympus/img/avatar24-sm.jpg" alt="user">
+							</a>
+						</li>
+						<li>
+							<a href="#">
+								<img src="<?php echo Yii::$app->request->BaseUrl ?>/olympus/img/avatar36-sm.jpg" alt="author">
+							</a>
+						</li>
+						<li>
+							<a href="#">
+								<img src="<?php echo Yii::$app->request->BaseUrl ?>/olympus/img/avatar35-sm.jpg" alt="user">
+							</a>
+						</li>
+						<li>
+							<a href="#">
+								<img src="<?php echo Yii::$app->request->BaseUrl ?>/olympus/img/avatar34-sm.jpg" alt="author">
+							</a>
+						</li>
+						<li>
+							<a href="#">
+								<img src="<?php echo Yii::$app->request->BaseUrl ?>/olympus/img/avatar33-sm.jpg" alt="author">
+							</a>
+						</li>
+						<li>
+							<a href="#">
+								<img src="<?php echo Yii::$app->request->BaseUrl ?>/olympus/img/avatar32-sm.jpg" alt="user">
+							</a>
+						</li>
+						<li>
+							<a href="#">
+								<img src="<?php echo Yii::$app->request->BaseUrl ?>/olympus/img/avatar31-sm.jpg" alt="author">
+							</a>
+						</li>
+						<li>
+							<a href="#">
+								<img src="<?php echo Yii::$app->request->BaseUrl ?>/olympus/img/avatar30-sm.jpg" alt="author">
+							</a>
+						</li>
+						<li>
+							<a href="#">
+								<img src="<?php echo Yii::$app->request->BaseUrl ?>/olympus/img/avatar29-sm.jpg" alt="user">
+							</a>
+						</li>
+						<li>
+							<a href="#">
+								<img src="<?php echo Yii::$app->request->BaseUrl ?>/olympus/img/avatar28-sm.jpg" alt="user">
+							</a>
+						</li>
+						<li>
+							<a href="#">
+								<img src="<?php echo Yii::$app->request->BaseUrl ?>/olympus/img/avatar27-sm.jpg" alt="user">
+							</a>
+						</li>
+						<li>
+							<a href="#">
+								<img src="<?php echo Yii::$app->request->BaseUrl ?>/olympus/img/avatar26-sm.jpg" alt="user">
+							</a>
+						</li>
+						<li>
+							<a href="#">
+								<img src="<?php echo Yii::$app->request->BaseUrl ?>/olympus/img/avatar25-sm.jpg" alt="user">
+							</a>
+						</li>
+						<li class="all-users">
+							<a href="#">+74</a>
+						</li>
 					</ul>
 
 					<!-- .. end W-Faved-Page -->
@@ -647,7 +688,7 @@
 								<figcaption>
 									<a href="#">The Majestic Canyon</a>
 									<span>Last Added: 57 mins ago</span>
-								</figcaption>BaseUrl
+								</figcaption>
 							</figure>
 						</div>
 
@@ -663,4 +704,3 @@
 </div>
 
 <!-- ... end Window-popup Choose from my Photo -->
-

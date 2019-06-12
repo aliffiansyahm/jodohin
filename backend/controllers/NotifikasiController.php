@@ -25,7 +25,7 @@ class NotifikasiController extends Controller
             'verbs' => [
                 'class' => VerbFilter::className(),
                 'actions' => [
-                    'delete' => ['POST'],
+                    'delete' => ['get'],
                 ],
             ],
         ];
@@ -107,7 +107,7 @@ class NotifikasiController extends Controller
         return $this->render('update', [
             'model' => $model,
             'tipeNotifikasi' => $tipeNotifikasi,
-            'pengguna' => $pengguna,  
+            'pengguna' => $pengguna,
         ]);
     }
 
