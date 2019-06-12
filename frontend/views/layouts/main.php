@@ -161,8 +161,8 @@ $main_services = new MainServices();
 					</a>
 				</li>
 				<li>
-					<a href="<?php echo Yii::$app->request->BaseUrl ?>/olympus/17-FriendGroups.html">
-						<svg class="olymp-happy-faces-icon left-menu-icon"  data-toggle="tooltip" data-placement="right"   data-original-title="FRIEND GROUPS"><use xlink:href="<?php echo Yii::$app->request->BaseUrl ?>/olympus/svg-icons/sprites/icons.svg#olymp-happy-faces-icon"></use></svg>
+					<a href="<?php echo Yii::$app->request->BaseUrl ?>/pesan/simulasi">
+						<svg class="olymp-happy-faces-icon left-menu-icon"  data-toggle="tooltip" data-placement="right"   data-original-title="SIMULASICHAT"><use xlink:href="<?php echo Yii::$app->request->BaseUrl ?>/olympus/svg-icons/sprites/icons.svg#olymp-happy-faces-icon"></use></svg>
 					</a>
 				</li>
 				<li>
@@ -235,8 +235,8 @@ $main_services = new MainServices();
 					</a>
 				</li>
 				<li>
-					<a href="<?php echo Yii::$app->request->BaseUrl ?>/olympus/17-FriendGroups.html">
-						<svg class="olymp-happy-faces-icon left-menu-icon"  data-toggle="tooltip" data-placement="right"   data-original-title="FRIEND GROUPS"><use xlink:href="<?php echo Yii::$app->request->BaseUrl ?>/olympus/svg-icons/sprites/icons.svg#olymp-happy-faces-icon"></use></svg>
+					<a href="<?php echo Yii::$app->request->BaseUrl ?>/pesan/simulasi">
+						<svg class="olymp-happy-faces-icon left-menu-icon"  data-toggle="tooltip" data-placement="right"   data-original-title="SIMULASICHAT"><use xlink:href="<?php echo Yii::$app->request->BaseUrl ?>/olympus/svg-icons/sprites/icons.svg#olymp-happy-faces-icon"></use></svg>
 						<span class="left-menu-title">Friend Groups</span>
 					</a>
 				</li>
