@@ -25,4 +25,9 @@ class ProfileController extends \yii\web\Controller
 
     }
 
+    public function actionDashboard()
+    {
+        return $this->render('Dashboard');
+    }
+
 }

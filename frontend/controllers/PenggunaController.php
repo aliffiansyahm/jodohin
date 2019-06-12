@@ -79,23 +79,6 @@ class PenggunaController extends Controller
             return $this->redirect('../site/landing');
         }
 
-        // jangan diapa"in ya yg ini ... picturenya belum
-        // if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            // $model->NAMA = $_POST['name'];
-            // $model->EMAIL = $_POST['email'];
-            // $model->PASSWORD = $_POST['password'];
-
-            // $model->FOTO = UploadedFile::getInstance($model, 'FOTO');
-
-            // $model->FOTO->saveAs('uploads/' . $model->FOTO->baseName . '.' .$model->FOTO->extension);
-            //   if ($model->FOTO && $model->validate()) {
-            //     $model->FOTO->saveAs('upload/' . $model->FOTO->baseName . '.' .$model->FOTO->extension);
-            //   }
-
-            // $model->save();
-
-            // return $this->redirect(['view', 'id' => $model->IDPENGGUNA]);
-        // }
     }
 
     public function beforeAction($action)
@@ -112,37 +95,23 @@ class PenggunaController extends Controller
      */
     public function actionUpdate($id)
     {
-        // echo Yii::getAlias('@basePath');
         $model = $this->findModel($id);
         
         if (Yii::$app->request->isPost){
             $foto = UploadedFile::getInstance($model, 'FOTO');
 
             $model->FOTO = $foto;
-            $model->FOTO->saveAs(Yii::getAlias('@folderfoto\fotoprofil'). "/" . $model->FOTO->baseName . '.' .$model->FOTO->extension);
+            $model->FOTO->saveAs(Yii::getAlias('@filePath'). "\profile\\".$model->FOTO->baseName . '.' .$model->FOTO->extension);
             $model->FOTO = $model->FOTO->baseName.'.'.$model->FOTO->extension;
-
-
-            // if ($model->FOTO) {
-            //     $model->FOTO->saveAs("Yii::getAlias('@basePath')" . $model->FOTO->baseName . '.' .$model->FOTO->extension);
-            //     $model->FOTO = $model->FOTO->baseName.'.'.$model->FOTO->extension;
-            // }
             
+            $session  = Yii::$app->session;
+            $session['profile'] = $model->FOTO;
             if($model->save()){
                 return $this->redirect('../profile/index');
             }else{
                 echo "gagal";
             }
-
-        
-        
-
-        if ($model->save(false)) {
-            return $this->redirect('../profile/index');
-        }else {
-               
         }
-    }
 
         return $this->render('update', [
             'model' => $model,
@@ -217,29 +186,28 @@ class PenggunaController extends Controller
             echo "gagal";
     }
 
-    public function actionProfilepictures()
+    public function actionProfileheader($id)
     {
-        $model = $this->findModel($_SESSION['id']);
-        // $model->FOTO = $_POST['profilepicture'];
+        $model = $this->findModel($id);
 
         if (Yii::$app->request->isPost) {
-            $model->FOTO = UploadedFile::getInstance($model, 'picture');
-        
+            $model->FOTOHEADER = UploadedFile::getInstance($model, 'FOTO');
+            $model->FOTOHEADER ->saveAs(Yii::getAlias('@filePath'). "\header\\".$model->FOTOHEADER->baseName . '.' .$model->FOTOHEADER->extension);
+            $model->FOTOHEADER = $model->FOTOHEADER->baseName.'.'.$model->FOTOHEADER->extension;
 
-        // $model->FOTO = UploadedFile::getInstanceByName('profilepicture');
-        if (empty($model->FOTO)) {
-            echo "gagal";
-        }else {
+            $session  = Yii::$app->session;
+            $session['header'] = $model->FOTOHEADER;
 
-        // $model->FOTO->saveAs('uploads/' . $model->FOTO->baseName . '.' .$model->FOTO->extension);
-        if ($model->FOTO && $model->validate()) {
-            $model->FOTO->saveAs('upload/' . $model->FOTO->baseName . '.' .$model->FOTO->extension);
+            if($model->save()){
+                return $this->redirect('../profile/index');
+            }else{
+                echo "gagal";
+            }
         }
 
-        if ($model->save()) {
-            return $this->redirect('../profile/index');
-        }
-    }}
+        return $this->render('update', [
+            'model' => $model,
+        ]);
     }
 
     /**
