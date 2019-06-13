@@ -120,6 +120,7 @@ AppAsset::register($this);
 <body>
 <?php
 $main_services = new MainServices();
+$pengguna = $main_services->getUserDetails($_SESSION['id']);
 ?>
 <!-- Fixed Sidebar Left -->
 
@@ -320,8 +321,12 @@ $main_services = new MainServices();
 			<div class="control-block">
 				<div class="author-page author vcard inline-items">
 					<div class="author-thumb">
+						<?php if (isset($_SESSION['foto'])) { ?>
+							<img src="<?php echo Yii::$app->request->BaseUrl ?>/foto/profile/1.png?>" class="friend-avatar author-thumb" alt="author">
+						<?php } else { ?>
 						<img alt="author" src="<?php echo Yii::$app->request->BaseUrl ?>/olympus/img/author-page.jpg" class="avatar">
 						<span class="icon-status online"></span>
+						<?php } ?>
 					</div>
 					<a href="<?php echo Yii::$app->request->BaseUrl ?>/olympus/02-ProfilePage.html" class="author-name fn">
 						<div class="author-title">
@@ -744,7 +749,13 @@ $main_services = new MainServices();
 
 			<div class="author-page author vcard inline-items more">
 				<div class="author-thumb">
-					<img alt="author" src="<?php echo Yii::$app->request->BaseUrl ?>/olympus/img/author-page.jpg" class="avatar">
+						<?php if (isset($pengguna['FOTO'])) { ?>
+							<img width="45" height="45" src="<?php echo Yii::getAlias('@fileUrl') ?>/profile/<?php echo $pengguna['FOTO']?>" class="avatar" alt="author">
+						<?php } else { ?>
+						<img alt="author" src="<?php echo Yii::$app->request->BaseUrl ?>/olympus/img/author-page.jpg" class="avatar">
+						<span class="icon-status online"></span>
+						<?php } ?>	
+
 					<span class="icon-status online"></span>
 					<div class="more-dropdown more-with-triangle">
 						<div class="mCustomScrollbar" data-mcs-theme="dark">

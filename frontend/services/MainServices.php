@@ -15,4 +15,14 @@ class MainServices
             ->all();
         return $followers;
     }
+    
+    public function getUserDetails($id_user)
+    {
+        $user = (new Query())
+            ->from("pengguna")
+            ->where('IDPENGGUNA=:id_user', [
+                ':id_user' => $id_user,
+            ])->one();
+        return $user;
+    }
 }

@@ -101,7 +101,7 @@ class PenggunaController extends Controller
             $foto = UploadedFile::getInstance($model, 'FOTO');
 
             $model->FOTO = $foto;
-            $model->FOTO->saveAs(Yii::getAlias('@folderfoto\fotoprofil'). "/" . $model->FOTO->baseName . '.' .$model->FOTO->extension);
+            $model->FOTO->saveAs(Yii::getAlias('@filePath'). "\profile\\" . $model->FOTO->baseName . '.' .$model->FOTO->extension);
             $model->FOTO = $model->FOTO->baseName.'.'.$model->FOTO->extension;
 
 
@@ -224,6 +224,27 @@ class PenggunaController extends Controller
             return $this->redirect('../profile/index');
         }
     }}
+    }
+
+    public function actionFotoheader($id){
+        $model = findModel($id);
+        
+        if (Yii::$app->request->isPost) {
+            $foto = UploadedFile::getInstance($model, 'FOTO');
+
+            $model->FOTOHEADER = $foto;
+            $model->FOTOHEADER->saveAs(Yii::getAlias('@filePath'). "\header\\" . $model->FOTOHEADER->baseName . '.' .$model->FOTOHEADER->extension);
+            $model->FOTOHEADER = $model->FOTOHEADER->baseName.'.'.$model->FOTOHEADER->extension;
+            if ($model->save()) {
+                return $this->redirect('../profile/index');
+            }
+        } 
+
+        return $this->render('update', [
+            'model' => $model,
+        ]);
+        
+
     }
 
     /**

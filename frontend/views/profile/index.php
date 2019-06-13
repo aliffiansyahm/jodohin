@@ -18,7 +18,11 @@
 			<div class="ui-block">
 				<div class="top-header">
 					<div class="top-header-thumb">
-						<img src="<?php echo Yii::$app->request->BaseUrl ?>/olympus/img/top-header1.jpg" alt="nature">
+						<?php if ($pengguna['FOTOHEADER']==""):  ?>
+							<img src="<?php echo Yii::$app->request->BaseUrl ?>/olympus/img/top-header1.jpg" alt="nature">
+						<?php  else :?>
+							<img src="<?php echo Yii::$app->request->BaseUrl ?>/foto/header/<?php echo $pengguna['FOTOHEADER']?>" alt="author" width="1920" height="640">
+						<?php endif;?>
 					</div>
 					<div class="profile-section">
 						<div class="row">
@@ -91,9 +95,9 @@
 					<div class="top-header-author">
                         <a href="02-ProfilePage.html" class="author-thumb">
                             <?php if ($pengguna['FOTO'] == ""): ?>
-                                <img src="<?php echo Yii::$app->request->BaseUrl ?>/olympus/img/author-main1.jpg" alt="author">
+                                <img src="<?php echo Yii::$app->request->BaseUrl ?>/olympus/img/author-main1.jpg" alt="author" >
                             <?php else: ?>
-                                <img src="<?php echo Yii::$app->request->BaseUrl ?>/foto/post/1.png" alt="author">
+                                <img src="<?php echo Yii::$app->request->BaseUrl ?>/foto/post/<?php echo $pengguna['FOTO']?>" alt="author" width="124" height="124">
                             <?php endif; ?>
 						</a>
 						<div class="author-content">
