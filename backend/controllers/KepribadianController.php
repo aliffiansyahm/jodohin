@@ -23,7 +23,7 @@ class KepribadianController extends Controller
             'verbs' => [
                 'class' => VerbFilter::className(),
                 'actions' => [
-                    'delete' => ['POST'],
+                    'delete' => ['get'],
                 ],
             ],
         ];

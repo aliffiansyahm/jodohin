@@ -12,7 +12,7 @@ use yii\widgets\ActiveForm;
 
     <?php $form = ActiveForm::begin(); ?>
 
-    <?= $form->field($model, 'IDKEPRIBADIAN')->textInput() ?>
+    <?= $form->field($model, 'IDKEPRIBADIAN')->dropDownList($dataKepribadian,['prompt'=>'-pilih satu-'])->label('Tipe Kerpibadian') ?>
 
     <?= $form->field($model, 'EMAIL')->textInput(['maxlength' => true]) ?>
 

@@ -1,5 +1,7 @@
 <?php
+
 namespace frontend\controllers;
+
 use Yii;
 use frontend\models\Pengguna;
 use frontend\models\PenggunaSearch;
@@ -8,6 +10,7 @@ use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 use yii\web\UploadedFile;
 use  yii\web\Session;
+
 /**
  * PenggunaController implements the CRUD actions for Pengguna model.
  */
@@ -27,6 +30,7 @@ class PenggunaController extends Controller
             ],
         ];
     }
+
     /**
      * Lists all Pengguna models.
      * @return mixed
@@ -35,11 +39,13 @@ class PenggunaController extends Controller
     {
         $searchModel = new PenggunaSearch();
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
+
         return $this->render('index', [
             'searchModel' => $searchModel,
             'dataProvider' => $dataProvider,
         ]);
     }
+
     /**
      * Displays a single Pengguna model.
      * @param integer $id
@@ -52,6 +58,7 @@ class PenggunaController extends Controller
             'model' => $this->findModel($id),
         ]);
     }
+
     /**
      * Creates a new Pengguna model.
      * If creation is successful, the browser will be redirected to the 'view' page.
@@ -60,15 +67,19 @@ class PenggunaController extends Controller
     public function actionCreate()
     {
         $model = new Pengguna();
+
         $model->NAMA = $_POST['first_name'].$_POST['last_name'];
         $model->EMAIL = $_POST['email'];
         $model->PASSWORD = $_POST['password'];
         $model->TANGGALLAHIR = date('Y-m-d', strtotime($_POST['datetimepicker']));
         $model->JENISKELAMIN = $_POST['gender'];
+
+
         if ($model->save() && isset($_POST['optionsCheckboxes'])) {
             return $this->redirect('../site/landing');
         }
     }
+
     public function beforeAction($action)
     {
         $this->enableCsrfValidation = false;
@@ -88,9 +99,12 @@ class PenggunaController extends Controller
 
         if (Yii::$app->request->isPost){
             $foto = UploadedFile::getInstance($model, 'FOTO');
+
             $model->FOTO = $foto;
             $model->FOTO->saveAs(Yii::getAlias('@folderfoto\fotoprofil'). "/" . $model->FOTO->baseName . '.' .$model->FOTO->extension);
             $model->FOTO = $model->FOTO->baseName.'.'.$model->FOTO->extension;
+
+
             // if ($model->FOTO) {
             //     $model->FOTO->saveAs("Yii::getAlias('@basePath')" . $model->FOTO->baseName . '.' .$model->FOTO->extension);
             //     $model->FOTO = $model->FOTO->baseName.'.'.$model->FOTO->extension;
@@ -111,10 +125,12 @@ class PenggunaController extends Controller
 
         }
     }
+
         return $this->render('update', [
             'model' => $model,
         ]);
     }
+
     /**
      * Deletes an existing Pengguna model.
      * If deletion is successful, the browser will be redirected to the 'index' page.
@@ -125,18 +141,22 @@ class PenggunaController extends Controller
     public function actionDelete($id)
     {
         $this->findModel($id)->delete();
+
         return $this->redirect(['index']);
     }
+
     public function actionLogin()
     {
         $model = new Pengguna();
         //session_start();
         $email = $_POST['email'];
         $password = $_POST['password'];
+
         $pengguna =  Pengguna::find()
         ->where(['EMAIL' => $email,
                 'PASSWORD' => $password])
         ->one();
+
         $session  = Yii::$app->session;
         //$session->open();
         $session['login'] = true;
@@ -154,18 +174,24 @@ class PenggunaController extends Controller
         }else {
           echo "Gagal masuk";
         }
+
     }
+
+
     public function actionKeluar(){
         $session  = Yii::$app->session;
         $session->removeAll();
         //print_r($_SESSION);
         return $this->redirect('../site/landing');
     }
+
     public function actionProfile(){
         return $this->render('profile');
     }
+
     public function actionPersonality(){
         $model = $this->findModel($_SESSION['id']);
+
         $model->IDKEPRIBADIAN = $_SESSION['idkepribadian'];
 
         if ($model->save()) {
@@ -174,10 +200,12 @@ class PenggunaController extends Controller
         } else
             echo "gagal";
     }
+
     public function actionProfilepictures()
     {
         $model = $this->findModel($_SESSION['id']);
         // $model->FOTO = $_POST['profilepicture'];
+
         if (Yii::$app->request->isPost) {
             $model->FOTO = UploadedFile::getInstance($model, 'picture');
 
@@ -186,15 +214,18 @@ class PenggunaController extends Controller
         if (empty($model->FOTO)) {
             echo "gagal";
         }else {
+
         // $model->FOTO->saveAs('uploads/' . $model->FOTO->baseName . '.' .$model->FOTO->extension);
         if ($model->FOTO && $model->validate()) {
             $model->FOTO->saveAs('upload/' . $model->FOTO->baseName . '.' .$model->FOTO->extension);
         }
+
         if ($model->save()) {
             return $this->redirect('../profile/index');
         }
     }}
     }
+
     /**
      * Finds the Pengguna model based on its primary key value.
      * If the model is not found, a 404 HTTP exception will be thrown.
@@ -207,6 +238,7 @@ class PenggunaController extends Controller
         if (($model = Pengguna::findOne($id)) !== null) {
             return $model;
         }
+
         throw new NotFoundHttpException('The requested page does not exist.');
     }
 }
