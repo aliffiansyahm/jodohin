@@ -12,7 +12,7 @@ $kepribadian = array("Sanguinis", "Koleris", "Melankolis", "Plegmatis");
         <div class="col col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
             <div class="ui-block">
                 <div class="ui-block-title">
-                    <h3 class="title"><?php echo s$kepribadian[$_SESSION['idkepribadian']] ?></h3>
+                    <h3 class="title"><?php echo $kepribadian[$_SESSION['idkepribadian']] ?></h3>
                 </div>
 
                 <div class="ui-block-content">
