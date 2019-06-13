@@ -59,6 +59,15 @@ class ProfileService
         return $followers;
     }
 
+    public function getPersonalityName($id_personality)
+    {
+        $personality = (new Query())
+            ->from('kepribadian')
+            ->where('IDKEPRIBADIAN=:id_kepribadian', [':id_kepribadian' => $id_personality])
+            ->one();
+        return $personality;
+    }
+
     public function countFollowers($id_user)
     {
         $followers = (new Query())
@@ -98,5 +107,16 @@ class ProfileService
                 ':id_user' => $id_user,
             ])->count();
         return $posts;
+    }
+
+    public function checkFollowers($id_user, $id_follower)
+    {
+        $followers = (new Query())
+            ->from("follow")
+            ->where('IDPENGGUNA=:id_user AND IDPENGIKUT=:id_pengikut', [
+                ':id_user' => $id_follower,
+                ':id_pengikut' => $id_user
+            ])->count();
+        return ($followers > 0)? true : false;
     }
 }

@@ -210,33 +210,33 @@
 
                         </div>
 
-                        <div class="control-block-button post-control-button">
-
-                                <a href="#" class="btn btn-control featured-post">
-                                    <svg class="olymp-trophy-icon">
-                                        <use xlink:href="<?php echo Yii::$app->request->BaseUrl ?>/olympus/svg-icons/sprites/icons.svg#olymp-trophy-icon"></use>
-                                    </svg>
-                                </a>
-
-                                <a href="#" class="btn btn-control">
-                                    <svg class="olymp-like-post-icon">
-                                        <use xlink:href="<?php echo Yii::$app->request->BaseUrl ?>/olympus/svg-icons/sprites/icons.svg#olymp-like-post-icon"></use>
-                                    </svg>
-                                </a>
-
-                                <a href="#" class="btn btn-control">
-                                    <svg class="olymp-comments-post-icon">
-                                        <use xlink:href="<?php echo Yii::$app->request->BaseUrl ?>/olympus/svg-icons/sprites/icons.svg#olymp-comments-post-icon"></use>
-                                    </svg>
-                                </a>
-
-                                <a href="#" class="btn btn-control">
-                                    <svg class="olymp-share-icon">
-                                        <use xlink:href="<<?php echo Yii::$app->request->BaseUrl ?>/olympus/svg-icons/sprites/icons.svg#olymp-share-icon"></use>
-                                    </svg>
-                                </a>
-
-                            </div>
+<!--                        <div class="control-block-button post-control-button">-->
+<!---->
+<!--                                <a href="#" class="btn btn-control featured-post">-->
+<!--                                    <svg class="olymp-trophy-icon">-->
+<!--                                        <use xlink:href="--><?php //echo Yii::$app->request->BaseUrl ?><!--/olympus/svg-icons/sprites/icons.svg#olymp-trophy-icon"></use>-->
+<!--                                    </svg>-->
+<!--                                </a>-->
+<!---->
+<!--                                <a href="#" class="btn btn-control">-->
+<!--                                    <svg class="olymp-like-post-icon">-->
+<!--                                        <use xlink:href="--><?php //echo Yii::$app->request->BaseUrl ?><!--/olympus/svg-icons/sprites/icons.svg#olymp-like-post-icon"></use>-->
+<!--                                    </svg>-->
+<!--                                </a>-->
+<!---->
+<!--                                <a href="#" class="btn btn-control">-->
+<!--                                    <svg class="olymp-comments-post-icon">-->
+<!--                                        <use xlink:href="--><?php //echo Yii::$app->request->BaseUrl ?><!--/olympus/svg-icons/sprites/icons.svg#olymp-comments-post-icon"></use>-->
+<!--                                    </svg>-->
+<!--                                </a>-->
+<!---->
+<!--                                <a href="#" class="btn btn-control">-->
+<!--                                    <svg class="olymp-share-icon">-->
+<!--                                        <use xlink:href="<--><?php //echo Yii::$app->request->BaseUrl ?><!--/olympus/svg-icons/sprites/icons.svg#olymp-share-icon"></use>-->
+<!--                                    </svg>-->
+<!--                                </a>-->
+<!---->
+<!--                            </div>-->
                     </article>
                 </div>
                 <!-- .. end Post -->
@@ -283,7 +283,7 @@
                             <span class="text">
                                 <?php
                                 if ($pengguna['IDKEPRIBADIAN'] != "") {
-                                    echo $pengguna['IDKEPRIBADIAN'];
+                                    echo $profile_service->getPersonalityName($pengguna['IDKEPRIBADIAN'])['NAMAKEPRIBADIAN'];
                                 } else {
                                     echo "Personality doesn't update yet.";
                                 }

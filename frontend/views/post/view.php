@@ -16,8 +16,9 @@ $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="ui-block">
   <div class="ui-block-title">
-    <h6 class="title">Lihat</h6>
-    <?= Html::a('Kembali ke semua post saya', ['index'], ['class' => 'btn btn-primary']) ?>
+    <h6 class="title">Lihat Post &nbsp &nbsp
+        <?= Html::a('Lihat semua post', ['index'], ['class' => ['btn btn-primary', 'align-left']]) ?>
+    </h6>
   </div>
   <div class="ui-block-content">
       <article class="hentry post has-post-thumbnail">
@@ -89,11 +90,11 @@ $this->params['breadcrumbs'][] = $this->title;
       </div>
 
       <div class="control-block-button post-control-button">
-
-        <a href="delete?id=<?php echo $model->IDPOST; ?>" class="btn btn-control">
-          <svg class="olymp-like-post-icon"><use xlink:href="<?php echo Yii::$app->request->BaseUrl ?>/olympus/svg-icons/sprites/icons.svg#olymp-little-delete"></use></svg>
-        </a>
-
+          <?php if ($model->IDPENGGUNA == $_SESSION['id']): ?>
+            <a href="delete?id=<?php echo $model->IDPOST; ?>" class="btn btn-control">
+              <svg class="olymp-like-post-icon"><use xlink:href="<?php echo Yii::$app->request->BaseUrl ?>/olympus/svg-icons/sprites/icons.svg#olymp-little-delete"></use></svg>
+            </a>
+          <?php endif; ?>
       </div>
 
     </article>
@@ -166,6 +167,6 @@ $this->params['breadcrumbs'][] = $this->title;
     <?php echo $model->WAKTUPOST; ?><br>
     <img src="<?php echo Yii::$app->request->BaseUrl ?>/fotopost/<?php echo $model->GAMBARPOST; ?>" alt="gambar kosong" width="200"><br>
     <?php echo $model->CAPTION; ?><br>
-    <?= Html::a('Kembali ke semua post saya', ['index'], ['class' => 'btn btn-primary']) ?>
+    <?= Html::a('Lihat semua Post', ['index'], ['class' => 'btn btn-primary']) ?>
 
 </div> -->
