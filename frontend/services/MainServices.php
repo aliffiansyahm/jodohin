@@ -53,8 +53,7 @@ class MainServices
             ->all();
         return $followers;
     }
-
-
+  
     public function getMutualFollowers($id_user, $id_followers)
     {
         $followers = (new Query())
@@ -63,5 +62,15 @@ class MainServices
                 [':id_pengguna' => $id_followers, ':id_pengikut' => $id_user])
             ->one();
         return $followers;
+    }
+  
+    public function getUserDetails($id_user)
+    {
+        $user = (new Query())
+            ->from("pengguna")
+            ->where('IDPENGGUNA=:id_user', [
+                ':id_user' => $id_user,
+            ])->one();
+        return $user;
     }
 }

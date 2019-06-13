@@ -97,11 +97,11 @@ class PenggunaController extends Controller
         // echo Yii::getAlias('@basePath');
         $model = $this->findModel($id);
 
-        if (Yii::$app->request->isPost){
-            $foto = UploadedFile::getInstance($model, 'FOTO');
+        if (Yii::$app->request->post()){
+            $foto = UploadedFile::getInstanceByName('FOTO');
 
             $model->FOTO = $foto;
-            $model->FOTO->saveAs(Yii::getAlias('@folderfoto\fotoprofil'). "/" . $model->FOTO->baseName . '.' .$model->FOTO->extension);
+            $model->FOTO->saveAs(Yii::getAlias('@filePath'). "\profile\\" . $model->FOTO->baseName . '.' .$model->FOTO->extension);
             $model->FOTO = $model->FOTO->baseName.'.'.$model->FOTO->extension;
 
 
@@ -201,13 +201,13 @@ class PenggunaController extends Controller
             echo "gagal";
     }
 
-    public function actionProfilepictures()
+    public function actionProfilepictures($id)
     {
-        $model = $this->findModel($_SESSION['id']);
+        $model = $this->findModel($id);
         // $model->FOTO = $_POST['profilepicture'];
 
         if (Yii::$app->request->isPost) {
-            $model->FOTO = UploadedFile::getInstance($model, 'picture');
+            $model->FOTO = UploadedFile::getInstance($model, 'FOTO');
 
 
         // $model->FOTO = UploadedFile::getInstanceByName('profilepicture');
@@ -224,6 +224,27 @@ class PenggunaController extends Controller
             return $this->redirect('../profile/index');
         }
     }}
+    }
+
+    public function actionFotoheader($id){
+        $model = $this->findModel($id);
+        
+        if (Yii::$app->request->isPost) {
+            $foto = UploadedFile::getInstanceByName('FOTO');
+
+            $model->FOTOHEADER = $foto;
+            $model->FOTOHEADER->saveAs(Yii::getAlias('@filePath'). "\header\\" . $model->FOTOHEADER->baseName . '.' .$model->FOTOHEADER->extension);
+            $model->FOTOHEADER = $model->FOTOHEADER->baseName.'.'.$model->FOTOHEADER->extension;
+            if ($model->save()) {
+                return $this->redirect('../profile/index');
+            }
+        } 
+
+        return $this->render('update', [
+            'model' => $model,
+        ]);
+        
+
     }
 
     /**
