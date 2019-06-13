@@ -149,4 +149,31 @@ class ProfileController extends Controller
         }
         return $this->redirect(Yii::$app->request->BaseUrl . "/profile/index?id=" . $id);
     }
+
+    public function actionSettings()
+    {
+        $pengguna = (new Query())
+            ->from('pengguna')
+            ->where('IDPENGGUNA=:id_pengguna', [':id_pengguna' => $_SESSION['id']])
+            ->one();
+        return $this->render('settings', compact('pengguna'));
+    }
+
+    public function actionSettingsstore()
+    {
+        if (Yii::$app->request->isPost) {
+            $model = Pengguna::findOne($_SESSION['id']);
+            $model->EMAIL = Yii::$app->request->post('EMAIL');
+            $model->NAMA = Yii::$app->request->post('NAMA');
+            $model->TANGGALLAHIR = date('Y-m-d', strtotime(Yii::$app->request->post('datetimepicker')));
+            $model->ALAMAT = Yii::$app->request->post('ALAMAT');
+            $model->BIO = Yii::$app->request->post('BIO');
+            $model->JENISKELAMIN = Yii::$app->request->post('JENISKELAMIN');
+            $model->save(false);
+//            return $this->render('settings', compact('pengguna'));
+        }
+        return $this->redirect(Yii::$app->request->BaseUrl . "/profile/settings");
+
+    }
+
 }
