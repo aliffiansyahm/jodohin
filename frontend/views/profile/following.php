@@ -28,7 +28,7 @@ $profile_service = new ProfileService();
                                         <a href="<?php Yii::$app->request->BaseUrl ?>/profile/index<?php if ($pengguna['IDPENGGUNA'] != $_SESSION['id']) { echo "?id=".$pengguna['IDPENGGUNA']; } ?>">Timeline</a>
                                     </li>
                                     <li>
-                                        <a href="#" class="active">Photos</a>
+                                        <a href="<?php Yii::$app->request->BaseUrl ?>/profile/photos<?php if ($pengguna['IDPENGGUNA'] != $_SESSION['id']) { echo "?id=".$pengguna['IDPENGGUNA']; } ?>">Photos</a>
                                     </li>
                                     <li>
                                         <a href="<?php echo Yii::$app->request->BaseUrl ?>/profile/sesi">cek sesi coba</a>
@@ -41,7 +41,7 @@ $profile_service = new ProfileService();
                                         <a href="<?php Yii::$app->request->BaseUrl ?>/profile/followers<?php if ($pengguna['IDPENGGUNA'] != $_SESSION['id']) { echo "?id=".$pengguna['IDPENGGUNA']; } ?>">Followers</a>
                                     </li>
                                     <li>
-                                        <a href="<?php Yii::$app->request->BaseUrl ?>/profile/following<?php if ($pengguna['IDPENGGUNA'] != $_SESSION['id']) { echo "?id=".$pengguna['IDPENGGUNA']; } ?>">Following</a>
+                                        <a href="#" class="active">Following</a>
                                     </li>
                                     <li>
                                         <div class="more">
@@ -113,56 +113,100 @@ $profile_service = new ProfileService();
 
 <!-- ... end Top Header-Profile -->
 
-
 <div class="container">
     <div class="row">
         <div class="col col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
             <div class="ui-block responsive-flex">
                 <div class="ui-block-title">
-                    <div class="h6 title"><?php echo $pengguna['NAMA'];?> Photo Gallery</div>
-
-                    <div class="block-btn align-right">
-                        <a href="#" data-toggle="modal" data-target="#update-header-photo" class="btn btn-md-2 btn-border-think custom-color c-grey">Add Photos +</a>
-                    </div>
+                    <div class="h6 title"><?php echo $pengguna['NAMA'] . " Following (" . $profile_service->countFollowing($pengguna['IDPENGGUNA']) . ")"; ?></div>
+                    <form class="w-search">
+                        <div class="form-group with-button">
+                            <input class="form-control" type="text" placeholder="Search Friends...">
+                            <button>
+                                <svg class="olymp-magnifying-glass-icon"><use xlink:href="<?php Yii::$app->request->BaseUrl ?>/olympus/svg-icons/sprites/icons.svg#olymp-magnifying-glass-icon"></use></svg>
+                            </button>
+                        </div>
+                    </form>
                 </div>
             </div>
         </div>
     </div>
 </div>
+
 
 <div class="container">
     <div class="row">
-        <div class="col col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
-            <!-- Tab panes -->
-            <div class="tab-content">
-                <div class="tab-pane active" id="photo-page" role="tabpanel">
+        <?php foreach ($followings as $following) { ?>
+            <div class="col col-xl-3 col-lg-6 col-md-6 col-sm-6 col-6">
+                <div class="ui-block">
 
-                    <div class="photo-album-wrapper">
-                        <?php foreach ($photos as $photo) { ?>
-                            <div class="photo-item col-4-width">
-                                <img src="<?php echo Yii::$app->request->BaseUrl ?>/foto/post/<?php echo $photo['GAMBARPOST']; ?>" alt="photo">
-                                <div class="overlay overlay-dark"></div>
-                                <a href="#" class="more"><svg class="olymp-three-dots-icon"><use xlink:href="svg-icons/sprites/icons.svg#olymp-three-dots-icon"></use></svg></a>
-                                <a href="#" class="post-add-icon inline-items">
-                                    <svg class="olymp-heart-icon"><use xlink:href="<?php echo Yii::$app->request->BaseUrl ?>/olympus/svg-icons/sprites/icons.svg#olymp-heart-icon"></use></svg>
-                                    <span>15</span>
-                                </a>
-                                <div class="content">
-                                    <a href="#" class="h6 title"><?php echo substr($photo['CAPTION'], 0, 9); ?>...</a>
-                                    <time class="published" datetime="2017-03-24T18:18"><?php echo date('d-m-Y', strtotime($photo['WAKTUPOST'])); ?></time>
+                    <!-- Friend Item -->
+
+                    <div class="friend-item">
+                        <div class="friend-header-thumb">
+                            <img src="<?php Yii::$app->request->BaseUrl ?>/olympus/img/friend1.jpg" alt="friend">
+                        </div>
+
+                        <div class="friend-item-content">
+                            <div class="friend-avatar">
+                                <div class="author-thumb">
+                                    <img src="<?php Yii::$app->request->BaseUrl ?>/olympus/img/avatar1.jpg" alt="author">
+                                </div>
+                                <div class="author-content">
+                                    <a href="#" class="h5 author-name"><?php echo $following['NAMA']; ?></a>
+                                    <div class="country"><?php echo $following['ALAMAT']; ?></div>
                                 </div>
                             </div>
-                        <?php } ?>
 
+                            <div class="swiper-container" data-slide="fade">
+                                <div class="swiper-wrapper">
+                                    <div class="swiper-slide">
+                                        <div class="friend-count" data-swiper-parallax="-500">
+                                            <a href="#" class="friend-count-item">
+                                                <div class="h6"><?php echo $profile_service->countFollowing($following['IDPENGGUNA']); ?></div>
+                                                <div class="title">Followers</div>
+                                            </a>
+                                            <a href="#" class="friend-count-item">
+                                                <div class="h6"><?php echo $profile_service->countPhotos($following['IDPENGGUNA']); ?></div>
+                                                <div class="title">Photos</div>
+                                            </a>
+                                            <a href="#" class="friend-count-item">
+                                                <div class="h6"><?php echo $profile_service->countPosts($following['IDPENGGUNA']); ?></div>
+                                                <div class="title">Posts</div>
+                                            </a>
+                                        </div>
+                                        <div class="control-block-button" data-swiper-parallax="-100">
+                                            <a href="#" class="btn bg-blue">
+                                                Follow
+                                            </a>
+                                        </div>
+                                    </div>
+
+                                    <div class="swiper-slide">
+                                        <p class="friend-about align-center" data-swiper-parallax="-500">
+                                            <?php
+                                            if ($following['BIO'] != "") {
+                                                echo $following['BIO'];
+                                            } else {
+                                                echo "Bio doesn't update yet.";
+                                            }
+                                            ?>
+                                        </p>
+
+                                    </div>
+                                </div>
+
+                                <!-- If we need pagination -->
+                                <div class="swiper-pagination"></div>
+                            </div>
+                        </div>
                     </div>
 
-                </div>
+                    <!-- ... end Friend Item -->			</div>
             </div>
-
-        </div>
+        <?php } ?>
     </div>
 </div>
-
 
 <!-- Window-popup Update Header Photo -->
 

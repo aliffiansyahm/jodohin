@@ -39,11 +39,42 @@ class ProfileService
         return $self_photos;
     }
 
+    public function getFollowers($id_user)
+    {
+        $followers = (new Query())
+            ->from('follow')
+            ->join('JOIN', 'pengguna', 'follow.IDPENGIKUT = pengguna.IDPENGGUNA')
+            ->where('follow.IDPENGGUNA=:id_pengguna', [':id_pengguna' => $id_user])
+            ->all();
+        return $followers;
+    }
+
+    public function getFollowersLimit10($id_user)
+    {
+        $followers = (new Query())
+            ->from('follow')
+            ->join('JOIN', 'pengguna', 'follow.IDPENGIKUT = pengguna.IDPENGGUNA')
+            ->where('follow.IDPENGGUNA=:id_pengguna', [':id_pengguna' => $id_user])
+            ->limit(10)->all();
+        return $followers;
+    }
+
     public function countFollowers($id_user)
     {
         $followers = (new Query())
             ->from("follow")
             ->where('IDPENGGUNA=:id_user', [
+                ':id_user' => $id_user,
+            ])->count();
+        return $followers;
+    }
+
+    public function countFollowing($id_user)
+    {
+        $followers = (new Query())
+            ->distinct()
+            ->from("follow")
+            ->where('IDPENGIKUT=:id_user', [
                 ':id_user' => $id_user,
             ])->count();
         return $followers;
