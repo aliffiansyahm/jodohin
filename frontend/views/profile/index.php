@@ -86,14 +86,14 @@
 										<a href="#" data-toggle="modal" data-target="#update-header-photo">Update Header Photo</a>
 									</li>
 									<li>
-										<a href="29-YourAccount-AccountSettings.html">Account Settings</a>
+										<a href="#">Account Settings</a>
 									</li>
 								</ul>
 							</div>
 						</div>
 					</div>
 					<div class="top-header-author">
-                        <a href="02-ProfilePage.html" class="author-thumb">
+                        <a href="#" class="author-thumb">
                             <?php if ($pengguna['FOTO'] == ""): ?>
                                 <img src="<?php echo Yii::$app->request->BaseUrl ?>/olympus/img/author-main1.jpg" alt="author" >
                             <?php else: ?>
@@ -101,9 +101,11 @@
                             <?php endif; ?>
 						</a>
 						<div class="author-content">
-							<a href="02-ProfilePage.html" class="h4 author-name"><?php echo $pengguna['NAMA']?></a>
+							<a href="#" class="h4 author-name"><?php echo $pengguna['NAMA']?></a>
                             <?php if ($_SESSION['id'] == $pengguna['IDPENGGUNA'] && $pengguna['ALAMAT'] == ""): ?>
 							    <a href="#"><div class="country badge-primary rounded">Update alamat</div></a>
+                            <?php elseif ($pengguna['ALAMAT'] == ""): ?>
+                                <div class="country">Address doesn't update yet.</div>
                             <?php else: ?>
                                 <div class="country"><?php echo $pengguna['ALAMAT']; ?></div>
                             <?php endif; ?>
@@ -123,128 +125,136 @@
 
 		<div class="col col-xl-6 order-xl-2 col-lg-12 order-lg-1 col-md-12 col-sm-12 col-12">
 			<div id="newsfeed-items-grid">
-
-                <?php foreach ($profile_service->getSelfPosts($pengguna['IDPENGGUNA']) as $post) { ?>
-                <!-- Post -->
-                <div class="ui-block">
-                    <article class="hentry post">
-                        <div class="post__author author vcard inline-items">
-                            <?php if ($pengguna['FOTO'] == ""): ?>
-                                <img src="<?php echo Yii::$app->request->BaseUrl ?>/olympus/img/author-main1.jpg" alt="author">
-                            <?php else: ?>
-                                <img src="<?php echo Yii::getAlias('@fileUrl') ?>/profile/<?php echo $pengguna['FOTO']?>" alt="author">
-                            <?php endif; ?>
-                            <div class="author-date">
-                                <a class="h6 post__author-name fn" href="02-ProfilePage.html"><?php echo $pengguna['NAMA'] ?></a>
-                                    <?php if ($post['GAMBARPOST'] != "") { echo "shared photo"; } ?>
-                                <div class="post__date">
-                                    <time class="published" datetime="2017-03-24T18:18">
-                                        at <?php echo date('d-m-Y', strtotime($post['WAKTUPOST'])); ?>
-                                    </time>
+                <?php if ($profile_service->countPosts($pengguna['IDPENGGUNA']) > 0): ?>
+                    <?php foreach ($profile_service->getSelfPosts($pengguna['IDPENGGUNA']) as $post) { ?>
+                    <!-- Post -->
+                    <div class="ui-block">
+                        <article class="hentry post">
+                            <div class="post__author author vcard inline-items">
+                                <?php if ($pengguna['FOTO'] == ""): ?>
+                                    <img src="<?php echo Yii::$app->request->BaseUrl ?>/olympus/img/author-main1.jpg" alt="author">
+                                <?php else: ?>
+                                    <img src="<?php echo Yii::getAlias('@fileUrl') ?>/profile/<?php echo $pengguna['FOTO']?>" alt="author">
+                                <?php endif; ?>
+                                <div class="author-date">
+                                    <a class="h6 post__author-name fn" href="#"><?php echo $pengguna['NAMA'] ?></a>
+                                        <?php if ($post['GAMBARPOST'] != "") { echo "shared photo"; } ?>
+                                    <div class="post__date">
+                                        <time class="published" datetime="2017-03-24T18:18">
+                                            at <?php echo date('d-m-Y', strtotime($post['WAKTUPOST'])); ?>
+                                        </time>
+                                    </div>
                                 </div>
+
+                                <div class="more">
+                                    <svg class="olymp-three-dots-icon">
+                                        <use xlink:href="<?php echo Yii::$app->request->BaseUrl ?>/olympus/svg-icons/sprites/icons.svg#olymp-three-dots-icon"></use>
+                                    </svg>
+                                    <ul class="more-dropdown">
+                                        <li>
+                                            <a href="#">Edit Post</a>
+                                        </li>
+                                        <li>
+                                            <a href="#">Delete Post</a>
+                                        </li>
+                                    </ul>
+                                </div>
+
                             </div>
 
-                            <div class="more">
-                                <svg class="olymp-three-dots-icon">
-                                    <use xlink:href="<?php echo Yii::$app->request->BaseUrl ?>/olympus/svg-icons/sprites/icons.svg#olymp-three-dots-icon"></use>
-                                </svg>
-                                <ul class="more-dropdown">
+                            <p>
+                                <?php echo $post['CAPTION']; ?>
+                            </p>
+                            <?php if ($post['GAMBARPOST'] != ""): ?>
+                                <div class="post-thumb">
+                                    <img src="<?php echo Yii::getAlias('@fileUrl') ?>/post/<?=$post['GAMBARPOST'] ?>" alt="photo">
+                                </div>
+                            <?php endif; ?>
+                            <div class="post-additional-info inline-items">
+
+                                <a href="#" class="post-add-icon inline-items">
+                                    <svg class="olymp-heart-icon">
+                                        <use xlink:href="<?php echo Yii::$app->request->BaseUrl ?>/olympus/svg-icons/sprites/icons.svg#olymp-heart-icon"></use>
+                                    </svg>
+                                    <span>8</span>
+                                </a>
+
+                                <ul class="friends-harmonic">
                                     <li>
-                                        <a href="#">Edit Post</a>
+                                        <a href="#">
+                                            <img src="<?php echo Yii::$app->request->BaseUrl ?>/olympus/img/friend-harmonic10.jpg" alt="friend">
+                                        </a>
                                     </li>
                                     <li>
-                                        <a href="#">Delete Post</a>
+                                        <a href="#">
+                                            <img src="<?php echo Yii::$app->request->BaseUrl ?>/olympus/img/friend-harmonic11.jpg" alt="friend">
+                                        </a>
                                     </li>
                                 </ul>
-                            </div>
 
-                        </div>
+                                <div class="names-people-likes">
+                                    <a href="#">Jenny</a>, <a href="#">Robert</a> and
+                                    <br>6 more liked this
+                                </div>
 
-                        <p>
-                            <?php echo $post['CAPTION']; ?>
-                        </p>
-                        <?php if ($post['GAMBARPOST'] != ""): ?>
-                            <div class="post-thumb">
-                                <img src="<?php echo Yii::getAlias('@fileUrl') ?>/post/<?=$post['GAMBARPOST'] ?>" alt="photo">
-                            </div>
-                        <?php endif; ?>
-                        <div class="post-additional-info inline-items">
 
-                            <a href="#" class="post-add-icon inline-items">
-                                <svg class="olymp-heart-icon">
-                                    <use xlink:href="<?php echo Yii::$app->request->BaseUrl ?>/olympus/svg-icons/sprites/icons.svg#olymp-heart-icon"></use>
-                                </svg>
-                                <span>8</span>
-                            </a>
-
-                            <ul class="friends-harmonic">
-                                <li>
-                                    <a href="#">
-                                        <img src="<?php echo Yii::$app->request->BaseUrl ?>/olympus/img/friend-harmonic10.jpg" alt="friend">
+                                <div class="comments-shared">
+                                    <a href="#" class="post-add-icon inline-items">
+                                        <svg class="olymp-speech-balloon-icon">
+                                            <use xlink:href="<?php echo Yii::$app->request->BaseUrl ?>/olympus/svg-icons/sprites/icons.svg#olymp-speech-balloon-icon"></use>
+                                        </svg>
+                                        <span>17</span>
                                     </a>
-                                </li>
-                                <li>
-                                    <a href="#">
-                                        <img src="<?php echo Yii::$app->request->BaseUrl ?>/olympus/img/friend-harmonic11.jpg" alt="friend">
+
+                                    <a href="#" class="post-add-icon inline-items">
+                                        <svg class="olymp-share-icon">
+                                            <use xlink:href="<?php echo Yii::$app->request->BaseUrl ?>/olympus/svg-icons/sprites/icons.svg#olymp-share-icon"></use>
+                                        </svg>
+                                        <span>24</span>
                                     </a>
-                                </li>
-                            </ul>
+                                </div>
 
-                            <div class="names-people-likes">
-                                <a href="#">Jenny</a>, <a href="#">Robert</a> and
-                                <br>6 more liked this
                             </div>
 
-
-                            <div class="comments-shared">
-                                <a href="#" class="post-add-icon inline-items">
-                                    <svg class="olymp-speech-balloon-icon">
-                                        <use xlink:href="<?php echo Yii::$app->request->BaseUrl ?>/olympus/svg-icons/sprites/icons.svg#olymp-speech-balloon-icon"></use>
-                                    </svg>
-                                    <span>17</span>
-                                </a>
-
-                                <a href="#" class="post-add-icon inline-items">
-                                    <svg class="olymp-share-icon">
-                                        <use xlink:href="<?php echo Yii::$app->request->BaseUrl ?>/olympus/svg-icons/sprites/icons.svg#olymp-share-icon"></use>
-                                    </svg>
-                                    <span>24</span>
-                                </a>
-                            </div>
-
+    <!--                        <div class="control-block-button post-control-button">-->
+    <!---->
+    <!--                                <a href="#" class="btn btn-control featured-post">-->
+    <!--                                    <svg class="olymp-trophy-icon">-->
+    <!--                                        <use xlink:href="--><?php //echo Yii::$app->request->BaseUrl ?><!--/olympus/svg-icons/sprites/icons.svg#olymp-trophy-icon"></use>-->
+    <!--                                    </svg>-->
+    <!--                                </a>-->
+    <!---->
+    <!--                                <a href="#" class="btn btn-control">-->
+    <!--                                    <svg class="olymp-like-post-icon">-->
+    <!--                                        <use xlink:href="--><?php //echo Yii::$app->request->BaseUrl ?><!--/olympus/svg-icons/sprites/icons.svg#olymp-like-post-icon"></use>-->
+    <!--                                    </svg>-->
+    <!--                                </a>-->
+    <!---->
+    <!--                                <a href="#" class="btn btn-control">-->
+    <!--                                    <svg class="olymp-comments-post-icon">-->
+    <!--                                        <use xlink:href="--><?php //echo Yii::$app->request->BaseUrl ?><!--/olympus/svg-icons/sprites/icons.svg#olymp-comments-post-icon"></use>-->
+    <!--                                    </svg>-->
+    <!--                                </a>-->
+    <!---->
+    <!--                                <a href="#" class="btn btn-control">-->
+    <!--                                    <svg class="olymp-share-icon">-->
+    <!--                                        <use xlink:href="<--><?php //echo Yii::$app->request->BaseUrl ?><!--/olympus/svg-icons/sprites/icons.svg#olymp-share-icon"></use>-->
+    <!--                                    </svg>-->
+    <!--                                </a>-->
+    <!---->
+    <!--                            </div>-->
+                        </article>
+                    </div>
+                    <!-- .. end Post -->
+                    <?php } ?>
+                <?php else: ?>
+                    <div class="ui-block responsive-flex">
+                        <div class="ui-block-title">
+                            <div class="h6 title align-center">No post update yet.</div>
                         </div>
+                    </div>
 
-<!--                        <div class="control-block-button post-control-button">-->
-<!---->
-<!--                                <a href="#" class="btn btn-control featured-post">-->
-<!--                                    <svg class="olymp-trophy-icon">-->
-<!--                                        <use xlink:href="--><?php //echo Yii::$app->request->BaseUrl ?><!--/olympus/svg-icons/sprites/icons.svg#olymp-trophy-icon"></use>-->
-<!--                                    </svg>-->
-<!--                                </a>-->
-<!---->
-<!--                                <a href="#" class="btn btn-control">-->
-<!--                                    <svg class="olymp-like-post-icon">-->
-<!--                                        <use xlink:href="--><?php //echo Yii::$app->request->BaseUrl ?><!--/olympus/svg-icons/sprites/icons.svg#olymp-like-post-icon"></use>-->
-<!--                                    </svg>-->
-<!--                                </a>-->
-<!---->
-<!--                                <a href="#" class="btn btn-control">-->
-<!--                                    <svg class="olymp-comments-post-icon">-->
-<!--                                        <use xlink:href="--><?php //echo Yii::$app->request->BaseUrl ?><!--/olympus/svg-icons/sprites/icons.svg#olymp-comments-post-icon"></use>-->
-<!--                                    </svg>-->
-<!--                                </a>-->
-<!---->
-<!--                                <a href="#" class="btn btn-control">-->
-<!--                                    <svg class="olymp-share-icon">-->
-<!--                                        <use xlink:href="<--><?php //echo Yii::$app->request->BaseUrl ?><!--/olympus/svg-icons/sprites/icons.svg#olymp-share-icon"></use>-->
-<!--                                    </svg>-->
-<!--                                </a>-->
-<!---->
-<!--                            </div>-->
-                    </article>
-                </div>
-                <!-- .. end Post -->
-                <?php } ?>
+                <?php endif; ?>
             </div>
 
 			<a id="load-more-button" href="#" class="btn btn-control btn-more" data-load-link="items-to-load.html" data-container="newsfeed-items-grid">
