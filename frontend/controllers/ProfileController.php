@@ -67,6 +67,54 @@ class ProfileController extends Controller
       return $this->render('halsesi');
     }
 
+
+        public function actionTerimacolek($id){
+    echo "terima";
+        $notif = NOTIFIKASI::find()
+        ->where(['IDNOTIFIKASI'=>$id])
+        ->one();
+        // echo $notif->IDPENGIRIMNOTIF;
+
+        $hub = HUBUNGAN::find()
+        ->where(['IDPENGGUNA2'=>$notif->IDPENERIMANOTIF,'IDPENGGUNA1'=>$notif->IDPENGIRIMNOTIF])
+        ->one();
+
+        $hub->IDSTATUS = 3;
+        $hub->save();
+
+        $hubunganbaru = new HUBUNGAN();
+        $hubunganbaru->IDSTATUS = 3;
+        $hubunganbaru->IDPENGGUNA1 = $notif->IDPENERIMANOTIF;
+        $hubunganbaru->IDPENGGUNA2 = $notif->IDPENGIRIMNOTIF;
+        $hubunganbaru->save();
+
+        $notifbaru = new NOTIFIKASI();
+        $notifbaru->IDPENGIRIMNOTIF = $notif->IDPENERIMANOTIF;
+        $notifbaru->IDPENERIMANOTIF = $notif->IDPENGIRIMNOTIF;
+        $notifbaru->IDTYPENOTIFIKASI = 2;
+        $notifbaru->ISI = "Permintaan anda di terima";
+        $notifbaru->save();
+
+        $follow1 = new FOLLOW();
+        $follow1->IDPENGGUNA = $notif->IDPENERIMANOTIF;
+        $follow1->IDPENGIKUT = $notif->IDPENGIRIMNOTIF;
+        $follow1->save();
+
+        $follow2 = new FOLLOW();
+        $follow2->IDPENGGUNA = $notif->IDPENGIRIMNOTIF;
+        $follow2->IDPENGIKUT = $notif->IDPENERIMANOTIF;
+        $follow2->save();
+
+        $notif->delete();
+
+        echo "done";
+
+        }
+
+        public function actionTolakcolek($id){
+    echo "tolak";
+        }
+
     public function actionColek($id){
       $hubungan = new Hubungan();
       $hubungan->IDSTATUS = 2;
