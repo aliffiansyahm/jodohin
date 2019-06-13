@@ -69,7 +69,7 @@ $this->title = 'Posts';
               </time>
             </div>
           </div>
-
+            <?php if ($nilai['IDPENGGUNA'] == $_SESSION['id']): ?>
           <div class="more"><svg class="olymp-three-dots-icon"><use xlink:href="<?php echo Yii::$app->request->BaseUrl ?>/olympus/svg-icons/sprites/icons.svg#olymp-three-dots-icon"></use></svg>
             <ul class="more-dropdown">
               <li>
@@ -80,6 +80,7 @@ $this->title = 'Posts';
               </li>
             </ul>
           </div>
+            <?php endif; ?>
 
         </div>
         <!-- <h6 class="title">Post</h6> -->
@@ -141,7 +142,7 @@ $this->title = 'Posts';
 
 
           <div class="comments-shared">
-            <a href="#" class="post-add-icon inline-items">
+            <a href="<?php echo Yii::$app->request->BaseUrl ?>/post/view?id=<?php echo $nilai["IDPOST"]?>" class="post-add-icon inline-items">
               <svg class="olymp-speech-balloon-icon"><use xlink:href="<?php echo Yii::$app->request->BaseUrl ?>/olympus/svg-icons/sprites/icons.svg#olymp-speech-balloon-icon"></use></svg>
               <?php
               $dataKomentar = KOMENTAR::find()

@@ -175,11 +175,11 @@ $profile_service = new ProfileService();
                                                 <div class="title">Posts</div>
                                             </a>
                                         </div>
-                                        <div class="control-block-button" data-swiper-parallax="-100">
-                                            <a href="#" class="btn bg-blue">
-                                                Follow
-                                            </a>
-                                        </div>
+<!--                                        <div class="control-block-button" data-swiper-parallax="-100">-->
+<!--                                            <a href="#" class="btn bg-blue">-->
+<!--                                                Follow-->
+<!--                                            </a>-->
+<!--                                        </div>-->
                                     </div>
 
                                     <div class="swiper-slide">

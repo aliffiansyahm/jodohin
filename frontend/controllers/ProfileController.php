@@ -1,12 +1,17 @@
 <?php
 namespace frontend\controllers;
+use frontend\models\Follow;
 use frontend\models\Pengguna;
 use frontend\models\Hubungan;
 use frontend\models\Notifikasi;
+use frontend\models\Post;
 use frontend\models\Tipenotifikasi;
 use frontend\models\Tipestatus;
+use Yii;
 use yii\db\Query;
 use yii\web\Controller;
+use yii\web\UploadedFile;
+
 class ProfileController extends Controller
 
 {
@@ -132,6 +137,16 @@ class ProfileController extends Controller
             ->one();
 //        var_dump($followers);
         return $this->render('photos', compact('photos', 'pengguna'));
+    }
 
+    public function actionFollowgan($id)
+    {
+        if (Yii::$app->request->isGet) {
+            $follow = new Follow();
+            $follow->IDPENGGUNA = $id;
+            $follow->IDPENGIKUT = $_SESSION['id'];
+            $follow->save();
+        }
+        return $this->redirect(Yii::$app->request->BaseUrl . "/profile/index?id=" . $id);
     }
 }
