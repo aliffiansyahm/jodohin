@@ -39,15 +39,6 @@ return array (
       '@yii/faker' => $vendorDir . '/yiisoft/yii2-faker',
     ),
   ),
-  'yiisoft/yii2-debug' => 
-  array (
-    'name' => 'yiisoft/yii2-debug',
-    'version' => '2.1.4.0',
-    'alias' => 
-    array (
-      '@yii/debug' => $vendorDir . '/yiisoft/yii2-debug/src',
-    ),
-  ),
   'kartik-v/yii2-krajee-base' => 
   array (
     'name' => 'kartik-v/yii2-krajee-base',
@@ -64,6 +55,15 @@ return array (
     'alias' => 
     array (
       '@kartik/date' => $vendorDir . '/kartik-v/yii2-widget-datepicker/src',
+    ),
+  ),
+  'yiisoft/yii2-debug' => 
+  array (
+    'name' => 'yiisoft/yii2-debug',
+    'version' => '2.1.5.0',
+    'alias' => 
+    array (
+      '@yii/debug' => $vendorDir . '/yiisoft/yii2-debug/src',
     ),
   ),
 );

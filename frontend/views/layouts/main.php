@@ -138,9 +138,9 @@ $pengguna = $main_services->getUserDetails($_SESSION['id']);
 <div class="fixed-sidebar">
 	<div class="fixed-sidebar-left sidebar--small" id="sidebar-left">
 
-		<a href="<?php echo Yii::$app->request->BaseUrl ?>/olympus/02-ProfilePage.html" class="logo">
+		<a href="<?php echo Yii::$app->request->BaseUrl ?>/profile" class="logo">
 			<div class="img-wrap">
-				<img src="<?php echo Yii::$app->request->BaseUrl ?>/olympus/img/logo.png" alt="Olympus">
+				<img width="50px" height="50px" src="<?php echo Yii::$app->request->BaseUrl ?>/olympus/img/logo.png" alt="Olympus">
 			</div>
 		</a>
 
@@ -212,9 +212,9 @@ $pengguna = $main_services->getUserDetails($_SESSION['id']);
 	</div>
 
 	<div class="fixed-sidebar-left sidebar--large" id="sidebar-left-1">
-		<a href="<?php echo Yii::$app->request->BaseUrl ?>/olympus/02-ProfilePage.html" class="logo">
+		<a href="<?php echo Yii::$app->request->BaseUrl ?>/profile" class="logo">
 			<div class="img-wrap">
-				<img src="<?php echo Yii::$app->request->BaseUrl ?>/olympus/img/logo.png" alt="Olympus">
+				<img width="50px" height="50px"  src="<?php echo Yii::$app->request->BaseUrl ?>/olympus/img/logo.png" alt="Olympus">
 			</div>
 			<div class="title-block">
 				<h6 class="logo-title">Jodohin</h6>
@@ -318,7 +318,7 @@ $pengguna = $main_services->getUserDetails($_SESSION['id']);
 
 	<div class="fixed-sidebar-left sidebar--small" id="sidebar-left-responsive">
 		<a href="#" class="logo js-sidebar-open">
-			<img src="<?php echo Yii::$app->request->BaseUrl ?>/olympus/img/logo.png" alt="Olympus">
+			<img width="50px" height="50px" src="<?php echo Yii::$app->request->BaseUrl ?>/olympus/img/logo.png" alt="Olympus">
 		</a>
 
 	</div>
@@ -326,7 +326,7 @@ $pengguna = $main_services->getUserDetails($_SESSION['id']);
 	<div class="fixed-sidebar-left sidebar--large" id="sidebar-left-1-responsive">
 		<a href="#" class="logo">
 			<div class="img-wrap">
-				<img src="<?php echo Yii::$app->request->BaseUrl ?>/olympus/img/logo.png" alt="Olympus">
+				<img width="50px" height="50px" src="<?php echo Yii::$app->request->BaseUrl ?>/olympus/img/logo.png" alt="Olympus">
 			</div>
 			<div class="title-block">
 				<h6 class="logo-title">Jodohin</h6>

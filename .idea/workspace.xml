@@ -207,6 +207,7 @@
     </replaceStrings>
     <dirStrings>
       <dir>$PROJECT_DIR$/frontend/views/layouts/base-frontend</dir>
+      <dir>C:\xampp\htdocs\jodohin\frontend\views</dir>
     </dirStrings>
   </component>
   <component name="Git.Settings">
@@ -234,7 +235,6 @@
         <option value="$PROJECT_DIR$/frontend/services/PertanyaanServices.php" />
         <option value="$PROJECT_DIR$/frontend/views/profile/layouts/sidebar-setting.php" />
         <option value="$PROJECT_DIR$/frontend/views/test/test/test.php" />
-        <option value="$PROJECT_DIR$/common/config/main-local.php" />
         <option value="$PROJECT_DIR$/frontend/controllers/TestController.php" />
         <option value="$PROJECT_DIR$/frontend/controllers/PenggunaController.php" />
         <option value="$PROJECT_DIR$/common/config/params-local.php" />
@@ -296,7 +296,6 @@
       <path value="$PROJECT_DIR$/vendor/symfony/browser-kit" />
       <path value="$PROJECT_DIR$/vendor/psr/http-message" />
       <path value="$PROJECT_DIR$/vendor/phar-io/manifest" />
-      <path value="$PROJECT_DIR$/vendor/symfony/contracts" />
       <path value="$PROJECT_DIR$/vendor/phar-io/version" />
       <path value="$PROJECT_DIR$/vendor/symfony/dom-crawler" />
       <path value="$PROJECT_DIR$/vendor/symfony/finder" />
@@ -334,11 +333,14 @@
       <path value="$PROJECT_DIR$/vendor/yiisoft/yii2-jui" />
       <path value="$PROJECT_DIR$/vendor/bower-asset/jquery-ui" />
       <path value="$PROJECT_DIR$/vendor/bower-asset/bootstrap-datepicker" />
+      <path value="$PROJECT_DIR$/vendor/symfony/service-contracts" />
+      <path value="$PROJECT_DIR$/vendor/symfony/polyfill-php73" />
+      <path value="$PROJECT_DIR$/vendor/symfony/event-dispatcher-contracts" />
     </include_path>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="width" value="1366" />
-    <option name="height" value="746" />
+    <option name="width" value="1367" />
+    <option name="height" value="747" />
   </component>
   <component name="ProjectView">
     <navigator proportions="" version="1">
@@ -355,7 +357,7 @@
             <path>
               <item name="jodohin" type="b2602c69:ProjectViewProjectNode" />
               <item name="jodohin" type="462c0819:PsiDirectoryNode" />
-              <item name="frontend" type="462c0819:PsiDirectoryNode" />
+              <item name="backend" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="jodohin" type="b2602c69:ProjectViewProjectNode" />
@@ -373,7 +375,6 @@
               <item name="jodohin" type="b2602c69:ProjectViewProjectNode" />
               <item name="jodohin" type="462c0819:PsiDirectoryNode" />
               <item name="frontend" type="462c0819:PsiDirectoryNode" />
-              <item name="views" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="jodohin" type="b2602c69:ProjectViewProjectNode" />
@@ -476,14 +477,13 @@
     <option name="totallyTimeSpent" value="91369000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-1" y="0" width="1368" height="748" extended-state="6" />
-    <editor active="true" />
+    <frame x="-7" y="-7" width="1550" height="848" extended-state="6" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.23257576" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Find" order="1" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.32960895" />
       <window_info anchor="bottom" id="Run" order="2" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
@@ -524,6 +524,17 @@
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
   </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="php">
+          <url>file://$PROJECT_DIR$/frontend/views/layouts/main.php</url>
+          <line>196</line>
+          <option name="timeStamp" value="3" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/frontend/views/home/setup.php" />
     <entry file="file://$PROJECT_DIR$/frontend/assets/AppAsset.php">
@@ -554,16 +565,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/frontend/views/pertanyaan/welcome.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="368">
-          <caret line="16" column="7" lean-forward="true" selection-start-line="16" selection-start-column="7" selection-end-line="16" selection-end-column="7" />
-          <folding>
-            <element signature="e#7#28#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/frontend/views/layouts/login-logout/footer.php">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -571,13 +572,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="138">
           <caret line="6" column="2" lean-forward="true" selection-start-line="6" selection-start-column="2" selection-end-line="6" selection-end-column="2" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/frontend/views/pertanyaan/index.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="46">
-          <caret line="3" column="22" lean-forward="true" selection-start-line="3" selection-start-column="22" selection-end-line="3" selection-end-column="22" />
         </state>
       </provider>
     </entry>
@@ -601,24 +595,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/common/config/main-local.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="128">
-          <caret line="6" column="15" selection-start-line="6" selection-start-column="15" selection-end-line="6" selection-end-column="15" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/frontend/views/test/test/test.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="115">
           <caret line="5" column="1" lean-forward="true" selection-start-line="5" selection-start-column="1" selection-end-line="5" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/frontend/views/site/index.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="69">
-          <caret line="3" selection-start-line="3" selection-end-line="3" />
         </state>
       </provider>
     </entry>
@@ -698,7 +678,14 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/frontend/services/MainServices.php">
+    <entry file="file://$PROJECT_DIR$/frontend/views/post/_form.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="58">
+          <caret line="22" column="33" selection-start-line="22" selection-start-column="33" selection-end-line="22" selection-end-column="33" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/frontend/services/ProfileService.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="169">
           <caret line="58" column="5" selection-start-line="58" selection-start-column="5" selection-end-line="58" selection-end-column="5" />
@@ -804,29 +791,23 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/frontend/views/profile/setting.php">
+    <entry file="file://$PROJECT_DIR$/frontend/views/site/error.php">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/frontend/web/olympus/29-YourAccount-AccountSettings.html">
+    <entry file="file://$PROJECT_DIR$/frontend/views/pertanyaan/index.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="56">
+          <caret line="11" column="2" selection-start-line="11" selection-start-column="2" selection-end-line="11" selection-end-column="2" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/frontend/views/profile/index.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="210">
           <caret line="1848" selection-start-line="1848" selection-end-line="2022" />
           <folding>
-            <element signature="e#1186#3558#0" />
-            <element signature="e#3644#11814#0" />
-            <element signature="e#11883#18295#0" />
-            <element signature="e#18365#36961#0" />
-            <element signature="e#72940#78902#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/frontend/web/olympus/28-YourAccount-PersonalInformation.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="1849" selection-start-line="1849" selection-end-line="2088" />
-          <folding>
-            <element signature="e#72945#82553#0" />
+            <element signature="e#35#59#0#PHP" expanded="true" />
+            <element signature="e#64#84#0#PHP" expanded="true" />
           </folding>
         </state>
       </provider>

@@ -447,7 +447,7 @@
 					<input type="submit" value="Upload">
 				</div> -->
 
-				<a href="#" class="upload-photo-item" data-toggle="modal" data-target="#choose-from-my-photo">
+                    <a href="#" class="upload-photo-item" data-toggle="modal" data-target="#choose-from-my-photo">
 
                     <svg class="olymp-photos-icon"><use xlink:href="<?php echo Yii::$app->request->BaseUrl ?>/olympus/svg-icons/sprites/icons.svg#olymp-photos-icon"></use></svg>
 
