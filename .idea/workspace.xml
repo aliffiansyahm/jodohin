@@ -3,15 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="4b08d4c6-3805-4840-ab96-dfd555697243" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/controllers/ProfileController.php" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/controllers/ProfileController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/services/MainServices.php" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/services/MainServices.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/services/ProfileService.php" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/services/ProfileService.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/views/layouts/main.php" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/views/layouts/main.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/views/post/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/views/post/index.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/views/post/view.php" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/views/post/view.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/views/profile/find.php" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/views/profile/find.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/views/profile/followers.php" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/views/profile/followers.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/views/profile/following.php" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/views/profile/following.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/views/profile/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/views/profile/index.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -44,13 +37,14 @@
     <splitter split-orientation="horizontal" split-proportion="0.8881389">
       <split-first>
         <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-          <file pinned="false" current-in-tab="false">
+          <file pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/frontend/views/layouts/main.php">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="139">
-                  <caret line="740" column="80" selection-start-line="740" selection-start-column="80" selection-end-line="740" selection-end-column="80" />
+                <state relative-caret-position="247">
+                  <caret line="167" column="21" lean-forward="true" selection-start-line="167" selection-start-column="21" selection-end-line="167" selection-end-column="21" />
                   <folding>
                     <element signature="e#66#95#0#PHP" expanded="true" />
+                    <element signature="n#style#0;n#span#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
                   </folding>
                 </state>
               </provider>
@@ -60,7 +54,7 @@
             <entry file="file://$PROJECT_DIR$/frontend/controllers/ProfileController.php">
               <provider selected="true" editor-type-id="text-editor">
                 <state relative-caret-position="77">
-                  <caret line="139" column="5" lean-forward="true" selection-start-line="139" selection-start-column="5" selection-end-line="139" selection-end-column="5" />
+                  <caret line="139" column="5" selection-start-line="139" selection-start-column="5" selection-end-line="139" selection-end-column="5" />
                   <folding>
                     <element signature="e#38#65#0#PHP" expanded="true" />
                   </folding>
@@ -71,8 +65,11 @@
           <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/frontend/views/profile/find.php">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="50">
-                  <caret line="78" column="49" lean-forward="true" selection-start-line="78" selection-start-column="49" selection-end-line="78" selection-end-column="143" />
+                <state relative-caret-position="128">
+                  <caret line="82" column="49" selection-start-line="82" selection-start-column="49" selection-end-line="82" selection-end-column="49" />
+                  <folding>
+                    <element signature="e#6#35#0#PHP" expanded="true" />
+                  </folding>
                 </state>
               </provider>
             </entry>
@@ -80,10 +77,11 @@
           <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/frontend/views/profile/following.php">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="139">
-                  <caret line="180" column="55" selection-start-line="180" selection-start-column="55" selection-end-line="180" selection-end-column="55" />
+                <state relative-caret-position="212">
+                  <caret line="40" column="103" selection-start-line="40" selection-start-column="49" selection-end-line="40" selection-end-column="103" />
                   <folding>
                     <element signature="e#35#59#0#PHP" expanded="true" />
+                    <element signature="n#div#0;n#div#0;n#div#0;n#div#1;n#!!top" />
                   </folding>
                 </state>
               </provider>
@@ -92,8 +90,8 @@
           <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/frontend/views/profile/followers.php">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="184">
-                  <caret line="181" column="52" lean-forward="true" selection-start-line="181" selection-start-column="52" selection-end-line="181" selection-end-column="52" />
+                <state relative-caret-position="299">
+                  <caret line="186" column="59" selection-start-line="178" selection-start-column="44" selection-end-line="186" selection-end-column="59" />
                   <folding>
                     <element signature="e#35#59#0#PHP" expanded="true" />
                   </folding>
@@ -104,8 +102,8 @@
           <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/frontend/views/post/index.php">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="116">
-                  <caret line="75" column="42" lean-forward="true" selection-start-line="75" selection-start-column="42" selection-end-line="75" selection-end-column="42" />
+                <state relative-caret-position="576">
+                  <caret line="80" column="17" selection-start-line="80" selection-start-column="17" selection-end-line="80" selection-end-column="17" />
                   <folding>
                     <element signature="e#7#28#0#PHP" expanded="true" />
                   </folding>
@@ -116,20 +114,23 @@
           <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/frontend/views/profile/index.php">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="143">
-                  <caret line="239" column="30" lean-forward="true" selection-start-line="239" selection-start-column="30" selection-end-line="239" selection-end-column="30" />
+                <state relative-caret-position="257">
+                  <caret line="107" column="80" selection-start-line="107" selection-start-column="80" selection-end-line="107" selection-end-column="80" />
                   <folding>
                     <element signature="e#35#59#0#PHP" expanded="true" />
+                    <element signature="n#div#0;n#div#0;n#div#0;n#div#0;n#div#1;n#!!top" />
+                    <element signature="n#style#0;n#input#0;n#form#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#2;n#!!top" expanded="true" />
+                    <element signature="n#style#0;n#input#0;n#form#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#3;n#!!top" expanded="true" />
                   </folding>
                 </state>
               </provider>
             </entry>
           </file>
-          <file pinned="false" current-in-tab="true">
+          <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/frontend/views/post/view.php">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="116">
-                  <caret line="18" column="32" selection-start-line="18" selection-start-column="32" selection-end-line="18" selection-end-column="32" />
+                <state relative-caret-position="93">
+                  <caret line="92" column="24" selection-start-line="92" selection-start-column="24" selection-end-line="92" selection-end-column="24" />
                 </state>
               </provider>
             </entry>
@@ -138,19 +139,7 @@
             <entry file="file://$PROJECT_DIR$/frontend/services/ProfileService.php">
               <provider selected="true" editor-type-id="text-editor">
                 <state relative-caret-position="284">
-                  <caret line="117" column="42" selection-start-line="117" selection-start-column="42" selection-end-line="117" selection-end-column="42" />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/frontend/controllers/PostController.php">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="629">
-                  <caret line="110" column="42" selection-start-line="98" selection-start-column="8" selection-end-line="110" selection-end-column="42" />
-                  <folding>
-                    <element signature="e#40#48#0#PHP" expanded="true" />
-                  </folding>
+                  <caret line="117" column="41" selection-start-line="117" selection-start-column="41" selection-end-line="117" selection-end-column="41" />
                 </state>
               </provider>
             </entry>
@@ -174,15 +163,9 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>last</find>
-      <find>photo-pa</find>
-      <find>carol summ</find>
-      <find>carol</find>
-      <find>$followers</find>
       <find>followers</find>
       <find>Following</find>
       <find>Followers</find>
-      <find>fore</find>
       <find>frien</find>
       <find>Friends</find>
       <find>friend</find>
@@ -196,14 +179,20 @@
       <find>online</find>
       <find>olympus ch</find>
       <find>$post</find>
-      <find>?id</find>
       <find>$_se</find>
       <find>space</find>
       <find>follow</find>
       <find>like-pos</find>
       <find>?id=</find>
-      <find>edit</find>
       <find>lihat</find>
+      <find>delete</find>
+      <find>html</find>
+      <find>fore</find>
+      <find>edit</find>
+      <find>?id</find>
+      <find>hear</find>
+      <find>friend gr</find>
+      <find>following</find>
     </findStrings>
     <replaceStrings>
       <replace>href=&quot;cool-assets</replace>
@@ -266,12 +255,12 @@
         <option value="$PROJECT_DIR$/frontend/views/profile/following.php" />
         <option value="$PROJECT_DIR$/frontend/services/ProfileService.php" />
         <option value="$PROJECT_DIR$/frontend/controllers/ProfileController.php" />
-        <option value="$PROJECT_DIR$/frontend/views/profile/find.php" />
         <option value="$PROJECT_DIR$/frontend/views/profile/followers.php" />
-        <option value="$PROJECT_DIR$/frontend/views/layouts/main.php" />
-        <option value="$PROJECT_DIR$/frontend/views/profile/index.php" />
         <option value="$PROJECT_DIR$/frontend/views/post/index.php" />
         <option value="$PROJECT_DIR$/frontend/views/post/view.php" />
+        <option value="$PROJECT_DIR$/frontend/views/profile/index.php" />
+        <option value="$PROJECT_DIR$/frontend/views/profile/find.php" />
+        <option value="$PROJECT_DIR$/frontend/views/layouts/main.php" />
       </list>
     </option>
   </component>
@@ -399,6 +388,36 @@
               <item name="views" type="462c0819:PsiDirectoryNode" />
               <item name="profile" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="jodohin" type="b2602c69:ProjectViewProjectNode" />
+              <item name="jodohin" type="462c0819:PsiDirectoryNode" />
+              <item name="frontend" type="462c0819:PsiDirectoryNode" />
+              <item name="web" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="jodohin" type="b2602c69:ProjectViewProjectNode" />
+              <item name="jodohin" type="462c0819:PsiDirectoryNode" />
+              <item name="frontend" type="462c0819:PsiDirectoryNode" />
+              <item name="web" type="462c0819:PsiDirectoryNode" />
+              <item name="olympus" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="jodohin" type="b2602c69:ProjectViewProjectNode" />
+              <item name="jodohin" type="462c0819:PsiDirectoryNode" />
+              <item name="frontend" type="462c0819:PsiDirectoryNode" />
+              <item name="web" type="462c0819:PsiDirectoryNode" />
+              <item name="olympus" type="462c0819:PsiDirectoryNode" />
+              <item name="svg-icons" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="jodohin" type="b2602c69:ProjectViewProjectNode" />
+              <item name="jodohin" type="462c0819:PsiDirectoryNode" />
+              <item name="frontend" type="462c0819:PsiDirectoryNode" />
+              <item name="web" type="462c0819:PsiDirectoryNode" />
+              <item name="olympus" type="462c0819:PsiDirectoryNode" />
+              <item name="svg-icons" type="462c0819:PsiDirectoryNode" />
+              <item name="sprites" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
@@ -464,12 +483,12 @@
       <workItem from="1560356309692" duration="5079000" />
       <workItem from="1560363837676" duration="1038000" />
       <workItem from="1560385610696" duration="1679000" />
-      <workItem from="1560390983305" duration="3336000" />
+      <workItem from="1560390983305" duration="5877000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="84097000" />
+    <option name="totallyTimeSpent" value="86638000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-1" y="0" width="1368" height="748" extended-state="6" />
@@ -521,13 +540,6 @@
     <option name="version" value="1" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/frontend/views/layouts/login-logout/header.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="69">
-          <caret line="13" column="120" selection-start-line="13" selection-start-column="120" selection-end-line="13" selection-end-column="120" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/backend/views/layouts/main.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="377">
@@ -753,13 +765,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/frontend/services/ProfileService.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="284">
-          <caret line="117" column="42" selection-start-line="117" selection-start-column="42" selection-end-line="117" selection-end-column="42" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/frontend/controllers/PostController.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="629">
@@ -773,74 +778,92 @@
     <entry file="file://$PROJECT_DIR$/frontend/controllers/ProfileController.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="77">
-          <caret line="139" column="5" lean-forward="true" selection-start-line="139" selection-start-column="5" selection-end-line="139" selection-end-column="5" />
+          <caret line="139" column="5" selection-start-line="139" selection-start-column="5" selection-end-line="139" selection-end-column="5" />
           <folding>
             <element signature="e#38#65#0#PHP" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/frontend/views/profile/find.php">
+    <entry file="file://$PROJECT_DIR$/frontend/views/post/view.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="50">
-          <caret line="78" column="49" lean-forward="true" selection-start-line="78" selection-start-column="49" selection-end-line="78" selection-end-column="143" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/frontend/views/profile/followers.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="184">
-          <caret line="181" column="52" lean-forward="true" selection-start-line="181" selection-start-column="52" selection-end-line="181" selection-end-column="52" />
-          <folding>
-            <element signature="e#35#59#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/frontend/views/layouts/main.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="139">
-          <caret line="740" column="80" selection-start-line="740" selection-start-column="80" selection-end-line="740" selection-end-column="80" />
-          <folding>
-            <element signature="e#66#95#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/frontend/views/profile/following.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="139">
-          <caret line="180" column="55" selection-start-line="180" selection-start-column="55" selection-end-line="180" selection-end-column="55" />
-          <folding>
-            <element signature="e#35#59#0#PHP" expanded="true" />
-          </folding>
+        <state relative-caret-position="93">
+          <caret line="92" column="24" selection-start-line="92" selection-start-column="24" selection-end-line="92" selection-end-column="24" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/frontend/views/profile/index.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="143">
-          <caret line="239" column="30" lean-forward="true" selection-start-line="239" selection-start-column="30" selection-end-line="239" selection-end-column="30" />
+        <state relative-caret-position="257">
+          <caret line="107" column="80" selection-start-line="107" selection-start-column="80" selection-end-line="107" selection-end-column="80" />
           <folding>
             <element signature="e#35#59#0#PHP" expanded="true" />
+            <element signature="n#div#0;n#div#0;n#div#0;n#div#0;n#div#1;n#!!top" />
+            <element signature="n#style#0;n#input#0;n#form#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#2;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#input#0;n#form#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#3;n#!!top" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/frontend/views/post/index.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="116">
-          <caret line="75" column="42" lean-forward="true" selection-start-line="75" selection-start-column="42" selection-end-line="75" selection-end-column="42" />
+        <state relative-caret-position="576">
+          <caret line="80" column="17" selection-start-line="80" selection-start-column="17" selection-end-line="80" selection-end-column="17" />
           <folding>
             <element signature="e#7#28#0#PHP" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/frontend/views/post/view.php">
+    <entry file="file://$PROJECT_DIR$/frontend/services/ProfileService.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="116">
-          <caret line="18" column="32" selection-start-line="18" selection-start-column="32" selection-end-line="18" selection-end-column="32" />
+        <state relative-caret-position="284">
+          <caret line="117" column="41" selection-start-line="117" selection-start-column="41" selection-end-line="117" selection-end-column="41" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/frontend/views/profile/followers.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="299">
+          <caret line="186" column="59" selection-start-line="178" selection-start-column="44" selection-end-line="186" selection-end-column="59" />
+          <folding>
+            <element signature="e#35#59#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/frontend/views/profile/find.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="128">
+          <caret line="82" column="49" selection-start-line="82" selection-start-column="49" selection-end-line="82" selection-end-column="49" />
+          <folding>
+            <element signature="e#6#35#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/frontend/web/olympus/svg-icons/sprites/icons.svg">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/frontend/views/profile/following.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="212">
+          <caret line="40" column="103" selection-start-line="40" selection-start-column="49" selection-end-line="40" selection-end-column="103" />
+          <folding>
+            <element signature="e#35#59#0#PHP" expanded="true" />
+            <element signature="n#div#0;n#div#0;n#div#0;n#div#1;n#!!top" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/frontend/views/layouts/main.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="247">
+          <caret line="167" column="21" lean-forward="true" selection-start-line="167" selection-start-column="21" selection-end-line="167" selection-end-column="21" />
+          <folding>
+            <element signature="e#66#95#0#PHP" expanded="true" />
+            <element signature="n#style#0;n#span#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

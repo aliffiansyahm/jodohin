@@ -1,5 +1,8 @@
 <?php
 use frontend\models\Hubungan;
+use frontend\services\ProfileService;
+
+$profile_service = new ProfileService();
 ?>
 <div class="row">
 <?php
@@ -79,9 +82,11 @@ foreach ($ada as $nilai) {
   										<a href="<?php echo Yii::$app->request->BaseUrl ?>/profile/colek?id=<?php echo $nilai['IDPENGGUNA']; ?>" class="btn bg-purple">
   											Colek
                                         </a>
-                                        <a href="#" class="btn bg-blue">
-                                            Follow
-                                        </a>
+                                        <?php if (!$profile_service->checkFollowers($_SESSION['id'], $nilai['IDPENGGUNA'])): ?>
+                                            <a href="<?php Yii::$app->request->BaseUrl ?>/profile/followgan?id=<?php echo $nilai['IDPENGGUNA'];?>" class="btn bg-blue">
+                                                Follow
+                                            </a>
+                                        <?php endif; ?>
   									</div>
   								</div>
 
