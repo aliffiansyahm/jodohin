@@ -71,6 +71,14 @@ class PesanController extends Controller
         return $this->redirect('chat');
     }
 
+    public function actionLoadchat($id){
+      $_SESSION['pengirim'] =  $_SESSION['id'];
+      echo $_SESSION['pengirim'];
+      $_SESSION['penerima'] = $id;
+      echo $_SESSION['penerima'];
+      return $this->redirect('chat');
+    }
+
     public function actionChat()
     {
         $model = new Pesan();
