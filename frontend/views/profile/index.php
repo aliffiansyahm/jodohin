@@ -18,7 +18,11 @@
 			<div class="ui-block">
 				<div class="top-header">
 					<div class="top-header-thumb">
-						<img src="<?php echo Yii::$app->request->BaseUrl ?>/olympus/img/top-header1.jpg" alt="nature">
+						<?php if ($pengguna['FOTOHEADER']==""):  ?>
+							<img src="<?php echo Yii::$app->request->BaseUrl ?>/olympus/img/top-header1.jpg" alt="nature">
+						<?php  else :?>
+							<img src="<?php echo Yii::getAlias('@fileUrl') ?>/header/<?php echo $pengguna['FOTOHEADER']?>" alt="author" width="1920" height="400">
+						<?php endif;?>
 					</div>
 					<div class="profile-section">
 						<div class="row">
@@ -76,7 +80,7 @@
 
 								<ul class="more-dropdown more-with-triangle triangle-bottom-right">
 									<li>
-										<a href="#" data-toggle="modal" data-target="#update-header-photo">Update Profile Photo</a>
+										<a href="#" data-toggle="modal" data-target="#update-profile-photo">Update Profile Photo</a>
 									</li>
 									<li>
 										<a href="#" data-toggle="modal" data-target="#update-header-photo">Update Header Photo</a>
@@ -91,9 +95,9 @@
 					<div class="top-header-author">
                         <a href="02-ProfilePage.html" class="author-thumb">
                             <?php if ($pengguna['FOTO'] == ""): ?>
-                                <img src="<?php echo Yii::$app->request->BaseUrl ?>/olympus/img/author-main1.jpg" alt="author">
+                                <img src="<?php echo Yii::$app->request->BaseUrl ?>/olympus/img/author-main1.jpg" alt="author" >
                             <?php else: ?>
-                                <img src="<?php echo Yii::$app->request->BaseUrl ?>/foto/post/1.png" alt="author">
+                                <img src="<?php echo Yii::getAlias('@fileUrl') ?>/profile/<?php echo $pengguna['FOTO']?>" alt="author" width="124" height="124">
                             <?php endif; ?>
 						</a>
 						<div class="author-content">
@@ -128,7 +132,7 @@
                             <?php if ($pengguna['FOTO'] == ""): ?>
                                 <img src="<?php echo Yii::$app->request->BaseUrl ?>/olympus/img/author-main1.jpg" alt="author">
                             <?php else: ?>
-                                <img src="<?php echo Yii::$app->request->BaseUrl ?>/foto/post/1.png" alt="author">
+                                <img src="<?php echo Yii::getAlias('@fileUrl') ?>/profile/<?php echo $pengguna['FOTO']?>" alt="author">
                             <?php endif; ?>
                             <div class="author-date">
                                 <a class="h6 post__author-name fn" href="02-ProfilePage.html"><?php echo $pengguna['NAMA'] ?></a>
@@ -161,7 +165,7 @@
                         </p>
                         <?php if ($post['GAMBARPOST'] != ""): ?>
                             <div class="post-thumb">
-                                <img src="<?php echo Yii::$app->request->BaseUrl ?>/foto/post/<?=$post['GAMBARPOST'] ?>" alt="photo">
+                                <img src="<?php echo Yii::getAlias('@fileUrl') ?>/post/<?=$post['GAMBARPOST'] ?>" alt="photo">
                             </div>
                         <?php endif; ?>
                         <div class="post-additional-info inline-items">
@@ -340,7 +344,7 @@
                         <?php foreach ($profile_service->getSelfPhotos($pengguna['IDPENGGUNA']) as $photo) { ?>
                             <li>
                                 <a href="#">
-                                    <img src="<?php echo Yii::$app->request->BaseUrl ?>/foto/post/<?php echo $photo['GAMBARPOST']; ?>" alt="user">
+                                    <img src="<?php echo Yii::getAlias('@fileUrl') ?>/post/<?php echo $photo['GAMBARPOST']; ?>" alt="user">
                                 </a>
                             </li>
                         <?php } ?>
@@ -399,19 +403,24 @@
 			</div>
 			<div class="modal-body">
                 <div class="image-upload upload-photo-item">
-				<?= Html::a('Update', ['../web/pengguna/update', 'id' => $pengguna['IDPENGGUNA']], ['class' => 'btn btn-primary']) ?>
-                    <!-- <svg class="olymp-computer-icon"><use xlink:href="<?php //echo Yii::$app->request->BaseUrl ?>/olympus/svg-icons/sprites/icons.svg#olymp-computer-icon"></use></svg> -->
-
-                    <!-- <h6>Upload Photo</h6> -->
+					<form action="<?php echo Yii::$app->request->BaseUrl; ?>/pengguna/fotoheader?id=<?php echo $_SESSION['id']?>" method="post" enctype="multipart/form-data">
+						<?php
+                          echo  Html::hiddenInput(
+                              Yii::$app->request->csrfParam,
+                              Yii::$app->request->csrfToken
+                          );
+						?>
 						
-                    <!-- <span>Browse your computer.</span> -->
+						<label for="input-profile">
+							<svg class="olymp-computer-icon"><use xlink:href="<?php echo Yii::$app->request->BaseUrl ?>/olympus/svg-icons/sprites/icons.svg#olymp-computer-icon"></use></svg>
+							<h6>Upload Photo</h6>
+							<span>Browse your computer.</span>
+						</label>
 
-                    <!-- <input type="file" id="file-input"  name="picture" style="display:none;"/> -->
-                    <!-- <input class="file-path validate" type="text" placeholder="Browse your computer" align="center"> -->
-					<!-- <input type="submit" value="Upload"> -->
-                <!-- <a href="../" class="upload-photo-item"> -->
+						<input type="file" id="input-profile"  name="FOTO" style="display:none;"/><br>
+						<button type="submit" class="btn btn-success" >Upload</button>
 
-			    <!-- </a> -->
+					</form>
                 </div>
 
 				<!-- <div class="upload-photo-item">
@@ -440,6 +449,50 @@
 	</div>
 </div>
 
+<!-- window-popup profile foto -->
+<div class="modal fade" id="update-profile-photo" tabindex="-1" role="dialog" aria-labelledby="update-header-photo" aria-hidden="true">
+	<div class="modal-dialog window-popup update-header-photo" role="document">
+		<div class="modal-content">
+			<a href="#" class="close icon-close" data-dismiss="modal" aria-label="Close">
+				<svg class="olymp-close-icon"><use xlink:href="<?php echo Yii::$app->request->BaseUrl ?>/olympus/svg-icons/sprites/icons.svg#olymp-close-icon"></use></svg>
+			</a>
+
+			<div class="modal-header">
+				<h6 class="title">Update Profile Photo</h6>
+			</div>
+			<div class="modal-body">
+                <div class="image-upload upload-photo-item">
+					<form action="<?php echo Yii::$app->request->BaseUrl; ?>/pengguna/update?id=<?php echo $_SESSION['id']?>" method="post" enctype="multipart/form-data">
+						<?php
+                          echo  Html::hiddenInput(
+                              Yii::$app->request->csrfParam,
+                              Yii::$app->request->csrfToken
+                          );
+						?>
+						
+						<label for="input-profile">
+							<svg class="olymp-computer-icon"><use xlink:href="<?php echo Yii::$app->request->BaseUrl ?>/olympus/svg-icons/sprites/icons.svg#olymp-computer-icon"></use></svg>
+							<h6>Upload Photo</h6>
+							<span>Browse your computer.</span>
+						</label>
+
+						<input type="file" id="input-profile"  name="FOTO" style="display:none;"/><br>
+						<button type="submit" class="btn btn-success" >Upload</button>
+
+					</form>
+                </div>
+
+				<a href="#" class="upload-photo-item" data-toggle="modal" data-target="#choose-from-my-photo">
+
+                    <svg class="olymp-photos-icon"><use xlink:href="<?php echo Yii::$app->request->BaseUrl ?>/olympus/svg-icons/sprites/icons.svg#olymp-photos-icon"></use></svg>
+
+                    <h6>Choose from My Photos</h6>
+                    <span>Choose from your uploaded photos</span>
+                </a>
+			</div>
+		</div>
+	</div>
+</div>
 <!-- Window-popup Update Header Photo -->
 
 <div class="modal fade" id="update-header-photo" tabindex="-1" role="dialog" aria-labelledby="update-header-photo" aria-hidden="true">

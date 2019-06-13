@@ -16,7 +16,9 @@ use Yii;
  * @property string $ALAMAT
  * @property string $BIO
  * @property string $FOTO
+ * @property string $FOTOHEADER
  * @property string $JENISKELAMIN
+ *
  * @property Follow[] $follows
  * @property Follow[] $follows0
  * @property Hobikepengguna[] $hobikepenggunas
@@ -49,9 +51,10 @@ class Pengguna extends \yii\db\ActiveRecord
         return [
             [['IDKEPRIBADIAN'], 'integer'],
             [['TANGGALLAHIR'], 'safe'],
+            [['FOTOHEADER'], 'required'],
             [['EMAIL', 'NAMA'], 'string', 'max' => 100],
             [['PASSWORD'], 'string', 'max' => 32],
-            [['ALAMAT', 'BIO'], 'string', 'max' => 200],
+            [['ALAMAT', 'BIO', 'FOTOHEADER'], 'string', 'max' => 200],
             [['FOTO'], 'string', 'max' => 300],
             [['JENISKELAMIN'], 'string', 'max' => 10],
             [['IDKEPRIBADIAN'], 'exist', 'skipOnError' => true, 'targetClass' => Kepribadian::className(), 'targetAttribute' => ['IDKEPRIBADIAN' => 'IDKEPRIBADIAN']],
@@ -73,6 +76,7 @@ class Pengguna extends \yii\db\ActiveRecord
             'ALAMAT' => 'Alamat',
             'BIO' => 'Bio',
             'FOTO' => 'Foto',
+            'FOTOHEADER' => 'Fotoheader',
             'JENISKELAMIN' => 'Jeniskelamin',
         ];
     }

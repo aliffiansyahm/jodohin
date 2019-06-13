@@ -5226,6 +5226,18 @@ fieldset[disabled] .checkbox, fieldset[disabled] .checkbox input[type=checkbox],
   .birthday-item.badges .skills-item-meter-active {
     background: linear-gradient(to right, #ff613a, #ff9432); }
 
+.profile {
+  width: 124px;
+  height: 124px;
+}
+
+.avatar {
+  object-fit: cover;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+}
+
 .label-avatar {
   position: absolute;
   top: -1px;

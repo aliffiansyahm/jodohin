@@ -29,7 +29,7 @@ $this->title = 'Posts';
                           );
                           ?>
                           <div class="author-thumb">
-                              <img src="<?php echo Yii::$app->request->BaseUrl ?>/olympus/img/author-page.jpg" alt="author">
+                              <img src="<?php echo Yii::$app->request->BaseUrl ?>/olympus/img/<?php echo $_SESSION['foto']?>" alt="author">
                           </div>
                           <div class="form-group with-icon label-floating is-empty">
                               <label class="control-label">Share what you are thinking here...</label>
