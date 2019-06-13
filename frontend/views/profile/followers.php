@@ -176,9 +176,15 @@ $profile_service = new ProfileService();
                                             </a>
                                         </div>
                                         <div class="control-block-button" data-swiper-parallax="-100">
-                                            <a href="#" class="btn bg-blue">
-                                                Follow
-                                            </a>
+                                            <?php if ($profile_service->checkFollowers($pengguna['IDPENGGUNA'], $follower['IDPENGGUNA'])): ?>
+                                                <a href="<?php echo Yii::$app->request->BaseUrl ?>/profile/colek?id=<?php echo $follower['IDPENGGUNA']; ?>" class="btn bg-purple">
+                                                    Colek
+                                                </a>
+                                            <?php else: ?>
+                                                <a href="<?php Yii::$app->request->BaseUrl ?>/profile/followgan?id=<?php echo $follower['IDPENGGUNA'];?>" class="btn bg-blue">
+                                                    Follow
+                                                </a>
+                                            <?php endif; ?>
                                         </div>
                                     </div>
 

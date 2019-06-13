@@ -131,6 +131,7 @@ AppAsset::register($this);
 <body>
 <?php
 $main_services = new MainServices();
+$pengguna = $main_services->getUserDetails($_SESSION['id']);
 ?>
 <!-- Fixed Sidebar Left -->
 
@@ -331,10 +332,14 @@ $main_services = new MainServices();
 			<div class="control-block">
 				<div class="author-page author vcard inline-items">
 					<div class="author-thumb">
+						<?php if (isset($_SESSION['foto'])) { ?>
+							<img src="<?php echo Yii::$app->request->BaseUrl ?>/foto/profile/1.png?>" class="friend-avatar author-thumb" alt="author">
+						<?php } else { ?>
 						<img alt="author" src="<?php echo Yii::$app->request->BaseUrl ?>/olympus/img/author-page.jpg" class="avatar">
 						<span class="icon-status online"></span>
+						<?php } ?>
 					</div>
-					<a href="<?php echo Yii::$app->request->BaseUrl ?>/olympus/02-ProfilePage.html" class="author-name fn">
+					<a href="<?php echo Yii::$app->request->BaseUrl ?>/profile/index" class="author-name fn">
 						<div class="author-title">
 							d<?php echo $session['nama']; ?>s
 							 <svg class="olymp-dropdown-arrow-icon"><use xlink:href="<?php echo Yii::$app->request->BaseUrl ?>/olympus/svg-icons/sprites/icons.svg#olymp-dropdown-arrow-icon"></use></svg>
@@ -447,16 +452,19 @@ $main_services = new MainServices();
 		<div class="mCustomScrollbar" data-mcs-theme="dark">
 			<ul class="chat-users">
                 <?php foreach ($main_services->getFollowers($_SESSION['id']) as $follower) { ?>
-                <li class="inline-items js-chat-open">
-					<div class="author-thumb">
-                        <?php if ($follower['FOTO'] == ""): ?>
-                            <img width="45" src="<?php echo Yii::$app->request->BaseUrl ?>/olympus/img/author-main1.jpg" alt="author" class="avatar">
-                        <?php else: ?>
-                            <img width="45" src="<?php echo Yii::$app->request->BaseUrl ?>/foto/post/1.png" alt="author">
-                        <?php endif; ?>
-                        <span class="icon-status online"></span>
-					</div>
-				</li>
+                    <?php if ($main_services->getMutualFollowers($_SESSION['id'], $follower['IDPENGIKUT']) != ""): ?>
+
+                        <li class="inline-items js-chat-open">
+                            <div class="author-thumb">
+                                <?php if ($follower['FOTO'] == ""): ?>
+                                    <img width="45" src="<?php echo Yii::$app->request->BaseUrl ?>/olympus/img/author-main1.jpg" alt="author" class="avatar">
+                                <?php else: ?>
+                                    <img width="45" src="<?php echo Yii::$app->request->BaseUrl ?>/foto/post/1.png" alt="author">
+                                <?php endif; ?>
+                                <span class="icon-status online"></span>
+                            </div>
+                        </li>
+                    <?php endif; ?>
                 <?php } ?>
 			</ul>
 		</div>
@@ -484,6 +492,7 @@ $main_services = new MainServices();
 
 			<ul class="chat-users">
                 <?php foreach ($main_services->getFollowers($_SESSION['id']) as $follower) { ?>
+                    <?php if ($main_services->getMutualFollowers($_SESSION['id'], $follower['IDPENGIKUT']) != ""): ?>
                     <li class="inline-items js-chat-open">
                         <div class="author-thumb">
                             <?php if ($follower['FOTO'] == ""): ?>
@@ -518,14 +527,14 @@ $main_services = new MainServices();
                         </div>
 
                     </li>
+                    <?php endif; ?>
                 <?php } ?>
 			</ul>
-
 		</div>
 
 		<a href="#" class="olympus-chat inline-items js-chat-open">
 
-			<h6 class="olympus-chat-title">OLYMPUS CHAT</h6>
+			<h6 class="olympus-chat-title">JODOHIN CHAT</h6>
 			<svg class="olymp-chat---messages-icon"><use xlink:href="<?php echo Yii::$app->request->BaseUrl ?>/olympus/svg-icons/sprites/icons.svg#olymp-chat---messages-icon"></use></svg>
 		</a>
 
@@ -704,7 +713,13 @@ $main_services = new MainServices();
 
 			<div class="author-page author vcard inline-items more">
 				<div class="author-thumb">
-					<img alt="author" src="<?php echo Yii::$app->request->BaseUrl ?>/olympus/img/author-page.jpg" class="avatar">
+						<?php if (isset($pengguna['FOTO'])) { ?>
+							<img width="45" height="45" src="<?php echo Yii::getAlias('@fileUrl') ?>/profile/<?php echo $pengguna['FOTO']?>" class="avatar" alt="author">
+						<?php } else { ?>
+						<img alt="author" src="<?php echo Yii::$app->request->BaseUrl ?>/olympus/img/author-page.jpg" class="avatar">
+						<span class="icon-status online"></span>
+						<?php } ?>	
+
 					<span class="icon-status online"></span>
 					<div class="more-dropdown more-with-triangle">
 						<div class="mCustomScrollbar" data-mcs-theme="dark">
@@ -734,7 +749,7 @@ $main_services = new MainServices();
 
 					</div>
 				</div>
-				<a href="02-ProfilePage.html" class="author-name fn">
+				<a href="<?php echo Yii::$app->request->BaseUrl ?>/profile/index" class="author-name fn">
 					<div class="author-title">
 							<?php echo $session['nama']; ?>
 						<svg class="olymp-dropdown-arrow-icon"><use xlink:href="<?php echo Yii::$app->request->BaseUrl ?>/olympus/svg-icons/sprites/icons.svg#olymp-dropdown-arrow-icon"></use></svg>
