@@ -194,7 +194,7 @@ class PenggunaController extends Controller
 
         $model->IDKEPRIBADIAN = $_SESSION['idkepribadian'];
 
-        if ($model->save()) {
+        if ($model->save(false)) {
             // echo $model->IDKEPRIBADIAN;
             return $this->redirect('../pertanyaan/skor');
         } else
