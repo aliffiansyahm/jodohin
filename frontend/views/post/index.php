@@ -29,7 +29,7 @@ $this->title = 'Posts';
                           );
                           ?>
                           <div class="author-thumb">
-                              <img src="<?php echo Yii::$app->request->BaseUrl ?>/olympus/img/<?php echo $_SESSION['foto']?>" alt="author">
+                              <img src="<?php echo Yii::getAlias('@fileUrl') ?>/profile/<?php echo $_SESSION['foto']?>" alt="author">
                           </div>
                           <div class="form-group with-icon label-floating is-empty">
                               <label class="control-label">Share what you are thinking here...</label>
@@ -58,7 +58,8 @@ $this->title = 'Posts';
     <div class="ui-block">
       <div class="ui-block-title">
         <div class="post__author author vcard inline-items">
-          <img src="<?php echo Yii::$app->request->BaseUrl ?>/olympus/img/author-page.jpg" alt="author">
+
+          <img src="<?php echo Yii::getAlias('@fileUrl') ?>/profile/<?php echo $_SESSION['foto']; ?>" alt="author">
 
           <div class="author-date">
             <a class="h6 postCreate command can be used directly as follows : __author-name fn" href="<?php echo Yii::$app->request->BaseUrl ?>/profile"><?php echo $nilai['NAMA'] ?></a>
@@ -94,7 +95,7 @@ $this->title = 'Posts';
           <div class="post-thumb">
               <?php if ($nilai['GAMBARPOST'] != ""): ?>
                   <div class="post-thumb">
-                      <img src="<?php echo Yii::$app->request->BaseUrl ?>/foto/post/<?=$nilai['GAMBARPOST'] ?>" alt="photo">
+                      <img src="<?php echo Yii::getAlias('@fileUrl') ?>/post/<?= $nilai['GAMBARPOST'] ?>" alt="photo">
                   </div>
               <?php endif; ?>
           </div>

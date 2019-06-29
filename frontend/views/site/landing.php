@@ -46,7 +46,7 @@
 
 			<a href="#" class="logo">
                 <div class="img-wrap">
-                    <img width="50px" height="50px" src="<?php echo Yii::$app->request->BaseUrl ?>/olympus/img/logo.png" alt="Olympus">
+                    <img width="50px" height="50px" src="<?php echo Yii::$app->request->BaseUrl ?>/olympus/img/logo-landing.png" alt="Olympus">
                 </div>
 				<div class="title-block">
 					<h6 class="logo-title">JODOHIN</h6>
@@ -123,7 +123,7 @@
 									<div class="form-group form_datetime label-floating">
 										<label class="control-label">Your Birthday</label>
 
-										<input name="datetimepicker" value="10/24/1984" >
+										<input name="datetimepicker"  >
 										<span class="input-group-addon">
 											<svg class="olymp-calendar-icon"><use xlink:href="<?php echo Yii::$app->request->BaseUrl ?>/olympus/svg-icons/sprites/icons.svg#olymp-calendar-icon"></use></svg>
 										</span>

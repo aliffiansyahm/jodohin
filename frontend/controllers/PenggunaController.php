@@ -75,7 +75,7 @@ class PenggunaController extends Controller
         $model->JENISKELAMIN = $_POST['gender'];
 
 
-        if ($model->save() && isset($_POST['optionsCheckboxes'])) {
+        if ($model->save(false) && isset($_POST['optionsCheckboxes'])) {
             return $this->redirect('../site/landing');
         }
     }
@@ -97,7 +97,7 @@ class PenggunaController extends Controller
         // echo Yii::getAlias('@basePath');
         $model = $this->findModel($id);
 
-        if (Yii::$app->request->post()){
+        if (Yii::$app->request->isPost){
             $foto = UploadedFile::getInstanceByName('FOTO');
 
             $model->FOTO = $foto;
@@ -116,15 +116,7 @@ class PenggunaController extends Controller
                 echo "gagal";
             }
 
-
-
-
-        if ($model->save(false)) {
-            return $this->redirect('../profile/index');
-        }else {
-
         }
-    }
 
         return $this->render('update', [
             'model' => $model,
@@ -228,7 +220,7 @@ class PenggunaController extends Controller
 
     public function actionFotoheader($id){
         $model = $this->findModel($id);
-        
+
         if (Yii::$app->request->isPost) {
             $foto = UploadedFile::getInstanceByName('FOTO');
 
@@ -238,12 +230,12 @@ class PenggunaController extends Controller
             if ($model->save()) {
                 return $this->redirect('../profile/index');
             }
-        } 
+        }
 
         return $this->render('update', [
             'model' => $model,
         ]);
-        
+
 
     }
 

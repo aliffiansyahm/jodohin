@@ -71,7 +71,7 @@
 							</a>
 
                             <?php } else {?>
-                                <a href="<?php echo Yii::$app->request->BaseUrl ?>/profile/friend" class="btn btn-control bg-purple">
+                                <a href="<?php echo Yii::$app->request->BaseUrl ?>/profile/find" class="btn btn-control bg-purple">
 								    <svg class="olymp-chat---messages-icon"><use xlink:href="<?php echo Yii::$app->request->BaseUrl ?>/olympus/svg-icons/sprites/icons.svg#olymp-chat---messages-icon"></use></svg>
 					            </a>
                             <?php } ?>
@@ -420,14 +420,14 @@
                               Yii::$app->request->csrfToken
                           );
 						?>
-						
+
 						<label for="input-profile">
 							<svg class="olymp-computer-icon"><use xlink:href="<?php echo Yii::$app->request->BaseUrl ?>/olympus/svg-icons/sprites/icons.svg#olymp-computer-icon"></use></svg>
 							<h6>Upload Photo</h6>
 							<span>Browse your computer.</span>
 						</label>
 
-						<input type="file" id="input-profile"  name="FOTO" style="display:none;"/><br>
+						<input type="file" id="input-profile"  name="PROFIL" style="display:none;"/><br>
 						<button type="submit" class="btn btn-success" >Upload</button>
 
 					</form>
@@ -479,7 +479,7 @@
                               Yii::$app->request->csrfToken
                           );
 						?>
-						
+
 						<label for="input-profile">
 							<svg class="olymp-computer-icon"><use xlink:href="<?php echo Yii::$app->request->BaseUrl ?>/olympus/svg-icons/sprites/icons.svg#olymp-computer-icon"></use></svg>
 							<h6>Upload Photo</h6>
@@ -720,4 +720,3 @@
 </div>
 
 <!-- ... end Window-popup Choose from my Photo -->
-
